@@ -6,11 +6,11 @@ import Footer from './Footer';
 import Header from './Header';
 
 const Main = () => {
-  const [name, setName] = useState('default');
+  const [name, setName] = useState('Book');
 
   return (
     <View>
-      <Header setName={setName} />
+      <Header setName={setName} name={name} />
       <WasherMachines />
       <DryerMachines />
       <Footer name={name} />
