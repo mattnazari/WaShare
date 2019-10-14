@@ -11,6 +11,36 @@ const styles = StyleSheet.create({
   scrollContainer: {
     padding: 20,
     marginTop: -20
+  },
+  container: {
+    justifyContent: 'space-between',
+    width: 130,
+    height: 160,
+    backgroundColor: "#FFF",
+    padding: 12,
+    margin: 12,
+    elevation: 16,
+    shadowColor: "#9EC8FF",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.51,
+    shadowRadius: 13.16,
+    borderRadius: 20,
+  },
+  machine: {
+    color: '#000233',
+    fontFamily: 'CircularStd-Bold',
+    fontSize: 16,
+    letterSpacing: -0.6,
+    textAlign: 'center'
+  },
+  timeRemaining: {
+    color: '#93A2B3',
+    fontSize: 12,
+    letterSpacing: -0.4,
+    textAlign: 'center'
   }
 })
 

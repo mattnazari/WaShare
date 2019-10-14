@@ -4,7 +4,7 @@ import Main from './comps/Main';
 
 const App = () => {
   return (
-    <View>
+    <View style={{backgroundColor:'#FFF', flex:1}}>
       <Main />
     </View>
   )
