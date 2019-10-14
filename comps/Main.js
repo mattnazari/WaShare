@@ -1,10 +1,18 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import WasherMachines from './WasherMachines';
+import DryerMachines from './DryerMachines';
+import Footer from './Footer';
+import Header from './Header';
 
 const Main = () => {
+ 
   return (
     <View>
-      <Text>Main Comp</Text>
+      <Header />
+      <WasherMachines />
+      <DryerMachines />
+      <Footer />
     </View>
   )
 };
