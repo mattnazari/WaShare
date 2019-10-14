@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     color: '#03003C'
   },
   scrollContainer: {
-    padding: 20,
+    padding: 24,
     marginTop: -20
   },
   container: {
@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
       width: 0,
       height: 12,
     },
-    shadowOpacity: 0.51,
-    shadowRadius: 13.16,
+    shadowOpacity: 0.55,
+    shadowRadius: 14,
     borderRadius: 20,
   },
   machine: {
@@ -38,10 +38,10 @@ const styles = StyleSheet.create({
   },
   timeRemaining: {
     color: '#93A2B3',
-    fontSize: 12,
+    fontSize: 11,
     letterSpacing: -0.4,
     textAlign: 'center'
-  }
+  },
 })
 
 export default styles;

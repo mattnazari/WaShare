@@ -1,10 +1,18 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Main from './comps/Main';
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#FFF',
+    flex: 1,
+    justifyContent: 'center'
+  }
+})
 
 const App = () => {
   return (
-    <View style={{backgroundColor:'#FFF', flex:1}}>
+    <View style={styles.container}>
       <Main />
     </View>
   )
