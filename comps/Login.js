@@ -19,17 +19,13 @@ const Login = () => {
       <Text style={styles.inputTitle}>Address</Text>
       <TextInput
       style={styles.txtInput}
+      placeholder='1234 Happy street'
       />
       <Text style={styles.inputTitle}>6 Digit Code</Text>
       <TextInput
       style={styles.txtInput}
+      placeholder='123456'
       />
-      <View style={styles.loginOptions}>
-      <CheckBox
-      style={styles.checkBox}
-      />
-      <Text style={styles.rememberText}>Remember me</Text>
-      </View>
       <TouchableOpacity style={styles.forget}>
           <Text style={styles.forgetText}>Forgot Digitcode</Text>
       </TouchableOpacity>
