@@ -11,11 +11,11 @@ const Footer = (props) => {
           if (props.name == 'Book'){
             alert('Bring me to the booking page')
           }
-          if (props.name == 'Alert'){
-            alert('Alert this user?')
+          if (props.name == 'Status'){
+            alert('Open status page')
           }
-          if (props.name == 'Report'){
-            alert('Report these machines?')
+          if (props.name == 'Notify'){
+            alert('Notify users?')
           }
          }}>
         <Text style={styles.text}>{props.name} selected machines</Text>

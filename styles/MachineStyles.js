@@ -1,4 +1,9 @@
 import { StyleSheet } from 'react-native';
+import Header from '../comps/Header';
+
+//#506BFB color for BOOK
+//#6525FF color for STATUS
+//#6F1CE5 color for NOTIFY
 
 const styles = StyleSheet.create({
   title: {
@@ -41,7 +46,7 @@ const styles = StyleSheet.create({
     fontSize: 11,
     letterSpacing: -0.4,
     textAlign: 'center'
-  },
+  }
 })
 
 export default styles;

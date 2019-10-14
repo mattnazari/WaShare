@@ -7,12 +7,10 @@ const Washer = props => {
     <TouchableOpacity
       style={styles.container}
       onPress={() => {
-        
+        props.setStatus(!props.status)
       }}>
       <Text style={styles.machine}>Washer {props.id}</Text>
-      <Text style={styles.timeRemaining}>
-        {props.minutes} minutes remaining
-      </Text>
+      <Text style={styles.timeRemaining}>{props.statusText}</Text>
     </TouchableOpacity>
   )
 }

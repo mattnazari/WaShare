@@ -7,7 +7,7 @@ import Header from './Header';
 
 const Main = () => {
   const [name, setName] = useState('Book');
-
+  
   return (
     <View>
       <Header setName={setName} name={name} />
