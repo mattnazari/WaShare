@@ -23,13 +23,13 @@ const Footer = (props) => {
         style={[styles.container, themeName.color, themeName.shadowColor]}
         onPress={() => {
           if (props.name == 'Book') {
-            alert('Bring me to the booking page')
+            alert(props.selected)
           }
           if (props.name == 'Status') {
             alert('Open status page')
           }
           if (props.name == 'Notify') {
-            alert('Notify users?')
+            alert(props.selected)
           }
         }}>
         <Text style={styles.text}>{props.name} selected machines</Text>

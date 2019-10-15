@@ -21,7 +21,7 @@ const Washer = props => {
   //default style for unselected machines
   let machineStyle = [styles.container, themeName.shadowColor];
   let selectedBox = null;
-
+  
   const [selected, setSelected] = useState(false)
   if (selected === true) {
     machineStyle = [styles.container, themeName.shadowColor, { height: 170, width: 155 }]
@@ -30,6 +30,13 @@ const Washer = props => {
         <Text style={styles.selectedBoxText}>Selected</Text>
       </View>
     )
+    //passing washer id to array in parent component
+    props.selected.push(props.id)
+  } else if (selected === false) {
+    //search for index of selected washer in array
+    const index = props.selected.indexOf(props.id);
+    //delete from array
+    props.selected.splice(index, 1)
   }
 
   return (

@@ -5,7 +5,6 @@ import { status } from '../styles/ThemeStyles';
 import { secondary } from '../styles/Typography';
 
 const Status = props => {
-
   //default page when no machines are in use
   let initialStatus = (
     <View style={{ flex: 1, justifyContent: 'space-around', alignItems: 'center' }}>
@@ -19,6 +18,14 @@ const Status = props => {
       </TouchableOpacity>
     </View>
   )
+
+  if (props.selected.length > 0) {
+    initialStatus = (
+      <View>
+        <Text>The array is not empty!</Text>
+      </View>
+    )
+  }
 
   return (
     <View style={{ flex: 1 }}>
