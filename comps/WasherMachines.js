@@ -3,17 +3,8 @@ import { View, Text, ScrollView } from 'react-native';
 import Washer from './Washer';
 import styles from '../styles/MachineStyles';
 
-const WasherMachines = () => {
+const WasherMachines = props => {
   let id = 1; //give each machine a unique id
-  let statusText = '';
-
-  const [status, setStatus] = useState(true);
-  if (status === true) {
-    statusText = 'Available'
-  }
-  if (status === false) {
-    statusText = 'Unavailable'
-  }
 
   return (
     <View>
@@ -23,12 +14,13 @@ const WasherMachines = () => {
         directionalLockEnabled
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}>
-        <Washer id={id++} status={status} setStatus={setStatus} statusText={statusText} />
-        <Washer id={id++} status={status} setStatus={setStatus} statusText={statusText} />
-        <Washer id={id++} status={status} setStatus={setStatus} statusText={statusText} />
-        <Washer id={id++} status={status} setStatus={setStatus} statusText={statusText} />
-        <Washer id={id++} status={status} setStatus={setStatus} statusText={statusText} />
-        <Washer id={id++} status={status} setStatus={setStatus} statusText={statusText} />
+        <Washer id={id++} name={props.name} />
+        <Washer id={id++} name={props.name} />
+        <Washer id={id++} name={props.name} />
+        <Washer id={id++} name={props.name} />
+        <Washer id={id++} name={props.name} />
+        <Washer id={id++} name={props.name} />
+        <Washer id={id++} name={props.name} />
       </ScrollView>
     </View>
   )

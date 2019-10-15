@@ -20,7 +20,7 @@ const Footer = (props) => {
   return (
     <View>
       <TouchableOpacity
-        style={[styles.container, themeName.color]}
+        style={[styles.container, themeName.color, themeName.shadowColor]}
         onPress={() => {
           if (props.name == 'Book') {
             alert('Bring me to the booking page')

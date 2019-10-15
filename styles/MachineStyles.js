@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     marginTop: -20
   },
   container: {
+    alignItems: 'center',
     justifyContent: 'space-between',
     width: 130,
     height: 160,
@@ -46,6 +47,27 @@ const styles = StyleSheet.create({
     fontSize: 11,
     letterSpacing: -0.4,
     textAlign: 'center'
+  },
+  circle: {
+    height: 70,
+    width: 70,
+    borderStyle: 'solid',
+    borderColor: '#000',
+    borderRadius: 50,
+    borderWidth: 6
+  },
+  selectedBox: {
+    backgroundColor: '#506BFB',
+    padding: 6,
+    marginTop: -20,
+    marginLeft: -40,
+    marginBottom: -10,
+    borderRadius: 6
+  },
+  selectedBoxText: {
+    fontFamily: 'CircularStd-Bold',
+    fontSize: 11,
+    color: '#FFF'
   }
 })
 

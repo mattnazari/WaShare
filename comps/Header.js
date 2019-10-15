@@ -37,7 +37,7 @@ const Header = props => {
           onPress={() => {
             props.setName('Book')
           }}>
-          <Text style={styles.activeText}>BOOK</Text>
+          <Text style={styles.text}>BOOK</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.spacing}

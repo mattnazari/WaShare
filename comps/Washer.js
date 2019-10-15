@@ -1,16 +1,39 @@
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/MachineStyles';
+import { book, status, notify } from '../styles/ThemeStyles';
 
 const Washer = props => {
+  let themeName = '';
+
+  const [avail, setAvail] = React.useState(true);
+  if (avail === true) {
+    availText = 'Available'
+  }
+  if (avail === false) {
+    availText = 'Unavailable'
+  }
+
+  switch (props.name) {
+    case 'Book':
+      themeName = book
+      break;
+    case 'Status':
+      themeName = status
+      break;
+    case 'Notify':
+      themeName = notify
+  }
+
   return (
     <TouchableOpacity
-      style={styles.container}
+      style={[styles.container, themeName.shadowColor]}
       onPress={() => {
-        props.setStatus(!props.status)
+        setAvail(!avail)
       }}>
       <Text style={styles.machine}>Washer {props.id}</Text>
-      <Text style={styles.timeRemaining}>{props.statusText}</Text>
+      <View style={[styles.circle, themeName.borderColor]}></View>
+      <Text style={styles.timeRemaining}>{availText}</Text>
     </TouchableOpacity>
   )
 }
