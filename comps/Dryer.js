@@ -5,13 +5,7 @@ import { book, status, notify } from '../styles/ThemeStyles';
 
 const Dryer = props => {
   let themeName;
-  const [avail, setAvail] = React.useState(true);
-  if (avail === true) {
-    availText = 'Available'
-  }
-  if (avail === false) {
-    availText = 'Unavailable'
-  }
+  let availText = 'Available';
 
   switch (props.name) {
     case 'Book':
@@ -30,7 +24,7 @@ const Dryer = props => {
 
   const [selected, setSelected] = useState(false)
   if (selected === true) {
-    machineStyle = [styles.container, themeName.shadowColor, {height: 180, width: 160}]
+    machineStyle = [styles.container, themeName.shadowColor, { height: 170, width: 155 }]
     selectedBox = (
       <View style={[styles.selectedBox, themeName.color]}>
         <Text style={styles.selectedBoxText}>Selected</Text>

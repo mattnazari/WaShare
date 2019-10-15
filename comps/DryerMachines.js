@@ -14,12 +14,12 @@ const DryerMachines = props => {
         directionalLockEnabled
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}>
-        <Dryer id={id++} name={props.name} selected={props.selected} setSelected={props.setSelected} />
-        <Dryer id={id++} name={props.name} selected={props.selected} setSelected={props.setSelected} />
-        <Dryer id={id++} name={props.name} selected={props.selected} setSelected={props.setSelected} />
-        <Dryer id={id++} name={props.name} selected={props.selected} setSelected={props.setSelected} />
-        <Dryer id={id++} name={props.name} selected={props.selected} setSelected={props.setSelected} />
-        <Dryer id={id++} name={props.name} selected={props.selected} setSelected={props.setSelected} />
+        <Dryer id={id++} name={props.name} />
+        <Dryer id={id++} name={props.name} />
+        <Dryer id={id++} name={props.name} />
+        <Dryer id={id++} name={props.name} />
+        <Dryer id={id++} name={props.name} />
+        <Dryer id={id++} name={props.name} />
       </ScrollView>
     </View>
   )

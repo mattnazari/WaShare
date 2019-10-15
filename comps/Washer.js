@@ -1,18 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/MachineStyles';
 import { book, status, notify } from '../styles/ThemeStyles';
 
 const Washer = props => {
   let themeName = '';
-
-  const [avail, setAvail] = React.useState(true);
-  if (avail === true) {
-    availText = 'Available'
-  }
-  if (avail === false) {
-    availText = 'Unavailable'
-  }
+  let availText = 'Available';
 
   switch (props.name) {
     case 'Book':
@@ -25,12 +18,27 @@ const Washer = props => {
       themeName = notify
   }
 
+  //default style for unselected machines
+  let machineStyle = [styles.container, themeName.shadowColor];
+  let selectedBox = null;
+
+  const [selected, setSelected] = useState(false)
+  if (selected === true) {
+    machineStyle = [styles.container, themeName.shadowColor, { height: 170, width: 155 }]
+    selectedBox = (
+      <View style={[styles.selectedBox, themeName.color]}>
+        <Text style={styles.selectedBoxText}>Selected</Text>
+      </View>
+    )
+  }
+
   return (
     <TouchableOpacity
-      style={[styles.container, themeName.shadowColor]}
+      style={machineStyle}
       onPress={() => {
-        setAvail(!avail)
+        setSelected(!selected)
       }}>
+      {selectedBox}
       <Text style={styles.machine}>Washer {props.id}</Text>
       <View style={[styles.circle, themeName.borderColor]}></View>
       <Text style={styles.timeRemaining}>{availText}</Text>

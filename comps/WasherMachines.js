@@ -20,7 +20,6 @@ const WasherMachines = props => {
         <Washer id={id++} name={props.name} />
         <Washer id={id++} name={props.name} />
         <Washer id={id++} name={props.name} />
-        <Washer id={id++} name={props.name} />
       </ScrollView>
     </View>
   )
