@@ -3,9 +3,8 @@ import { View, Text, ScrollView } from 'react-native';
 import Washer from './Washer';
 import styles from '../styles/MachineStyles';
 
-const WasherMachines = () => {
+const WasherMachines = props => {
   let id = 1; //give each machine a unique id
-  const [minutes, setMinutes] = useState(0);
 
   return (
     <View>
@@ -15,12 +14,12 @@ const WasherMachines = () => {
         directionalLockEnabled
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}>
-        <Washer id={id++} minutes={minutes} />
-        <Washer id={id++} minutes={minutes} />
-        <Washer id={id++} minutes={minutes} />
-        <Washer id={id++} minutes={minutes} />
-        <Washer id={id++} minutes={minutes} />
-        <Washer id={id++} minutes={minutes} />
+        <Washer id={id++} name={props.name} />
+        <Washer id={id++} name={props.name} />
+        <Washer id={id++} name={props.name} />
+        <Washer id={id++} name={props.name} />
+        <Washer id={id++} name={props.name} />
+        <Washer id={id++} name={props.name} />
       </ScrollView>
     </View>
   )

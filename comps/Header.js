@@ -1,25 +1,34 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/HeaderStyles';
+import { book, status, notify } from '../styles/ThemeStyles';
 
 const Header = props => {
+  let title = '';
   let description = '';
-  
+  let themeName = '';
+
   switch (props.name) {
     case 'Book':
-      description = 'Tap a machine to select a machine for booking. You can select multiple machines at once.'
+      title = 'Book your machines'
+      description = 'Tap on a machine to select a machine for booking. You can select multiple machines at once.'
+      themeName = book
       break;
-    case 'Alert':
-      description = 'Alert users by tapping a machine. This gives them a notification that their laundry is finished.'
+    case 'Status':
+      title = 'Machine status'
+      description = 'View the status of all your booked machines. If you have no machines, check the book tab to get started.'
+      themeName = status
       break;
-    case 'Report':
-      description = 'Report broken machines by tapping the machine, our repairmen will be contacted as soon as possible.'
+    case 'Notify':
+      title = 'Notify users'
+      description = 'Notify users by tapping on a machine. This gives them a notification that their laundry is finished.'
+      themeName = notify
   }
 
   return (
     <View>
-      <View style={styles.titleContainer}>
-        <Text style={styles.titleText}>{props.name} machines</Text>
+      <View style={[styles.titleContainer, themeName.color]}>
+        <Text style={styles.titleText}>{title}</Text>
         <Text style={styles.titleDesc}>{description}</Text>
       </View>
       <View style={styles.barContainer}>
@@ -28,21 +37,21 @@ const Header = props => {
           onPress={() => {
             props.setName('Book')
           }}>
-          <Text style={styles.activeText}>BOOK</Text>
+          <Text style={styles.text}>BOOK</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.spacing}
           onPress={() => {
-            props.setName('Alert')
+            props.setName('Status')
           }}>
-          <Text style={styles.text}>ALERT</Text>
+          <Text style={styles.text}>STATUS</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.spacing}
           onPress={() => {
-            props.setName('Report')
+            props.setName('Notify')
           }}>
-          <Text style={styles.text}>REPORT</Text>
+          <Text style={styles.text}>NOTIFY</Text>
         </TouchableOpacity>
       </View>
     </View>

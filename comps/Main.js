@@ -7,12 +7,12 @@ import Header from './Header';
 
 const Main = () => {
   const [name, setName] = useState('Book');
-
+  
   return (
     <View>
       <Header setName={setName} name={name} />
-      <WasherMachines />
-      <DryerMachines />
+      <WasherMachines name={name} />
+      <DryerMachines name={name} />
       <Footer name={name} />
     </View>
   )

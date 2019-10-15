@@ -1,4 +1,9 @@
 import { StyleSheet } from 'react-native';
+import Header from '../comps/Header';
+
+//#506BFB color for BOOK
+//#6525FF color for STATUS
+//#6F1CE5 color for NOTIFY
 
 const styles = StyleSheet.create({
   title: {
@@ -13,6 +18,7 @@ const styles = StyleSheet.create({
     marginTop: -20
   },
   container: {
+    alignItems: 'center',
     justifyContent: 'space-between',
     width: 130,
     height: 160,
@@ -42,6 +48,27 @@ const styles = StyleSheet.create({
     letterSpacing: -0.4,
     textAlign: 'center'
   },
+  circle: {
+    height: 70,
+    width: 70,
+    borderStyle: 'solid',
+    borderColor: '#000',
+    borderRadius: 50,
+    borderWidth: 6
+  },
+  selectedBox: {
+    backgroundColor: '#506BFB',
+    padding: 6,
+    marginTop: -20,
+    marginLeft: -40,
+    marginBottom: -10,
+    borderRadius: 6
+  },
+  selectedBoxText: {
+    fontFamily: 'CircularStd-Bold',
+    fontSize: 11,
+    color: '#FFF'
+  }
 })
 
 export default styles;
