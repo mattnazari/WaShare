@@ -12,8 +12,8 @@ const Main = () => {
   //default view of home page
   let home = (
     <View>
-      <WasherMachines name={name} />
-      <DryerMachines name={name} />
+      <WasherMachines name={name} type={'Washer'} />
+      <DryerMachines name={name} type={'Dryer'} />
       <Footer name={name} />
     </View>
   )
@@ -26,7 +26,7 @@ const Main = () => {
   }
 
   return (
-    <View style={{flex:1}}>
+    <View style={{ flex: 1 }}>
       <Header setName={setName} name={name} />
       {home}
     </View>

@@ -3,8 +3,8 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/MachineStyles';
 import { book, status, notify } from '../styles/ThemeStyles';
 
-const Dryer = props => {
-  let themeName;
+const Machine = props => {
+  let themeName = '';
   let availText = 'Available';
 
   switch (props.name) {
@@ -16,6 +16,14 @@ const Dryer = props => {
       break;
     case 'Notify':
       themeName = notify
+  }
+
+  switch (props.type) {
+    case 'Washer':
+      machineType = props.type
+      break;
+    case 'Dryer':
+      machineType = props.type
   }
 
   //default style for unselected machines
@@ -39,11 +47,11 @@ const Dryer = props => {
         setSelected(!selected)
       }}>
       {selectedBox}
-      <Text style={styles.machine}>Dryer {props.id}</Text>
+      <Text style={styles.machine}>{machineType} {props.id}</Text>
       <View style={[styles.circle, themeName.borderColor]}></View>
       <Text style={styles.timeRemaining}>{availText}</Text>
     </TouchableOpacity>
   )
 }
 
-export default Dryer;
+export default Machine;

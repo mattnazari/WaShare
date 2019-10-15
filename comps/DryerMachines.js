@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView } from 'react-native';
-import Dryer from './Dryer';
+import Machine from './Machine';
 import styles from '../styles/MachineStyles';
 
 const DryerMachines = props => {
@@ -14,12 +14,12 @@ const DryerMachines = props => {
         directionalLockEnabled
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}>
-        <Dryer id={id++} name={props.name} />
-        <Dryer id={id++} name={props.name} />
-        <Dryer id={id++} name={props.name} />
-        <Dryer id={id++} name={props.name} />
-        <Dryer id={id++} name={props.name} />
-        <Dryer id={id++} name={props.name} />
+        <Machine id={id++} name={props.name} type={props.type} />
+        <Machine id={id++} name={props.name} type={props.type} />
+        <Machine id={id++} name={props.name} type={props.type} />
+        <Machine id={id++} name={props.name} type={props.type} />
+        <Machine id={id++} name={props.name} type={props.type} />
+        <Machine id={id++} name={props.name} type={props.type} />
       </ScrollView>
     </View>
   )
