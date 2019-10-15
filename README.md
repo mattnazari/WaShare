@@ -1,17 +1,17 @@
 # WaShare
 
-Week 1 (Oct 9 - 16)
+Week 1 Tasks (Oct 9 - 16)
 
-Tasks:
+**Matthew**
 
-Matthew
-<Onboarding />
-<Login />
-  <ForgotDigitCode />
+- Onboarding 
+- Login 
+- ForgotDigitCode 
 
-Micah
-<Header />
-  <HamMenu />
-  <Notifications />
-  <TabBar />
-<Washer /> & <Dryer /> styles
+**Micah**
+
+- Header 
+- HamMenu 
+- Notifications 
+- TabBar 
+- Washer and Dryer styles
