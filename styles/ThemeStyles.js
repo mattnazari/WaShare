@@ -4,31 +4,32 @@ import { StyleSheet } from 'react-native';
 //#6525FF color for STATUS
 //#6F1CE5 color for NOTIFY
 
-const notify = {
-  container: {
-    backgroundColor: '#6F1CE5',
-    padding: 30,
-    paddingTop: 60,
-    borderBottomRightRadius: 40
-  }
+const bookStyles = {
+  mainColor: '#506BFB'
 }
 
-const theme = StyleSheet.create({
-  book: {
-    backgroundColor: '#506BFB',
-    padding: 30,
-    paddingTop: 60,
-    borderBottomRightRadius: 40
-  },
-  status: {
-    backgroundColor: '#6525FF',
-    padding: 30,
-    paddingTop: 60,
-    borderBottomRightRadius: 40
-  },
-  notify: {
+const statusStyles = {
+  mainColor: '#6525FF'
+}
 
+const notifyStyles = {
+  mainColor: '#6F1CE5'
+}
+
+export const book = StyleSheet.create({
+  color: {
+    backgroundColor: bookStyles.mainColor
   }
 })
 
-export default theme;
+export const status = StyleSheet.create({
+  color: {
+    backgroundColor: statusStyles.mainColor
+  }
+})
+
+export const notify = StyleSheet.create({
+  color: {
+    backgroundColor: notifyStyles.mainColor
+  }
+})
