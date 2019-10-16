@@ -8,14 +8,14 @@ const Onboarding = props => {
   let mainDesc = '';
   let mainButt = '';
 
-  switch (props.name) {
+  switch (props.onboardingName) {
     case 'firstOnboarding':
       mainImg = '{require("../assets/Images/OnboardingBook.png")}';
       mainTitle = 'Book Machines Easily';
       mainDesc = 'Book washing machines or dryers';
       break;
     case 'secondOnboarding':
-      mainImg = '{require("../assets/Images/OnboardingStatus.png")}';
+      mainImg = 'require("../assets/Images/OnboardingStatus.png")';
       mainTitle = 'Status';
       mainDesc = 'Check how much time is remaining from your machine. Extend your machine if needed!';
       break;
@@ -40,15 +40,25 @@ const Onboarding = props => {
       </View>
 
       <View style={styles.tutorialCont}>
-        <Image />
-        <Text style={styles.title}></Text>
-        <Text style={styles.descTxt}></Text>
+        <Image
+        source={{mainImg}}
+        />
+        <Text style={styles.title}>{mainTitle}</Text>
+        <Text style={styles.descTxt}>{mainDesc}</Text>
 
         <View style={styles.checkboxesCont}>
-          <TouchableOpacity></TouchableOpacity>
-          <TouchableOpacity></TouchableOpacity>
-          <TouchableOpacity></TouchableOpacity>
-          <TouchableOpacity></TouchableOpacity>
+          <TouchableOpacity style={styles.uncheckedButtons}>
+
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.uncheckedButtons}>
+
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.uncheckedButtons}>
+
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.uncheckedButtons}>
+
+          </TouchableOpacity>
         </View>
       </View>
 

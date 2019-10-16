@@ -53,11 +53,23 @@ var styles = StyleSheet.create({
         width:100
     },
 
-    checkboxes:{
-        width:12,
-        height:12,
+    uncheckedButtons:{
+        width:15,
+        height:15,
         borderRadius:100,
-        borderColor:'#506BFB'
+        borderColor:'#506BFB',
+        borderStyle: 'solid',
+        borderWidth: 1
+    },
+
+    checkedButtons:{
+        width:15,
+        height:15,
+        borderRadius:100,
+        borderColor:'#506BFB',
+        borderStyle: 'solid',
+        borderWidth: 1,
+        backgroundColor:'#506BFB'
     }
 });
 
