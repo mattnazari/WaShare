@@ -39,7 +39,7 @@ var styles = StyleSheet.create({
 
     descTxt:{
         width:260,
-        fontSize:15,
+        fontSize:16,
         color:'#353535',
         textAlign:'center',
         marginTop: 30,
@@ -49,7 +49,7 @@ var styles = StyleSheet.create({
     checkboxesCont:{
         flexDirection:"row",
         justifyContent:'space-between',
-        marginTop:30,
+        marginTop:60,
         width:100
     },
 

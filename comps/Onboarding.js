@@ -3,25 +3,32 @@ import {View, Text, Image, TouchableOpacity} from 'react-native';
 import styles from '../styles/OnboardingStyles';
 
 const Onboarding = props => {
-  let img = '';
-  let titleText = '';
-  let descText = '';
+  let mainImg = '';
+  let mainTitle = '';
+  let mainDesc = '';
+  let mainButt = '';
 
-  switch (props.first) {
-    case 'Book':
-      img ="<Image source={require('../assets/Images/onboardingBooking.png')}/>";
-      titleText = 'Book Your Machine Easily';
-      descText ='Book washing machine or dryer. Booking is allowed when the machine has 5 minutes left until it finish its cycle. Extend the duration of each machine if needed!';
+  switch (props.name) {
+    case 'firstOnboarding':
+      mainImg = '{require("../assets/Images/OnboardingBook.png")}';
+      mainTitle = 'Book Machines Easily';
+      mainDesc = 'Book washing machines or dryers';
       break;
-    case 'Alert':
-      img = "<Image source={require('../assets/Images/onboardingAlert.png')}/>";
-      titleText = 'Alert Other Users';
-      descText = '';
+    case 'secondOnboarding':
+      mainImg = '{require("../assets/Images/OnboardingStatus.png")}';
+      mainTitle = 'Status';
+      mainDesc = 'Check how much time is remaining from your machine. Extend your machine if needed!';
       break;
-    case 'Report':
-      img ="<Image source={require('../assets/Images/onboardingReport.png')}/>";
-      titleText = 'Report Broken Machines';
-      descText = '';
+    case 'thirdOnboarding':
+      mainImg = '{require("../assets/Images/OnboardingNotify.png")}';
+      mainTitle = 'Notify Other Users';
+      mainDesc = 'Notify residents in your building when their laundry is ready to be picked up from the machine.';
+      break;
+    case 'fourthOnboarding':
+      mainImg = '{require("../assets/Images/OnboardingReport.png")}';
+      mainTitle = 'Report Machines';
+      mainDesc = 'Notify residents in your building when their laundry is ready to be picked up from the machine.';
+      break;
   }
 
   return (
@@ -33,26 +40,15 @@ const Onboarding = props => {
       </View>
 
       <View style={styles.tutorialCont}>
-        <Image source={require('../assets/Images/onboardingBooking.png')} />
-        <Text style={styles.title}>Book Your Machine Easily</Text>
-        <Text style={styles.descTxt}>
-          Book washing machine or dryer. Booking is allowed when the machine has
-          5 minutes left until it finish its cycle. Extend the duration of each
-          machine if needed!
-        </Text>
+        <Image />
+        <Text style={styles.title}></Text>
+        <Text style={styles.descTxt}></Text>
+
         <View style={styles.checkboxesCont}>
-          <TouchableOpacity
-            onPress={() => {
-              props.setOnboarding('Book');
-            }}>
-            <Image source={require('../assets/Images/unchecked.png')} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Image source={require('../assets/Images/unchecked.png')} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Image source={require('../assets/Images/unchecked.png')} />
-          </TouchableOpacity>
+          <TouchableOpacity></TouchableOpacity>
+          <TouchableOpacity></TouchableOpacity>
+          <TouchableOpacity></TouchableOpacity>
+          <TouchableOpacity></TouchableOpacity>
         </View>
       </View>
 
