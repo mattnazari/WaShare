@@ -10,24 +10,24 @@ const Onboarding = props => {
 
   switch (props.onboardingName) {
     case 'firstOnboarding':
-      mainImg = 'require("../assets/Images/OnboardingBook.png")';
+      mainImg = require('../assets/Images/OnboardingBook.png');
       mainTitle = 'Book Machines Easily';
       mainDesc = 'Book washing machines or dryers';
       break;
     case 'secondOnboarding':
-      mainImg = 'require("../assets/Images/OnboardingStatus.png")';
+      mainImg = require("../assets/Images/OnboardingStatus.png");
       mainTitle = 'Status';
       mainDesc =
         'Check how much time is remaining from your machine. Extend your machine if needed!';
       break;
     case 'thirdOnboarding':
-      mainImg = 'require("../assets/Images/OnboardingNotify.png")';
+      mainImg = require("../assets/Images/OnboardingNotify.png");
       mainTitle = 'Notify Other Users';
       mainDesc =
         'Notify residents in your building when their laundry is ready to be picked up from the machine.';
       break;
     case 'fourthOnboarding':
-      mainImg = 'require("../assets/Images/OnboardingReport.png")';
+      mainImg = require("../assets/Images/onboardingReport.png");
       mainTitle = 'Report Machines';
       mainDesc =
         'Notify residents in your building when their laundry is ready to be picked up from the machine.';
@@ -43,7 +43,7 @@ const Onboarding = props => {
       </View>
 
       <View style={styles.tutorialCont}>
-        <Image source={{mainImg}} />
+        <Image source={mainImg} />
         <Text style={styles.title}>{mainTitle}</Text>
         <Text style={styles.descTxt}>{mainDesc}</Text>
         <View style={styles.buttonsCont}>
