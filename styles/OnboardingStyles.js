@@ -22,11 +22,7 @@ var styles = StyleSheet.create({
         fontFamily:'CircularStd-Black'
     },
 
-    buttons:{
-        justifyContent:'flex-end'
-    },
-
-    options:{
+    skip:{
         flexDirection:'row',
         justifyContent:'flex-end',
     },
@@ -37,6 +33,11 @@ var styles = StyleSheet.create({
         fontFamily:'CircularStd-Black'
     },
 
+    nextAndPrev:{
+        flexDirection:'row',
+        justifyContent:'space-between'
+    },  
+
     descTxt:{
         width:260,
         fontSize:16,
@@ -46,7 +47,7 @@ var styles = StyleSheet.create({
         fontFamily:'CircularStd-Book'
     },
 
-    checkboxesCont:{
+    buttonsCont:{
         flexDirection:"row",
         justifyContent:'space-between',
         marginTop:60,
