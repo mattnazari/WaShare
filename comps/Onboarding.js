@@ -1,13 +1,38 @@
-import React, {useState} from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from '../styles/OnboardingStyles';
 
 const Onboarding = props => {
-  let mainImg = '';
+  /*let mainImg = '';
   let mainTitle = '';
   let mainDesc = '';
-  let mainButt = '';
+  let mainButt = '';*/
 
+  const [y, setY] = useState(0) //setting the initial state to the first object of the array, y = 0
+  const onboardingArray = [
+    {
+      title: 'Book Machines Easily',
+      desc: 'Book washing machines or dryers',
+      img: require('../assets/Images/OnboardingBook.png')
+    },
+    {
+      title: 'Status',
+      desc: 'Check how much time is remaining from your machine. Extend your machine if needed!',
+      img: require('../assets/Images/OnboardingStatus.png')
+    },
+    {
+      title: 'Notify Other Users',
+      desc: 'Notify residents in your building when their laundry is ready to be picked up from the machine.',
+      img: require('../assets/Images/OnboardingNotify.png')
+    },
+    {
+      title: 'Report Machines',
+      desc: 'Notify residents in your building when their laundry is ready to be picked up from the machine.',
+      img: require('../assets/Images/onboardingReport.png')
+    },
+  ]
+
+  /*
   switch (props.onboardingName) {
     case 'firstOnboarding':
       mainImg = require('../assets/Images/OnboardingBook.png');
@@ -32,7 +57,7 @@ const Onboarding = props => {
       mainDesc =
         'Notify residents in your building when their laundry is ready to be picked up from the machine.';
       break;
-  }
+  }*/
 
   return (
     <View style={styles.background}>
@@ -42,39 +67,56 @@ const Onboarding = props => {
         </TouchableOpacity>
       </View>
 
+      {
+        //set as the property from the currently active state of the onboarding array,  ex: onboardingArray[y].img = require('../assets/Images/OnboardingBook.png')
+      }
       <View style={styles.tutorialCont}>
-        <Image source={mainImg} />
-        <Text style={styles.title}>{mainTitle}</Text>
-        <Text style={styles.descTxt}>{mainDesc}</Text>
+        <Image source={onboardingArray[y].img} />
+        <Text style={styles.title}>{onboardingArray[y].title}</Text>
+        <Text style={styles.descTxt}>{onboardingArray[y].desc}</Text>
         <View style={styles.buttonsCont}>
           <TouchableOpacity
             style={styles.uncheckedButtons}
             onPress={() => {
-              props.setOnboardingName('firstOnboarding');
+              setY(0)
             }}></TouchableOpacity>
           <TouchableOpacity
             style={styles.uncheckedButtons}
             onPress={() => {
-              props.setOnboardingName('secondOnboarding');
+              setY(1)
             }}></TouchableOpacity>
           <TouchableOpacity
             style={styles.uncheckedButtons}
             onPress={() => {
-              props.setOnboardingName('thirdOnboarding');
+              setY(2)
             }}></TouchableOpacity>
           <TouchableOpacity
             style={styles.uncheckedButtons}
             onPress={() => {
-              props.setOnboardingName('fourthOnboarding');
+              setY(3)
             }}></TouchableOpacity>
         </View>
       </View>
 
       <View style={styles.nextAndPrev}>
-        <TouchableOpacity style={styles.buttons}>
+        <TouchableOpacity style={styles.buttons}
+          onPress={() => {
+            if (y > 0) {
+              setY(y - 1)
+            } else {
+              setY(0)
+            }
+          }}>
           <Text style={styles.optionsText}>PREV</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttons}>
+        <TouchableOpacity style={styles.buttons}
+          onPress={() => {
+            if (y < 3) {
+              setY(y + 1)
+            } else {
+              setY(3)
+            }
+          }}>
           <Text style={styles.optionsText}>NEXT</Text>
         </TouchableOpacity>
       </View>
