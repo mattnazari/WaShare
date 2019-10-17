@@ -31,19 +31,24 @@ const Washer = props => {
       </View>
     )
     //passing washer id to array in parent component
-    props.selected.push(props.id)
-  } else if (selected === false) {
+    
+    console.log(props.id);
+  } /*else if (selected === false) {
     //search for index of selected washer in array
     const index = props.selected.indexOf(props.id);
     //delete from array
     props.selected.splice(index, 1)
-  }
+  }*/
 
   return (
     <TouchableOpacity
       style={machineStyle}
       onPress={() => {
+        props.pushSelect(props.id)
         setSelected(!selected)
+        {/*do if/else statements in here
+        to check if machine is currently selected or not
+        */}
       }}>
       {selectedBox}
       <Text style={styles.machine}>Washer {props.id}</Text>

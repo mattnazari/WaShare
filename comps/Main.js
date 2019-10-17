@@ -6,9 +6,19 @@ import Footer from './Footer';
 import Header from './Header';
 import Status from './Status';
 
+
+
 const Main = () => {
+  const [selected, setSelected] = useState([]);
   const [name, setName] = useState('Book');
-  const selected = [];
+  
+  function pushSelect(id){
+    console.log(id);
+    var arr = selected;
+    arr.push(id);
+    setSelected(arr);
+  }
+
   let id = [
     {
       id: 1
@@ -33,7 +43,7 @@ const Main = () => {
   //default view of home page
   let home = (
     <View>
-      <WasherMachines name={name} id={id} selected={selected} />
+      <WasherMachines name={name} id={id} pushSelect={pushSelect} />
       <DryerMachines name={name} />
       <Footer name={name} id={id} selected={selected} />
     </View>

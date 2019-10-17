@@ -12,7 +12,7 @@ const WasherMachines = props => {
         directionalLockEnabled
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}>
-        {props.id.map((item) => <Washer key={item.id} id={item.id} name={props.name} selected={props.selected} />)}
+        {props.id.map((item) => <Washer key={item.id} id={item.id} name={props.name} pushSelect={props.pushSelect} />)}
       </ScrollView>
     </View>
   )
