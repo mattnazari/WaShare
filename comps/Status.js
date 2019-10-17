@@ -1,13 +1,20 @@
 import React from 'react';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
+import { View, Image, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import styles from '../styles/FooterStyles';
 import { status } from '../styles/ThemeStyles';
-import { secondary } from '../styles/Typography';
+
+const main = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent:'space-around',
+    alignItems: 'center'
+  }
+})
 
 const Status = props => {
   //default page when no machines are in use
   let initialStatus = (
-    <View style={{ flex: 1, justifyContent: 'space-around', alignItems: 'center' }}>
+    <View style={main.container}>
       <Image
         resizeMode='contain'
         style={{ width: 300, height: 300 }}
