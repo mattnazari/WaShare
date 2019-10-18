@@ -17,6 +17,7 @@ const MachineContainer = props => {
             id={item.id}
             type={props.type}
             name={props.name} 
+            currentTab={props.currentTab}
             selected={props.selected}
             pushSelect={props.pushSelect}
             spliceSelect={props.spliceSelect} />)}

@@ -7,7 +7,7 @@ const Machine = props => {
   let themeName = '';
   let availText = 'Available';
 
-  switch (props.name) {
+  switch (props.currentTab) {
     case 'Book':
       themeName = book
       break;

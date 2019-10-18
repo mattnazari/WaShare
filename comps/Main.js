@@ -27,7 +27,9 @@ const Main = () => {
   //arrays to handle booking, notifying, status, and selected
   const [booked, setBooked] = useState([]);
   const [selected, setSelected] = useState([]);
-  const [name, setName] = useState('Book');
+
+  //handle styling of current page
+  const [currentTab, setCurrentTab] = useState('Book');
 
   function pushSelect(id) {
     console.log('machine ' + id);
@@ -52,25 +54,43 @@ const Main = () => {
   let home = (
     <View style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
-        <MachineContainer id={id} name={name} selected={selected} type={'Washer'} pushSelect={pushSelect} spliceSelect={spliceSelect} />
+        <MachineContainer
+          id={id}
+          currentTab={currentTab}
+          selected={selected}
+          type={'Washer'}
+          pushSelect={pushSelect}
+          spliceSelect={spliceSelect} />
       </View>
       <View style={{ flex: 1 }}>
-        <MachineContainer id={id} name={name} selected={selected} type={'Dryer'} pushSelect={pushSelect} spliceSelect={spliceSelect} />
+        <MachineContainer
+          id={id}
+          currentTab={currentTab}
+          selected={selected}
+          type={'Dryer'}
+          pushSelect={pushSelect}
+          spliceSelect={spliceSelect} />
       </View>
-      <Footer id={id} booked={booked} name={name} selected={selected} setSelected={setSelected} bookMachines={bookMachines} />
+      <Footer
+        id={id}
+        booked={booked}
+        currentTab={currentTab}
+        selected={selected}
+        setSelected={setSelected}
+        bookMachines={bookMachines} />
     </View>
   )
 
   //show status component only when selected in tab bar
-  if (name == 'Status') {
+  if (currentTab == 'Status') {
     home = (
-      <Status setName={setName} booked={booked} />
+      <Status setCurrentTab={setCurrentTab} booked={booked} />
     )
   }
 
   return (
     <View style={{ flex: 1 }}>
-      <Header setName={setName} name={name} />
+      <Header setCurrentTab={setCurrentTab} currentTab={currentTab} />
       {home}
     </View>
   )

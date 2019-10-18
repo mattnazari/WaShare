@@ -22,7 +22,7 @@ const Status = props => {
       <TouchableOpacity
         style={[styles.container, status.color, status.shadowColor]}
         onPress={() => {
-          props.setName('Book')
+          props.setCurrentTab('Book')
         }}>
         <Text style={styles.text}>Browse available machines</Text>
       </TouchableOpacity>
@@ -32,7 +32,9 @@ const Status = props => {
   if (props.booked.length >= 1) {
     initialStatus = (
       <View>
-        <Text>{props.booked}</Text>
+        {props.booked.map((machine) =>
+          <Text key={machine}>Booked Machine {machine}</Text>
+          )}
       </View>
     )
   }
