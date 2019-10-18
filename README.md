@@ -1,6 +1,6 @@
 # WaShare
 
-Week 1 Tasks (Oct 9 - 16)
+## Week 1 Tasks (Oct 9 - 16)
 
 **Matthew**
 
@@ -15,3 +15,10 @@ Week 1 Tasks (Oct 9 - 16)
 - Notifications 
 - TabBar 
 - Washer and Dryer styles
+
+## Week 2 Tasks (Oct 19-26)
+
+**Matthew** & **Micah**
+
+- Code out the structure of each page
+- research and attempt to code out navigations
