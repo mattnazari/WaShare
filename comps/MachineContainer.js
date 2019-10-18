@@ -4,8 +4,6 @@ import Machine from './Machine';
 import styles from '../styles/MachineStyles';
 
 const MachineContainer = props => {
-  let id = 1; //give each machine a unique id
-
   return (
     <View>
       <Text style={styles.title}>{props.type} machines</Text>
@@ -14,12 +12,15 @@ const MachineContainer = props => {
         directionalLockEnabled
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}>
-        <Machine id={id++} name={props.name} type={props.type} />
-        <Machine id={id++} name={props.name} type={props.type} />
-        <Machine id={id++} name={props.name} type={props.type} />
-        <Machine id={id++} name={props.name} type={props.type} />
-        <Machine id={id++} name={props.name} type={props.type} />
-        <Machine id={id++} name={props.name} type={props.type} />
+        {props.machines.map((machine) =>
+          <Machine key={machine.id}
+            id={machine.id}
+            type={machine.type}
+            currentTab={props.currentTab}
+            selected={props.selected}
+            pushSelect={props.pushSelect}
+            spliceSelect={props.spliceSelect}
+            machineAvailability={props.machineAvailability} />)}
       </ScrollView>
     </View>
   )

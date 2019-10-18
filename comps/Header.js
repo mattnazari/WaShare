@@ -8,7 +8,7 @@ const Header = props => {
   let description = '';
   let themeName = '';
 
-  switch (props.name) {
+  switch (props.currentTab) {
     case 'Book':
       title = 'Book your machines'
       description = 'Tap on a machine to select a machine for booking. You can select multiple machines at once.'
@@ -35,21 +35,27 @@ const Header = props => {
         <TouchableOpacity
           style={styles.spacing}
           onPress={() => {
-            props.setName('Book')
+            props.setCurrentTab('Book')
+            props.setSelected([])
+            console.log(props.selected)
           }}>
           <Text style={styles.text}>BOOK</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.spacing}
           onPress={() => {
-            props.setName('Status')
+            props.setCurrentTab('Status')
+            props.setSelected([])
+            console.log(props.selected)
           }}>
           <Text style={styles.text}>STATUS</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.spacing}
           onPress={() => {
-            props.setName('Notify')
+            props.setCurrentTab('Notify')
+            props.setSelected([])
+            console.log(props.selected)
           }}>
           <Text style={styles.text}>NOTIFY</Text>
         </TouchableOpacity>

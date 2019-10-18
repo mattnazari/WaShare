@@ -5,9 +5,8 @@ import { book, status, notify } from '../styles/ThemeStyles';
 
 const Machine = props => {
   let themeName = '';
-  let availText = 'Available';
 
-  switch (props.name) {
+  switch (props.currentTab) {
     case 'Book':
       themeName = book
       break;
@@ -32,16 +31,28 @@ const Machine = props => {
     )
   }
 
+
   return (
     <TouchableOpacity
       style={machineStyle}
       onPress={() => {
+        const idIndex = props.selected.map(machine => { return machine.id; }).indexOf(props.id);
+        const typeIndex = props.selected.map(machine => { return machine.type; }).indexOf(props.type);
+        const data = { id: props.id, type: props.type };
+
+        if (idIndex === -1) {
+          console.log('pushing')
+          props.pushSelect(data)
+        } else {
+          console.log('splicing')
+          props.spliceSelect(idIndex)
+        }
         setSelected(!selected)
       }}>
       {selectedBox}
       <Text style={styles.machine}>{props.type} {props.id}</Text>
       <View style={[styles.circle, themeName.borderColor]}></View>
-      <Text style={styles.timeRemaining}>{availText}</Text>
+      <Text style={styles.timeRemaining}>{props.machineAvailability}</Text>
     </TouchableOpacity>
   )
 }

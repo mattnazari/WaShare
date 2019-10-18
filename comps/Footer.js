@@ -6,7 +6,7 @@ import { book, status, notify } from '../styles/ThemeStyles';
 const Footer = (props) => {
   let themeName = '';
 
-  switch (props.name) {
+  switch (props.currentTab) {
     case 'Book':
       themeName = book
       break;
@@ -22,17 +22,17 @@ const Footer = (props) => {
       <TouchableOpacity
         style={[styles.container, themeName.color, themeName.shadowColor]}
         onPress={() => {
-          if (props.name == 'Book') {
-            alert('Bring me to the booking page')
+          if (props.currentTab == 'Book') {
+            props.bookMachines(props.selected)
           }
-          if (props.name == 'Status') {
+          if (props.currentTab == 'Status') {
             alert('Open status page')
           }
-          if (props.name == 'Notify') {
-            alert('Notify users?')
+          if (props.currentTab == 'Notify') {
+            alert(props.selected)
           }
         }}>
-        <Text style={styles.text}>{props.name} selected machines</Text>
+        <Text style={styles.text}>{props.currentTab} selected machines</Text>
       </TouchableOpacity>
     </View>
   )
