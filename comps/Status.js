@@ -29,10 +29,10 @@ const Status = props => {
     </View>
   )
 
-  if (props.selected.length >= 1) {
+  if (props.booked.length >= 1) {
     initialStatus = (
       <View>
-        <Text>The array is not empty!</Text>
+        <Text>{props.booked}</Text>
       </View>
     )
   }

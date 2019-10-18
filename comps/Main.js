@@ -24,26 +24,28 @@ let id = [
 ]; //give each machine a unique id
 
 const Main = () => {
+  //arrays to handle booking, notifying, status, and selected
   const [booked, setBooked] = useState([]);
   const [selected, setSelected] = useState([]);
   const [name, setName] = useState('Book');
-  
-  function pushSelect(id){
-    console.log(id);
+
+  function pushSelect(id) {
+    console.log('machine ' + id);
     var arr = selected;
     arr.push(id);
     setSelected(arr);
   }
 
-  function spliceSelect(id){
+  function spliceSelect(id) {
+    console.log('machine ' + id)
     var arr = selected;
     arr.splice(id, 1);
     setSelected(arr)
   }
 
-  function bookMachines(arr){
+  function bookMachines(arr) {
     setBooked(arr);
-    console.log(booked)
+    console.log(booked);
   }
 
   //default view of home page
@@ -55,14 +57,14 @@ const Main = () => {
       <View style={{ flex: 1 }}>
         <MachineContainer id={id} name={name} selected={selected} type={'Dryer'} pushSelect={pushSelect} spliceSelect={spliceSelect} />
       </View>
-      <Footer id={id} booked={booked} name={name} selected={selected} setSelected={setSelected} bookMachines={bookMachines}  />
+      <Footer id={id} booked={booked} name={name} selected={selected} setSelected={setSelected} bookMachines={bookMachines} />
     </View>
   )
 
   //show status component only when selected in tab bar
   if (name == 'Status') {
     home = (
-      <Status setName={setName} selected={selected} />
+      <Status setName={setName} booked={booked} />
     )
   }
 

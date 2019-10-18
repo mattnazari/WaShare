@@ -44,17 +44,14 @@ const Machine = props => {
       style={machineStyle}
       onPress={() => {
         const index = props.selected.indexOf(props.id);
-        if (props.selected.includes(index) === true) {
-          props.spliceSelect(index)
-        } else {
+        if (index === -1) {
+          console.log('pushing')
           props.pushSelect(props.id)
+        } else {
+          console.log('splicing')
+          props.spliceSelect(index)
         }
-
         setSelected(!selected)
-        console.log(props.selected)
-        {/*do if/else statements in here
-        to check if machine is currently selected or not
-        */}
       }}>
       {selectedBox}
       <Text style={styles.machine}>{props.type} {props.id}</Text>
