@@ -10,9 +10,13 @@ const Main = () => {
 
   //default view of home page
   let home = (
-    <View>
-      <MachineContainer name={name} type={'Washer'} />
-      <MachineContainer name={name} type={'Dryer'} />
+    <View style={{ flex: 1 }}>
+      <View style={{ flex: 1 }}>
+        <MachineContainer name={name} type={'Washer'} />
+      </View>
+      <View style={{ flex: 1 }}>
+        <MachineContainer name={name} type={'Dryer'} />
+      </View>
       <Footer name={name} />
     </View>
   )
