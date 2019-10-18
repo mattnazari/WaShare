@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import WasherMachines from './WasherMachines';
-import DryerMachines from './DryerMachines';
+import MachineContainer from './MachineContainer';
 import Footer from './Footer';
 import Header from './Header';
 import Status from './Status';
@@ -12,8 +11,8 @@ const Main = () => {
   //default view of home page
   let home = (
     <View>
-      <WasherMachines name={name} type={'Washer'} />
-      <DryerMachines name={name} type={'Dryer'} />
+      <MachineContainer name={name} type={'Washer'} />
+      <MachineContainer name={name} type={'Dryer'} />
       <Footer name={name} />
     </View>
   )

@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import Machine from './Machine';
 import styles from '../styles/MachineStyles';
 
-const DryerMachines = props => {
+const MachineContainer = props => {
   let id = 1; //give each machine a unique id
 
   return (
     <View>
-      <Text style={styles.title}>Dryer machines</Text>
+      <Text style={styles.title}>{props.type} machines</Text>
       <ScrollView
         horizontal
         directionalLockEnabled
@@ -25,4 +25,4 @@ const DryerMachines = props => {
   )
 }
 
-export default DryerMachines;
+export default MachineContainer;
