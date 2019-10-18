@@ -36,6 +36,8 @@ const Header = props => {
           style={styles.spacing}
           onPress={() => {
             props.setCurrentTab('Book')
+            props.setSelected([])
+            console.log(props.selected)
           }}>
           <Text style={styles.text}>BOOK</Text>
         </TouchableOpacity>
@@ -43,6 +45,8 @@ const Header = props => {
           style={styles.spacing}
           onPress={() => {
             props.setCurrentTab('Status')
+            props.setSelected([])
+            console.log(props.selected)
           }}>
           <Text style={styles.text}>STATUS</Text>
         </TouchableOpacity>
@@ -50,6 +54,8 @@ const Header = props => {
           style={styles.spacing}
           onPress={() => {
             props.setCurrentTab('Notify')
+            props.setSelected([])
+            console.log(props.selected)
           }}>
           <Text style={styles.text}>NOTIFY</Text>
         </TouchableOpacity>

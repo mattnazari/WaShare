@@ -12,15 +12,15 @@ const MachineContainer = props => {
         directionalLockEnabled
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}>
-        {props.id.map((item) =>
-          <Machine key={item.id}
-            id={item.id}
-            type={props.type}
-            name={props.name} 
+        {props.machines.map((machine) =>
+          <Machine key={machine.id}
+            id={machine.id}
+            type={machine.type}
             currentTab={props.currentTab}
             selected={props.selected}
             pushSelect={props.pushSelect}
-            spliceSelect={props.spliceSelect} />)}
+            spliceSelect={props.spliceSelect}
+            machineAvailability={props.machineAvailability} />)}
       </ScrollView>
     </View>
   )

@@ -5,37 +5,52 @@ import Footer from './Footer';
 import Header from './Header';
 import Status from './Status';
 
-let id = [
+//add all data for machines here
+const washers = [
   {
-    id: 1
+    id: 1,
+    type: 'Washer'
   },
   {
-    id: 2
+    id: 2,
+    type: 'Washer'
   },
   {
-    id: 3
+    id: 3,
+    type: 'Washer'
   },
   {
-    id: 4
-  },
-  {
-    id: 5
+    id: 4,
+    type: 'Washer'
   }
-]; //give each machine a unique id
+]
+const dryers = [
+  {
+    id: 1,
+    type: 'Dryer'
+  },
+  {
+    id: 2,
+    type: 'Dryer'
+  }
+]
 
 const Main = () => {
   //arrays to handle booking, notifying, status, and selected
   const [booked, setBooked] = useState([]);
+  //handles machine selection
   const [selected, setSelected] = useState([]);
-
   //handle styling of current page
   const [currentTab, setCurrentTab] = useState('Book');
+  //sets availability of individual machines
+  const [machineAvailability, setMachineAvailability] = useState('Available');
 
   function pushSelect(id) {
-    console.log('machine ' + id);
+    console.log('machine ' + JSON.stringify(id));
     var arr = selected;
     arr.push(id);
     setSelected(arr);
+    console.log(selected)
   }
 
   function spliceSelect(id) {
@@ -43,6 +58,7 @@ const Main = () => {
     var arr = selected;
     arr.splice(id, 1);
     setSelected(arr)
+    console.log(selected)
   }
 
   function bookMachines(arr) {
@@ -55,29 +71,31 @@ const Main = () => {
     <View style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
         <MachineContainer
-          id={id}
+          machines={washers}
           currentTab={currentTab}
           selected={selected}
           type={'Washer'}
           pushSelect={pushSelect}
-          spliceSelect={spliceSelect} />
+          spliceSelect={spliceSelect}
+          machineAvailability={machineAvailability} />
       </View>
       <View style={{ flex: 1 }}>
         <MachineContainer
-          id={id}
+          machines={dryers}
           currentTab={currentTab}
           selected={selected}
           type={'Dryer'}
           pushSelect={pushSelect}
-          spliceSelect={spliceSelect} />
+          spliceSelect={spliceSelect}
+          machineAvailability={machineAvailability} />
       </View>
       <Footer
-        id={id}
         booked={booked}
         currentTab={currentTab}
         selected={selected}
         setSelected={setSelected}
-        bookMachines={bookMachines} />
+        bookMachines={bookMachines}
+        setMachineAvailability={setMachineAvailability} />
     </View>
   )
 
@@ -90,7 +108,7 @@ const Main = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <Header setCurrentTab={setCurrentTab} currentTab={currentTab} />
+      <Header setCurrentTab={setCurrentTab} currentTab={currentTab} setSelected={setSelected} selected={selected} />
       {home}
     </View>
   )

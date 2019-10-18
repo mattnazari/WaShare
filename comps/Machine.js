@@ -5,7 +5,6 @@ import { book, status, notify } from '../styles/ThemeStyles';
 
 const Machine = props => {
   let themeName = '';
-  let availText = 'Available';
 
   switch (props.currentTab) {
     case 'Book':
@@ -30,33 +29,30 @@ const Machine = props => {
         <Text style={styles.selectedBoxText}>Selected</Text>
       </View>
     )
-    //passing washer id to array in parent component
+  }
 
-  } /*else if (selected === false) {
-    //search for index of selected washer in array
-    const index = props.selected.indexOf(props.id);
-    //delete from array
-    props.selected.splice(index, 1)
-  }*/
 
   return (
     <TouchableOpacity
       style={machineStyle}
       onPress={() => {
-        const index = props.selected.indexOf(props.id);
-        if (index === -1) {
+        const idIndex = props.selected.map(machine => { return machine.id; }).indexOf(props.id);
+        const typeIndex = props.selected.map(machine => { return machine.type; }).indexOf(props.type);
+        const data = { id: props.id, type: props.type };
+
+        if (idIndex === -1) {
           console.log('pushing')
-          props.pushSelect(props.id)
+          props.pushSelect(data)
         } else {
           console.log('splicing')
-          props.spliceSelect(index)
+          props.spliceSelect(idIndex)
         }
         setSelected(!selected)
       }}>
       {selectedBox}
       <Text style={styles.machine}>{props.type} {props.id}</Text>
       <View style={[styles.circle, themeName.borderColor]}></View>
-      <Text style={styles.timeRemaining}>{availText}</Text>
+      <Text style={styles.timeRemaining}>{props.machineAvailability}</Text>
     </TouchableOpacity>
   )
 }

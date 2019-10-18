@@ -33,7 +33,7 @@ const Status = props => {
     initialStatus = (
       <View>
         {props.booked.map((machine) =>
-          <Text key={machine}>Booked Machine {machine}</Text>
+          <Text key={machine.type+machine.id}>Booked {machine.type} {machine.id}</Text>
           )}
       </View>
     )
