@@ -18,14 +18,6 @@ const Machine = props => {
       themeName = notify
   }
 
-  switch (props.type) {
-    case 'Washer':
-      machineType = props.type
-      break;
-    case 'Dryer':
-      machineType = props.type
-  }
-
   //default style for unselected machines
   let machineStyle = [styles.container, themeName.shadowColor];
   let selectedBox = null;
@@ -47,7 +39,7 @@ const Machine = props => {
         setSelected(!selected)
       }}>
       {selectedBox}
-      <Text style={styles.machine}>{machineType} {props.id}</Text>
+      <Text style={styles.machine}>{props.type} {props.id}</Text>
       <View style={[styles.circle, themeName.borderColor]}></View>
       <Text style={styles.timeRemaining}>{availText}</Text>
     </TouchableOpacity>
