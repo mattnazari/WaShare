@@ -3,8 +3,8 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/MachineStyles';
 import { book, status, notify } from '../styles/ThemeStyles';
 
-const Dryer = props => {
-  let themeName;
+const Machine = props => {
+  let themeName = '';
   let availText = 'Available';
 
   switch (props.name) {
@@ -30,20 +30,38 @@ const Dryer = props => {
         <Text style={styles.selectedBoxText}>Selected</Text>
       </View>
     )
-  }
+    //passing washer id to array in parent component
+
+  } /*else if (selected === false) {
+    //search for index of selected washer in array
+    const index = props.selected.indexOf(props.id);
+    //delete from array
+    props.selected.splice(index, 1)
+  }*/
 
   return (
     <TouchableOpacity
       style={machineStyle}
       onPress={() => {
+        const index = props.selected.indexOf(props.id);
+        if (props.selected.includes(index) === true) {
+          props.selected.splice(index, 1)
+        } else {
+          props.pushSelect(props.id)
+        }
+
         setSelected(!selected)
+        console.log(props.selected)
+        {/*do if/else statements in here
+        to check if machine is currently selected or not
+        */}
       }}>
       {selectedBox}
-      <Text style={styles.machine}>Dryer {props.id}</Text>
+      <Text style={styles.machine}>{props.type} {props.id}</Text>
       <View style={[styles.circle, themeName.borderColor]}></View>
       <Text style={styles.timeRemaining}>{availText}</Text>
     </TouchableOpacity>
   )
 }
 
-export default Dryer;
+export default Machine;

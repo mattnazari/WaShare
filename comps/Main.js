@@ -1,14 +1,30 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import WasherMachines from './WasherMachines';
-import DryerMachines from './DryerMachines';
+import MachineContainer from './MachineContainer';
 import Footer from './Footer';
 import Header from './Header';
 import Status from './Status';
 
-
+let id = [
+  {
+    id: 1
+  },
+  {
+    id: 2
+  },
+  {
+    id: 3
+  },
+  {
+    id: 4
+  },
+  {
+    id: 5
+  }
+]; //give each machine a unique id
 
 const Main = () => {
+  const [booked, setBooked] = useState([]);
   const [selected, setSelected] = useState([]);
   const [name, setName] = useState('Book');
   
@@ -19,33 +35,21 @@ const Main = () => {
     setSelected(arr);
   }
 
-  let id = [
-    {
-      id: 1
-    },
-    {
-      id: 2
-    },
-    {
-      id: 3
-    },
-    {
-      id: 4
-    },
-    {
-      id: 5
-    },
-    {
-      id: 6
-    }
-  ]; //give each machine a unique id
+  function bookMachines(arr){
+    setBooked(arr);
+    console.log(booked)
+  }
 
   //default view of home page
   let home = (
-    <View>
-      <WasherMachines name={name} id={id} pushSelect={pushSelect} />
-      <DryerMachines name={name} />
-      <Footer name={name} id={id} selected={selected} />
+    <View style={{ flex: 1 }}>
+      <View style={{ flex: 1 }}>
+        <MachineContainer id={id} name={name} selected={selected} type={'Washer'} pushSelect={pushSelect} />
+      </View>
+      <View style={{ flex: 1 }}>
+        <MachineContainer id={id} name={name} selected={selected} type={'Dryer'} pushSelect={pushSelect} />
+      </View>
+      <Footer id={id} booked={booked} name={name} selected={selected} setSelected={setSelected} bookMachines={bookMachines}  />
     </View>
   )
 

@@ -23,7 +23,7 @@ const Footer = (props) => {
         style={[styles.container, themeName.color, themeName.shadowColor]}
         onPress={() => {
           if (props.name == 'Book') {
-            alert(props.selected)
+            props.bookMachines(props.selected)
           }
           if (props.name == 'Status') {
             alert('Open status page')
