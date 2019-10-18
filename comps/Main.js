@@ -35,6 +35,12 @@ const Main = () => {
     setSelected(arr);
   }
 
+  function spliceSelect(id){
+    var arr = selected;
+    arr.splice(id, 1);
+    setSelected(arr)
+  }
+
   function bookMachines(arr){
     setBooked(arr);
     console.log(booked)
@@ -44,10 +50,10 @@ const Main = () => {
   let home = (
     <View style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
-        <MachineContainer id={id} name={name} selected={selected} type={'Washer'} pushSelect={pushSelect} />
+        <MachineContainer id={id} name={name} selected={selected} type={'Washer'} pushSelect={pushSelect} spliceSelect={spliceSelect} />
       </View>
       <View style={{ flex: 1 }}>
-        <MachineContainer id={id} name={name} selected={selected} type={'Dryer'} pushSelect={pushSelect} />
+        <MachineContainer id={id} name={name} selected={selected} type={'Dryer'} pushSelect={pushSelect} spliceSelect={spliceSelect} />
       </View>
       <Footer id={id} booked={booked} name={name} selected={selected} setSelected={setSelected} bookMachines={bookMachines}  />
     </View>

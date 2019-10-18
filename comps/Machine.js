@@ -45,7 +45,7 @@ const Machine = props => {
       onPress={() => {
         const index = props.selected.indexOf(props.id);
         if (props.selected.includes(index) === true) {
-          props.selected.splice(index, 1)
+          props.spliceSelect(index)
         } else {
           props.pushSelect(props.id)
         }

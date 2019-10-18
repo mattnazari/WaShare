@@ -18,7 +18,8 @@ const MachineContainer = props => {
             type={props.type}
             name={props.name} 
             selected={props.selected}
-            pushSelect={props.pushSelect} />)}
+            pushSelect={props.pushSelect}
+            spliceSelect={props.spliceSelect} />)}
       </ScrollView>
     </View>
   )
