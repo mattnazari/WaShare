@@ -13,22 +13,26 @@ const Onboarding = props => {
     {
       title: 'Book Machines Easily',
       desc: 'Book washing machines or dryers',
-      img: require('../assets/Images/onboardingBook.png')
+      img: require('../assets/Images/onboardingBook.png'),
+      buttonStyle: styles.checkedButtons
     },
     {
       title: 'Status',
       desc: 'Check how much time is remaining from your machine. Extend your machine if needed!',
-      img: require('../assets/Images/onboardingStatus.png')
+      img: require('../assets/Images/onboardingStatus.png'),
+      buttonStyle: styles.checkedButtons
     },
     {
       title: 'Notify Other Users',
       desc: 'Notify residents in your building when their laundry is ready to be picked up from the machine.',
-      img: require('../assets/Images/onboardingNotify.png')
+      img: require('../assets/Images/onboardingNotify.png'),
+      buttonStyle: styles.checkedButtons
     },
     {
       title: 'Report Machines',
       desc: 'Let everyone know about machines that are out of service.',
-      img: require('../assets/Images/onboardingReport.png')
+      img: require('../assets/Images/onboardingReport.png'),
+      buttonStyle: styles.checkedButtons
     },
   ]
 
@@ -78,7 +82,7 @@ const Onboarding = props => {
         </View>
         <View style={styles.buttonsCont}>
           <TouchableOpacity
-            style={styles.uncheckedButtons}
+            style={onboardingArray[y].buttonStyle}
             onPress={() => {
               setY(0)
             }}>
