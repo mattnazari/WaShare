@@ -45,7 +45,9 @@ const Status = props => {
           <StatusMachine
             key={machine.type + machine.id}
             type={machine.type}
-            id={machine.id} />
+            id={machine.id}
+            booked={props.booked}
+            spliceBooked={props.spliceBooked} />
         )}
       </ScrollView>
     )

@@ -61,6 +61,12 @@ const Main = () => {
     console.log(selected)
   }
 
+  function spliceBooked(id) {
+    let arr = booked;
+    arr.splice (id, 1);
+    setBooked(arr);
+  }
+
   function bookMachines(arr) {
     setBooked(arr);
     console.log(booked);
@@ -103,7 +109,7 @@ const Main = () => {
   //show status component only when selected in tab bar
   if (currentTab == 'Status') {
     home = (
-      <Status setCurrentTab={setCurrentTab} booked={booked} />
+      <Status setCurrentTab={setCurrentTab} booked={booked} spliceBooked={spliceBooked} />
     )
   }
 

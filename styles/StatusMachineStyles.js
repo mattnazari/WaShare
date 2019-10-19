@@ -11,8 +11,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-between',
-    width: 270,
-    height: 420,
+    width: 280,
+    height: 450,
     backgroundColor: "#FFF",
     padding: 24,
     margin: 12,
@@ -73,7 +73,6 @@ const styles = StyleSheet.create({
   extendContainer: {
     width: 200,
     padding: 12,
-    margin: 24,
     backgroundColor: colors.main,
     borderRadius: 10,
     elevation: 16,
@@ -90,6 +89,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#FFF',
     textAlign: 'center'
+  },
+  cancelContainer: {
+    width: 200,
+    padding: 12,
+    backgroundColor: '#FFF',
+    borderColor: colors.main,
+    borderWidth: 2,
+    borderRadius: 10,
   },
   finishContainer: {
     flexDirection: 'row',
