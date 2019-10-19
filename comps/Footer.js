@@ -24,6 +24,11 @@ const Footer = (props) => {
         onPress={() => {
           if (props.currentTab == 'Book') {
             props.bookMachines(props.selected)
+            if (props.selected.length == 0) {
+              alert('You have no machines selected!')
+            } else {
+              props.setCurrentTab('Status')
+            }
           }
           if (props.currentTab == 'Status') {
             alert('Open status page')

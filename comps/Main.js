@@ -92,6 +92,7 @@ const Main = () => {
       <Footer
         booked={booked}
         currentTab={currentTab}
+        setCurrentTab={setCurrentTab}
         selected={selected}
         setSelected={setSelected}
         bookMachines={bookMachines}
