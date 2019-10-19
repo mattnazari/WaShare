@@ -6,13 +6,12 @@ import Header from './Header';
 import Status from './Status';
 
 const Main = () => {
-  //arrays to handle booking, notifying, status, and selected
+  //array to handle booking
   const [booked, setBooked] = useState([]);
   //handles machine selection
   const [selected, setSelected] = useState([]);
-  //handle styling of current page
+  //handle styling of current page (home screen)
   const [currentTab, setCurrentTab] = useState('Book');
-  //sets availability of individual machines
   const [machineAvailability, setMachineAvailability] = useState('Available');
   const [lockState, setLockState] = useState(true);
 
@@ -109,7 +108,8 @@ const Main = () => {
         selected={selected}
         setSelected={setSelected}
         bookMachines={bookMachines}
-        setMachineAvailability={setMachineAvailability} />
+        setMachineAvailability={setMachineAvailability}
+        setLockState={setLockState} />
     </View>
   )
 

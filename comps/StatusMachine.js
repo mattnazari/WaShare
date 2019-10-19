@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/StatusMachineStyles';
 
 const StatusMachine = props => {
+  const timer = 10*60
   let machine;
 
   if (props.lockState === true) {
@@ -13,7 +14,7 @@ const StatusMachine = props => {
           <Text style={styles.subText}>LOCKED</Text>
         </View>
         <View>
-          <Text style={styles.subText}>Time left to unlock: 10 minutes</Text>
+          <Text style={styles.subText}>Time left to unlock: {timer/60} minutes</Text>
         </View>
         <TouchableOpacity
           style={styles.extendContainer}

@@ -31,7 +31,6 @@ const Machine = props => {
     )
   }
 
-
   return (
     <TouchableOpacity
       style={machineStyle}
