@@ -11,7 +11,7 @@ const StatusMachine = props => {
         <Text style={styles.subText}>minutes</Text>
         <Text style={styles.subText}>remaining</Text>
       </View>
-      <View style={{ flexDirection: 'row' }}>
+      <View style={styles.finishContainer}>
         <Text style={styles.subText}>Finish time</Text>
         <Text style={styles.mediumText}>9:56am</Text>
       </View>

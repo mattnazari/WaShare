@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     color: colors.dark
   },
   circle: {
+    backgroundColor: '#FFF',
     height: 170,
     width: 170,
     borderStyle: 'solid',
@@ -88,6 +89,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#FFF',
     textAlign: 'center'
+  },
+  finishContainer: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
   }
 })
 

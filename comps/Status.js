@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { ScrollView, View, Image, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import styles from '../styles/FooterStyles';
 import { status } from '../styles/ThemeStyles';
 import StatusMachine from './StatusMachine';
@@ -9,7 +9,11 @@ const main = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     alignItems: 'center'
-  }
+  },
+  scrollContainer: {
+    padding: 24,
+    marginTop: -20
+  },
 })
 
 const Status = props => {
@@ -32,14 +36,18 @@ const Status = props => {
 
   if (props.booked.length >= 1) {
     initialStatus = (
-      <View>
+      <ScrollView
+        horizontal
+        directionalLockEnabled
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={main.scrollContainer}>
         {props.booked.map((machine) =>
           <StatusMachine
             key={machine.type + machine.id}
             type={machine.type}
             id={machine.id} />
         )}
-      </View>
+      </ScrollView>
     )
   }
 
