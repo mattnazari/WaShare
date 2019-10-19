@@ -16,6 +16,7 @@ const MachineContainer = props => {
           <Machine key={machine.id}
             id={machine.id}
             type={machine.type}
+            lock={machine.lock}
             currentTab={props.currentTab}
             selected={props.selected}
             pushSelect={props.pushSelect}

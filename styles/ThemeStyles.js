@@ -6,13 +6,13 @@ const bookStyles = {
 }
 
 const statusStyles = {
-  mainColor: '#6525FF',
-  shadowColor: '#8B71FC'
+  mainColor: '#6F1CE5',
+  shadowColor: '#9E7AFF'
 }
 
 const notifyStyles = {
-  mainColor: '#6F1CE5',
-  shadowColor: '#9E7AFF'
+  mainColor: '#7E33B8',
+  shadowColor: '#C892F1'
 }
 
 export const book = StyleSheet.create({

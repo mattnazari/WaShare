@@ -5,48 +5,54 @@ import Footer from './Footer';
 import Header from './Header';
 import Status from './Status';
 
-//add all data for machines here
-const washers = [
-  {
-    id: 1,
-    type: 'Washer'
-  },
-  {
-    id: 2,
-    type: 'Washer'
-  },
-  {
-    id: 3,
-    type: 'Washer'
-  },
-  {
-    id: 4,
-    type: 'Washer'
-  }
-]
-const dryers = [
-  {
-    id: 1,
-    type: 'Dryer'
-  },
-  {
-    id: 2,
-    type: 'Dryer'
-  }
-]
-
 const Main = () => {
-  //arrays to handle booking, notifying, status, and selected
+  //array to handle booking
   const [booked, setBooked] = useState([]);
   //handles machine selection
   const [selected, setSelected] = useState([]);
-  //handle styling of current page
+  //handle styling of current page (home screen)
   const [currentTab, setCurrentTab] = useState('Book');
-  //sets availability of individual machines
   const [machineAvailability, setMachineAvailability] = useState('Available');
+  const [lockState, setLockState] = useState(true);
+
+  //add all data for machines here
+  const washers = [
+    {
+      id: 1,
+      type: 'Washer',
+      lock: lockState
+    },
+    {
+      id: 2,
+      type: 'Washer',
+      lock: lockState
+    },
+    {
+      id: 3,
+      type: 'Washer',
+      lock: lockState
+    },
+    {
+      id: 4,
+      type: 'Washer',
+      lock: lockState
+    }
+  ]
+  const dryers = [
+    {
+      id: 1,
+      type: 'Dryer',
+      lock: lockState
+    },
+    {
+      id: 2,
+      type: 'Dryer',
+      lock: lockState
+    }
+  ]
 
   function pushSelect(id) {
-    console.log('machine ' + JSON.stringify(id));
+    console.log('INDIVIDUAL machine ' + JSON.stringify(id));
     var arr = selected;
     arr.push(id);
     setSelected(arr);
@@ -54,11 +60,17 @@ const Main = () => {
   }
 
   function spliceSelect(id) {
-    console.log('machine ' + id)
+    console.log('INDIVIDUAL machine ' + id)
     var arr = selected;
     arr.splice(id, 1);
     setSelected(arr)
     console.log(selected)
+  }
+
+  function spliceBooked(id) {
+    let arr = booked;
+    arr.splice(id, 1);
+    setBooked(arr);
   }
 
   function bookMachines(arr) {
@@ -92,23 +104,34 @@ const Main = () => {
       <Footer
         booked={booked}
         currentTab={currentTab}
+        setCurrentTab={setCurrentTab}
         selected={selected}
         setSelected={setSelected}
         bookMachines={bookMachines}
-        setMachineAvailability={setMachineAvailability} />
+        setMachineAvailability={setMachineAvailability}
+        setLockState={setLockState} />
     </View>
   )
 
   //show status component only when selected in tab bar
   if (currentTab == 'Status') {
     home = (
-      <Status setCurrentTab={setCurrentTab} booked={booked} />
+      <Status
+        setCurrentTab={setCurrentTab}
+        booked={booked}
+        spliceBooked={spliceBooked}
+        lockState={lockState}
+        setLockState={setLockState} />
     )
   }
 
   return (
     <View style={{ flex: 1 }}>
-      <Header setCurrentTab={setCurrentTab} currentTab={currentTab} setSelected={setSelected} selected={selected} />
+      <Header
+        setCurrentTab={setCurrentTab}
+        currentTab={currentTab}
+        setSelected={setSelected}
+        selected={selected} />
       {home}
     </View>
   )
