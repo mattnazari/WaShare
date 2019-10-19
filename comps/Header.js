@@ -8,6 +8,7 @@ import * as icon from './SVGComps';
 const iconDim = 20
 
 const Header = props => {
+  //should actually rewrite this to use useState hooks
   let title = '';
   let description = '';
   let themeName = '';
@@ -29,6 +30,7 @@ const Header = props => {
       themeName = notify
   }
 
+  //default state for the left icon is hamburger icon
   const [leftIcon, setLeftIcon] = React.useState(
     <TouchableOpacity
       onPress={() => {
