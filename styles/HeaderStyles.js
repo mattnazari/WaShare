@@ -44,6 +44,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
+  iconBarRight: { 
+    flexDirection: 'row', 
+    justifyContent: 'flex-end' }
 })
 
 export default styles;

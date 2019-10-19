@@ -53,10 +53,10 @@ const Header = props => {
     <View>
       <View style={[styles.titleContainer, themeName.color]}>
         <View style={styles.iconBar}>
-          <View style={{justifyContent:'flex-start'}}>
+          <View style={{ justifyContent: 'flex-start' }}>
             {leftIcon}
           </View>
-          <View style={{flexDirection:'row', justifyContent:'flex-end'}}>
+          <View style={styles.iconBarRight}>
             <TouchableOpacity
               onPress={() => {
                 alert('Open help modal')
@@ -64,6 +64,7 @@ const Header = props => {
               <icon.Help fill={'white'} height={iconDim} width={iconDim} />
             </TouchableOpacity>
             <TouchableOpacity
+              style={{ paddingLeft: 10 }}
               onPress={() => {
                 alert('Navigate to notification page')
               }}>
