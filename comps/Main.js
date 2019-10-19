@@ -5,36 +5,6 @@ import Footer from './Footer';
 import Header from './Header';
 import Status from './Status';
 
-//add all data for machines here
-const washers = [
-  {
-    id: 1,
-    type: 'Washer'
-  },
-  {
-    id: 2,
-    type: 'Washer'
-  },
-  {
-    id: 3,
-    type: 'Washer'
-  },
-  {
-    id: 4,
-    type: 'Washer'
-  }
-]
-const dryers = [
-  {
-    id: 1,
-    type: 'Dryer'
-  },
-  {
-    id: 2,
-    type: 'Dryer'
-  }
-]
-
 const Main = () => {
   //arrays to handle booking, notifying, status, and selected
   const [booked, setBooked] = useState([]);
@@ -44,9 +14,46 @@ const Main = () => {
   const [currentTab, setCurrentTab] = useState('Book');
   //sets availability of individual machines
   const [machineAvailability, setMachineAvailability] = useState('Available');
+  const [lockState, setLockState] = useState(true);
+
+  //add all data for machines here
+  const washers = [
+    {
+      id: 1,
+      type: 'Washer',
+      lock: lockState
+    },
+    {
+      id: 2,
+      type: 'Washer',
+      lock: lockState
+    },
+    {
+      id: 3,
+      type: 'Washer',
+      lock: lockState
+    },
+    {
+      id: 4,
+      type: 'Washer',
+      lock: lockState
+    }
+  ]
+  const dryers = [
+    {
+      id: 1,
+      type: 'Dryer',
+      lock: lockState
+    },
+    {
+      id: 2,
+      type: 'Dryer',
+      lock: lockState
+    }
+  ]
 
   function pushSelect(id) {
-    console.log('machine ' + JSON.stringify(id));
+    console.log('INDIVIDUAL machine ' + JSON.stringify(id));
     var arr = selected;
     arr.push(id);
     setSelected(arr);
@@ -54,7 +61,7 @@ const Main = () => {
   }
 
   function spliceSelect(id) {
-    console.log('machine ' + id)
+    console.log('INDIVIDUAL machine ' + id)
     var arr = selected;
     arr.splice(id, 1);
     setSelected(arr)
@@ -63,7 +70,7 @@ const Main = () => {
 
   function spliceBooked(id) {
     let arr = booked;
-    arr.splice (id, 1);
+    arr.splice(id, 1);
     setBooked(arr);
   }
 
@@ -109,13 +116,22 @@ const Main = () => {
   //show status component only when selected in tab bar
   if (currentTab == 'Status') {
     home = (
-      <Status setCurrentTab={setCurrentTab} booked={booked} spliceBooked={spliceBooked} />
+      <Status
+        setCurrentTab={setCurrentTab}
+        booked={booked}
+        spliceBooked={spliceBooked}
+        lockState={lockState}
+        setLockState={setLockState} />
     )
   }
 
   return (
     <View style={{ flex: 1 }}>
-      <Header setCurrentTab={setCurrentTab} currentTab={currentTab} setSelected={setSelected} selected={selected} />
+      <Header
+        setCurrentTab={setCurrentTab}
+        currentTab={currentTab}
+        setSelected={setSelected}
+        selected={selected} />
       {home}
     </View>
   )

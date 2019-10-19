@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ScrollView, View, Image, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import styles from '../styles/FooterStyles';
 import { status } from '../styles/ThemeStyles';
@@ -46,8 +46,12 @@ const Status = props => {
             key={machine.type + machine.id}
             type={machine.type}
             id={machine.id}
+            lock={machine.lock}
             booked={props.booked}
-            spliceBooked={props.spliceBooked} />
+            spliceBooked={props.spliceBooked}
+            setCurrentTab={props.setCurrentTab}
+            lockState={props.lockState}
+            setLockState={props.setLockState} />
         )}
       </ScrollView>
     )
