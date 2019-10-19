@@ -2,6 +2,10 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/HeaderStyles';
 import { book, status, notify } from '../styles/ThemeStyles';
+import * as icon from './SVGComps';
+
+//dimension for icons in header (ham menu, notifications, help)
+const iconDim = 20
 
 const Header = props => {
   let title = '';
@@ -25,9 +29,48 @@ const Header = props => {
       themeName = notify
   }
 
+  const [leftIcon, setLeftIcon] = React.useState(
+    <TouchableOpacity
+      onPress={() => {
+        alert('Open ham menu')
+      }}>
+      <icon.HamMenu fill={'white'} height={iconDim} width={iconDim} />
+    </TouchableOpacity>
+  );
+
+  if (props.currentTab == 'Extend') {
+    setLeftIcon(
+      <TouchableOpacity
+        onPress={() => {
+          alert('Go back')
+        }}>
+        <icon.Back fill={'white'} height={iconDim} width={iconDim} />
+      </TouchableOpacity>
+    )
+  }
+
   return (
     <View>
       <View style={[styles.titleContainer, themeName.color]}>
+        <View style={styles.iconBar}>
+          <View style={{justifyContent:'flex-start'}}>
+            {leftIcon}
+          </View>
+          <View style={{flexDirection:'row', justifyContent:'flex-end'}}>
+            <TouchableOpacity
+              onPress={() => {
+                alert('Open help modal')
+              }}>
+              <icon.Help fill={'white'} height={iconDim} width={iconDim} />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                alert('Navigate to notification page')
+              }}>
+              <icon.Notifications fill={'white'} height={iconDim} width={iconDim} />
+            </TouchableOpacity>
+          </View>
+        </View>
         <Text style={styles.titleText}>{title}</Text>
         <Text style={styles.titleDesc}>{description}</Text>
       </View>
