@@ -2,11 +2,12 @@ import React from 'react';
 import { View, Image, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import styles from '../styles/FooterStyles';
 import { status } from '../styles/ThemeStyles';
+import StatusMachine from './StatusMachine';
 
 const main = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent:'space-around',
+    justifyContent: 'space-around',
     alignItems: 'center'
   }
 })
@@ -33,8 +34,11 @@ const Status = props => {
     initialStatus = (
       <View>
         {props.booked.map((machine) =>
-          <Text key={machine.type+machine.id}>Booked {machine.type} {machine.id}</Text>
-          )}
+          <StatusMachine
+            key={machine.type + machine.id}
+            type={machine.type}
+            id={machine.id} />
+        )}
       </View>
     )
   }
