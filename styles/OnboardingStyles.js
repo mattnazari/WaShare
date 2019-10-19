@@ -47,6 +47,13 @@ var styles = StyleSheet.create({
         fontFamily:'CircularStd-Book'
     },
 
+    descTxtCont:{
+        width:260,
+        height:100,
+        justifyContent:'center',
+        alignItems:'center'
+    },
+
     buttonsCont:{
         flexDirection:"row",
         justifyContent:'space-between',

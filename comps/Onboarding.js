@@ -13,21 +13,21 @@ const Onboarding = props => {
     {
       title: 'Book Machines Easily',
       desc: 'Book washing machines or dryers',
-      img: require('../assets/Images/OnboardingBook.png')
+      img: require('../assets/Images/onboardingBook.png')
     },
     {
       title: 'Status',
       desc: 'Check how much time is remaining from your machine. Extend your machine if needed!',
-      img: require('../assets/Images/OnboardingStatus.png')
+      img: require('../assets/Images/onboardingStatus.png')
     },
     {
       title: 'Notify Other Users',
       desc: 'Notify residents in your building when their laundry is ready to be picked up from the machine.',
-      img: require('../assets/Images/OnboardingNotify.png')
+      img: require('../assets/Images/onboardingNotify.png')
     },
     {
       title: 'Report Machines',
-      desc: 'Notify residents in your building when their laundry is ready to be picked up from the machine.',
+      desc: 'Let everyone know about machines that are out of service.',
       img: require('../assets/Images/onboardingReport.png')
     },
   ]
@@ -73,13 +73,16 @@ const Onboarding = props => {
       <View style={styles.tutorialCont}>
         <Image source={onboardingArray[y].img} />
         <Text style={styles.title}>{onboardingArray[y].title}</Text>
+        <View style={styles.descTxtCont}>
         <Text style={styles.descTxt}>{onboardingArray[y].desc}</Text>
+        </View>
         <View style={styles.buttonsCont}>
           <TouchableOpacity
             style={styles.uncheckedButtons}
             onPress={() => {
               setY(0)
-            }}></TouchableOpacity>
+            }}>
+            </TouchableOpacity>
           <TouchableOpacity
             style={styles.uncheckedButtons}
             onPress={() => {
