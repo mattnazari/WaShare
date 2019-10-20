@@ -33,6 +33,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     color: colors.dark
   },
+  subTitle: {
+    fontFamily: 'CircularStd-Black',
+    fontSize: 24,
+    letterSpacing: -1.2,
+    paddingHorizontal: 24,
+    color: colors.dark
+  },
   largeText: {
     fontFamily: 'CircularStd-Black',
     fontSize: 72,

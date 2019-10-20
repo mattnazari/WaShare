@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/HeaderStyles';
 import { book, status, notify } from '../styles/ThemeStyles';
@@ -61,10 +61,16 @@ const Header = props => {
       title = 'Notify users'
       description = 'Notify users by tapping on a machine. This gives them a notification that their laundry is finished.'
       themeName = notify
+      break;
+    case 'Extend':
+      title = 'Extend your machines'
+      description = 'You can extend the length you booked your machine for. Maximum extention time is 2 hours.'
+      themeName = status
+      tabBar = null;
   }
 
   //default state for the left icon is hamburger icon
-  const [leftIcon, setLeftIcon] = React.useState(
+  let leftIcon = (
     <TouchableOpacity
       onPress={() => {
         alert('Open ham menu')
@@ -74,7 +80,7 @@ const Header = props => {
   );
 
   if (props.currentTab == 'Extend') {
-    setLeftIcon(
+    leftIcon = (
       <TouchableOpacity
         onPress={() => {
           alert('Go back')
