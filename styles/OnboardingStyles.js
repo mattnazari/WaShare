@@ -22,11 +22,7 @@ var styles = StyleSheet.create({
         fontFamily:'CircularStd-Black'
     },
 
-    buttons:{
-        justifyContent:'flex-end'
-    },
-
-    options:{
+    skip:{
         flexDirection:'row',
         justifyContent:'flex-end',
     },
@@ -37,27 +33,51 @@ var styles = StyleSheet.create({
         fontFamily:'CircularStd-Black'
     },
 
+    nextAndPrev:{
+        flexDirection:'row',
+        justifyContent:'space-between'
+    },  
+
     descTxt:{
         width:260,
-        fontSize:15,
+        fontSize:16,
         color:'#353535',
         textAlign:'center',
         marginTop: 30,
         fontFamily:'CircularStd-Book'
     },
 
-    checkboxesCont:{
+    descTxtCont:{
+        width:260,
+        height:100,
+        justifyContent:'center',
+        alignItems:'center'
+    },
+
+    buttonsCont:{
         flexDirection:"row",
         justifyContent:'space-between',
-        marginTop:30,
+        marginTop:60,
         width:100
     },
 
-    checkboxes:{
-        width:12,
-        height:12,
+    uncheckedButtons:{
+        width:15,
+        height:15,
         borderRadius:100,
-        borderColor:'#506BFB'
+        borderColor:'#506BFB',
+        borderStyle: 'solid',
+        borderWidth: 1
+    },
+
+    checkedButtons:{
+        width:15,
+        height:15,
+        borderRadius:100,
+        borderColor:'#506BFB',
+        borderStyle: 'solid',
+        borderWidth: 1,
+        backgroundColor:'#506BFB'
     }
 });
 
