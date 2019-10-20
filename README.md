@@ -1,5 +1,12 @@
 # WaShare
 
+## Using SVG's
+- Convert SVG to JSX at https://svg2jsx.com/
+  - Delete <style> tags and stuff inside it
+- Convert JSX to react-native-svg component https://www.smooth-code.com/open-source/svgr/playground/
+  - Check React Native box in options on left
+- Add to SVGComps.js
+
 ## Week 1 Tasks (Oct 9 - 16)
 
 **Matthew**
