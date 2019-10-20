@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/HeaderStyles';
 import { book, status, notify } from '../styles/ThemeStyles';
@@ -12,6 +12,39 @@ const Header = props => {
   let title = '';
   let description = '';
   let themeName = '';
+
+  //DEFAULT tab bar with book, status, notify
+  let tabBar = (
+    <View style={styles.barContainer}>
+      <TouchableOpacity
+        style={styles.spacing}
+        onPress={() => {
+          props.setCurrentTab('Book')
+          props.setSelected([])
+          console.log(props.selected)
+        }}>
+        <Text style={styles.text}>BOOK</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.spacing}
+        onPress={() => {
+          props.setCurrentTab('Status')
+          props.setSelected([])
+          console.log(props.selected)
+        }}>
+        <Text style={styles.text}>STATUS</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.spacing}
+        onPress={() => {
+          props.setCurrentTab('Notify')
+          props.setSelected([])
+          console.log(props.selected)
+        }}>
+        <Text style={styles.text}>NOTIFY</Text>
+      </TouchableOpacity>
+    </View>
+  );
 
   switch (props.currentTab) {
     case 'Book':
@@ -77,35 +110,7 @@ const Header = props => {
         <Text style={styles.titleText}>{title}</Text>
         <Text style={styles.titleDesc}>{description}</Text>
       </View>
-      <View style={styles.barContainer}>
-        <TouchableOpacity
-          style={styles.spacing}
-          onPress={() => {
-            props.setCurrentTab('Book')
-            props.setSelected([])
-            console.log(props.selected)
-          }}>
-          <Text style={styles.text}>BOOK</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.spacing}
-          onPress={() => {
-            props.setCurrentTab('Status')
-            props.setSelected([])
-            console.log(props.selected)
-          }}>
-          <Text style={styles.text}>STATUS</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.spacing}
-          onPress={() => {
-            props.setCurrentTab('Notify')
-            props.setSelected([])
-            console.log(props.selected)
-          }}>
-          <Text style={styles.text}>NOTIFY</Text>
-        </TouchableOpacity>
-      </View>
+      {tabBar}
     </View>
   )
 }
