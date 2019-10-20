@@ -6,8 +6,6 @@ import Header from './Header';
 import Status from './Status';
 
 const Main = () => {
-  // handle for onboarding
-  const [onboardingName, setOnboardingName] = useState('firstOnboarding');
   //array to handle booking
   const [booked, setBooked] = useState([]);
   //handles machine selection

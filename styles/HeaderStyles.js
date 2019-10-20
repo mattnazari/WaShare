@@ -38,7 +38,15 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontFamily: 'CircularStd-Medium',
     fontSize: 12
-  }
+  },
+  iconBar: {
+    paddingBottom: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  iconBarRight: { 
+    flexDirection: 'row', 
+    justifyContent: 'flex-end' }
 })
 
 export default styles;
