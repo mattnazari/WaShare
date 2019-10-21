@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import Header from './Header';
 
-const NotificationItem = props => {
+export const NotificationItem = props => {
   let time = props.date / 60
 
   return (
@@ -16,7 +16,7 @@ const NotificationItem = props => {
 const Notification = props => {
   return (
     <View>
-      <Header name={'Notifications'} />
+      <Header currentTab={'Notifications'} />
       <View style={{ justifyContent: 'center', alignItems: 'center' }}>
         <NotificationItem message={'Hello World!'} date={600}/>
       </View>

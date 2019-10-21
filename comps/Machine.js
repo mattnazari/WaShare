@@ -3,11 +3,10 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/MachineStyles';
 import { book, status, notify } from '../styles/ThemeStyles';
 
-const Dryer = props => {
-  let themeName;
-  let availText = 'Available';
+const Machine = props => {
+  let themeName = '';
 
-  switch (props.name) {
+  switch (props.currentTab) {
     case 'Book':
       themeName = book
       break;
@@ -36,14 +35,25 @@ const Dryer = props => {
     <TouchableOpacity
       style={machineStyle}
       onPress={() => {
+        const idIndex = props.selected.map(machine => { return machine.id; }).indexOf(props.id);
+        const typeIndex = props.selected.map(machine => { return machine.type; }).indexOf(props.type);
+        const data = { id: props.id, lock: props.lock, type: props.type };
+
+        if (idIndex === -1) {
+          console.log('pushing')
+          props.pushSelect(data)
+        } else {
+          console.log('splicing')
+          props.spliceSelect(idIndex)
+        }
         setSelected(!selected)
       }}>
       {selectedBox}
-      <Text style={styles.machine}>Dryer {props.id}</Text>
+      <Text style={styles.machine}>{props.type} {props.id}</Text>
       <View style={[styles.circle, themeName.borderColor]}></View>
-      <Text style={styles.timeRemaining}>{availText}</Text>
+      <Text style={styles.timeRemaining}>{props.machineAvailability}</Text>
     </TouchableOpacity>
   )
 }
 
-export default Dryer;
+export default Machine;
