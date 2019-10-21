@@ -46,6 +46,17 @@ const Header = props => {
     </View>
   );
 
+  let paymentTabBar = (
+    <View style={styles.paymentBarContainer}>
+      <TouchableOpacity>
+        <Text style={styles.text}>Payment Date</Text>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Text style={styles.text}>Payment History</Text>
+      </TouchableOpacity>
+    </View>
+  );
+
   switch (props.currentTab) {
     case 'Book':
       title = 'Book your machines'
@@ -67,6 +78,10 @@ const Header = props => {
       description = 'You can extend the length you booked your machine for. Maximum extention time is 2 hours.'
       themeName = status
       tabBar = null;
+      break;
+    case 'Payment':
+      title = 'Payment Information'
+      tabBar = paymentTabBar
   }
 
   //default state for the left icon is hamburger icon

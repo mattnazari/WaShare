@@ -46,7 +46,18 @@ const styles = StyleSheet.create({
   },
   iconBarRight: { 
     flexDirection: 'row', 
-    justifyContent: 'flex-end' }
+    justifyContent: 'flex-end'
+  },
+
+  // Payment Header Styling
+  paymentBarContainer: {
+    flexDirection: 'row',
+    margin: 10,
+    padding: 10,
+    paddingRight:30,
+    paddingLeft:30,
+    justifyContent:"space-between"
+  },
 })
 
 export default styles;
