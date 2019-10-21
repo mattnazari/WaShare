@@ -2,8 +2,6 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Main from './comps/Main';
 
-import Notification from './comps/Notification';
-
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFF',
@@ -15,7 +13,7 @@ const styles = StyleSheet.create({
 const App = () => {
   return (
     <View style={styles.container}>
-      <Notification />
+      <Main />
     </View>
   )
 }
