@@ -32,7 +32,8 @@ var styles = StyleSheet.create({
   },
 
   formContainer:{
-      padding:40
+      padding:40,
+      paddingTop:50
   },
 
   textInput:{
@@ -45,11 +46,30 @@ var styles = StyleSheet.create({
   },
 
   formRow:{
-      flexDirection:'row'
+      flexDirection:'row',
+      justifyContent:'space-between'
   },
 
   formColumn:{
     flexDirection:'column'
+  },
+
+  footerContainer:{
+     padding:40
+  },
+
+  switchContainer:{
+      flexDirection:'row',
+  },
+
+  inputPadding:{
+      paddingBottom:30
+  },
+
+  textStyling:{
+      paddingBottom:20,
+      fontFamily: 'CircularStd-Book',
+      fontSize:15
   }
 });
 
