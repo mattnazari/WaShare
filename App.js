@@ -4,15 +4,20 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 
 //import screens that need to be added to the navigator stack or drawer
+//first import comps that need to be added to the navigator stack as a screen
 import Main from './comps/Main';
 import Onboarding from './comps/Onboarding';
 import ExtendMachine from './comps/ExtendMachine';
+import Notification from './comps/Notification';
+import Login from './comps/Login';
 
 const AppStackNavigator = createStackNavigator(
   { 
     Main: { screen: Main },
     Onboarding: { screen: Onboarding },
     ExtendMachine: { screen: ExtendMachine },
+    Notification: { screen: Notification },
+    Login: { screen: Login },
     //add screens here that go into normal stack navigation
   },
   {

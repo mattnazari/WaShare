@@ -12,8 +12,9 @@ var styles = StyleSheet.create({
   },
 
   header: {
-    fontSize: 34,
+    fontSize: 30,
     color: '#353535',
+    letterSpacing: -0.6,
     paddingTop: 50,
     fontFamily: 'CircularStd-Black',
   },
@@ -66,7 +67,7 @@ var styles = StyleSheet.create({
     alignSelf: 'stretch',
     alignItems: 'center',
     backgroundColor: '#506BFB',
-    padding: 20,
+    padding: 12,
     borderRadius: 10,
     elevation: 16,
     shadowColor: '#9EC8FF',
@@ -81,7 +82,7 @@ var styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontSize: 17,
-    fontFamily: 'CircularStd-Book'
+    fontFamily: 'CircularStd-Bold'
   },
 
   login: {},
