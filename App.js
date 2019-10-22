@@ -8,14 +8,6 @@ import Onboarding from './comps/Onboarding';
 import Header from './comps/Header';
 import ExtendMachine from './comps/ExtendMachine';
 
-/*const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#FFF',
-    flex: 1,
-    justifyContent: 'center',
-  }
-})*/
-
 const AppNavigator = createStackNavigator(
   { //add screens here
     Main: { screen: Main },
