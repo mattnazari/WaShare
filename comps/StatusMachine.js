@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/StatusMachineStyles';
+import { withNavigation } from 'react-navigation';
 
 const StatusMachine = props => {
   const timer = 10*60
@@ -57,7 +58,7 @@ const StatusMachine = props => {
         <TouchableOpacity
           style={styles.extendContainer}
           onPress={() =>{
-            alert('Extend component')
+            props.navigation.navigate('ExtendMachine')
           }}>
           <Text style={styles.extendText}>EXTEND</Text>
         </TouchableOpacity>
@@ -72,4 +73,4 @@ const StatusMachine = props => {
   )
 }
 
-export default StatusMachine;
+export default withNavigation(StatusMachine);

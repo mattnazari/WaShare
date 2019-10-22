@@ -5,7 +5,7 @@ import Footer from './Footer';
 import Header from './Header';
 import Status from './Status';
 
-const Main = () => {
+const Main = ({ navigation }) => {
   //array to handle booking
   const [booked, setBooked] = useState([]);
   //handles machine selection
@@ -131,7 +131,8 @@ const Main = () => {
         setCurrentTab={setCurrentTab}
         currentTab={currentTab}
         setSelected={setSelected}
-        selected={selected} />
+        selected={selected}
+        navigation={navigation} />
       {home}
     </View>
   )

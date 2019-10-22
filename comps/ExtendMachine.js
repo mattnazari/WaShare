@@ -119,14 +119,20 @@ const ExtendMachine = props => {
           <TouchableOpacity
             style={[styles.extendContainer, { width: null, marginTop: 20 }]}
             onPress={() => {
-              alert('Extend the machine interaction')
+              props.navigation.goBack()
+
+              {//need rest of interaction here to update machine booked time
+              }
+
+              alert('Extend interaction, needs rest of functionality built')
             }}>
             <Text style={styles.extendText}>EXTEND</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.cancelContainer, { width: null, marginVertical: 24 }]}
             onPress={() => {
-              alert('Cancel the extend interaction')
+              props.navigation.goBack()
+              alert('Cancelled the extend interaction, replace this with nicer modal')
             }}>
             <Text style={[styles.extendText, { color: '#6E41DA' }]}>CANCEL</Text>
           </TouchableOpacity>
