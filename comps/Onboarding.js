@@ -37,7 +37,7 @@ const Onboarding = (props) => {
         <TouchableOpacity
           style={styles.buttons}
           onPress={() => {
-            props.navigation.navigate('Main')
+            props.navigation.navigate('Login')
           }}
         >
           <Text style={styles.optionsText}>SKIP</Text>
@@ -87,7 +87,7 @@ const Onboarding = (props) => {
               setY(0)
             }
           }}>
-          <Text style={styles.optionsText}>PREV</Text>
+          <Text style={styles.optionsText}>BACK</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.buttons}
           onPress={() => {
@@ -95,7 +95,7 @@ const Onboarding = (props) => {
               setY(y + 1)
             } else {
               setY(3)
-              props.navigation.navigate('Main')
+              props.navigation.navigate('Login')
             }
           }}>
           <Text style={styles.optionsText}>NEXT</Text>
