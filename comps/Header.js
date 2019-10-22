@@ -80,7 +80,7 @@ const Header = (props) => {
   let leftIcon = (
     <TouchableOpacity
       onPress={() => {
-        alert('Open ham menu')
+        props.navigation.toggleDrawer()
       }}>
       <icon.HamMenu fill={'white'} height={iconDim} width={iconDim} />
     </TouchableOpacity>
