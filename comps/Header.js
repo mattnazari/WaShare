@@ -109,6 +109,8 @@ const Header = (props) => {
               style={{ paddingLeft: 10 }}
               onPress={() => {
                 props.navigation.navigate('Onboarding')
+                console.log('SET THIS TO NOTIFICATIONS SCREEN ONCE MERGED')
+                alert('SET THIS TO NOTIFICATIONS SCREEN ONCE MERGED')
               }}>
               <icon.Notifications fill={'white'} height={iconDim} width={iconDim} />
             </TouchableOpacity>
