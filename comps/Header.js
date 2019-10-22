@@ -63,6 +63,12 @@ const Header = (props) => {
       description = 'Notify users by tapping on a machine. This gives them a notification that their laundry is finished.'
       themeName = notify
       break;
+    case 'Notifications':
+      title = 'Notifications'
+      description = 'View all your recent notifications here. You can also send other users notifications in the notify tab.'
+      themeName = book
+      tabBar = null;
+      break;
     case 'Extend':
       title = 'Extend your machines'
       description = 'You can extend the length you booked your machine for. Maximum extention time is 2 hours.'
