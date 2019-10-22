@@ -46,7 +46,7 @@ const extendstyles = StyleSheet.create({
     fontSize: 48,
     color: '#FFF',
     textAlign: 'center',
-    textAlignVertical: 'auto'
+    marginTop: -9
   },
 })
 

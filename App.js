@@ -28,7 +28,6 @@ const AppStackNavigator = createStackNavigator(
 const AppDrawerNavigator = createDrawerNavigator(
   { 
     Home: { screen: AppStackNavigator },
-    Onboarding: { screen: Onboarding },
     //TO-DO
     //replace these next placeholder screens
     //TO-DO

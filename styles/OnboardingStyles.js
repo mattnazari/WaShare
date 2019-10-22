@@ -15,10 +15,10 @@ var styles = StyleSheet.create({
     },
 
     title: {
-        fontSize: 24,
+        marginVertical: 8,
+        fontSize: 32,
         color: '#353535',
-        marginTop: 60,
-        letterSpacing: -0.6,
+        letterSpacing: -0.85,
         textAlign: 'center',
         fontFamily: 'CircularStd-Black'
     },
@@ -28,15 +28,20 @@ var styles = StyleSheet.create({
         justifyContent: 'flex-end',
     },
 
-    optionsText: {
-        color: '#353535',
+    backText: {
+        color: '#B1B1B1',
+        fontSize: 14,
+        fontFamily: 'CircularStd-Book'
+    },
+    nextText: {
+        color: 'white',
         fontSize: 14,
         fontFamily: 'CircularStd-Black'
     },
-
     nextAndPrev: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        alignItems: 'center'
     },
 
     descTxt: {
@@ -45,15 +50,7 @@ var styles = StyleSheet.create({
         letterSpacing: -0.4,
         color: '#353535',
         textAlign: 'center',
-        marginTop: 30,
         fontFamily: 'CircularStd-Book'
-    },
-
-    descTxtCont: {
-        width: 260,
-        height: 100,
-        justifyContent: 'center',
-        alignItems: 'center'
     },
 
     buttonsCont: {
@@ -64,8 +61,8 @@ var styles = StyleSheet.create({
     },
 
     uncheckedButtons: {
-        width: 15,
-        height: 15,
+        width: 12,
+        height: 12,
         borderRadius: 100,
         borderColor: '#506BFB',
         borderStyle: 'solid',
@@ -73,8 +70,8 @@ var styles = StyleSheet.create({
     },
 
     checkedButtons: {
-        width: 15,
-        height: 15,
+        width: 12,
+        height: 12,
         borderRadius: 100,
         borderColor: '#506BFB',
         borderStyle: 'solid',
@@ -85,7 +82,21 @@ var styles = StyleSheet.create({
         resizeMode: 'contain',
         width: 330,
         height: 330
-    }
+    },
+    button: {
+        paddingVertical: 14,
+        paddingHorizontal: 24,
+        backgroundColor: '#506BFB',
+        borderRadius: 10,
+        elevation: 16,
+        shadowColor: "#9EC8FF",
+        shadowOffset: {
+            width: 0,
+            height: 10,
+        },
+        shadowOpacity: 0.95,
+        shadowRadius: 8,
+    },
 });
 
 export default styles;
