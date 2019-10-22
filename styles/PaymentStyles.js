@@ -1,13 +1,13 @@
 import {StyleSheet} from 'react-native';
 
 var styles = StyleSheet.create({
-  background:{
+  background: {
     flex: 1,
     justifyContent: 'space-between',
     margin: 0,
     alignSelf: 'stretch',
     fontFamily: 'CircularStd-Book',
-  },  
+  },
 
   button: {
     alignSelf: 'stretch',
@@ -28,49 +28,80 @@ var styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontSize: 17,
-    fontFamily: 'CircularStd-Book'
+    fontFamily: 'CircularStd-Book',
   },
 
-  formContainer:{
-      padding:40,
-      paddingTop:50
+  formContainer: {
+    padding: 40,
+    paddingTop: 50,
   },
 
-  textInput:{
-      alignSelf:'stretch',
-      height:50,
-      borderStyle:'solid',
-      borderColor:'#506BFB',
-      borderWidth:1 ,
-      borderRadius:10
+  textInput: {
+    alignSelf: 'stretch',
+    height: 50,
+    borderStyle: 'solid',
+    borderColor: '#506BFB',
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 10,
   },
 
-  formRow:{
-      flexDirection:'row',
-      justifyContent:'space-between'
+  cvv: {
+    alignSelf: 'stretch',
+    height: 50,
+    borderStyle: 'solid',
+    borderColor: '#506BFB',
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 10,
+    width:127
   },
 
-  formColumn:{
-    flexDirection:'column'
+  monthAndYear:{
+    alignSelf: 'stretch',
+    height: 50,
+    borderStyle: 'solid',
+    borderColor: '#506BFB',
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 10,
+    width:144
   },
 
-  footerContainer:{
-     padding:40
+  formRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 
-  switchContainer:{
-      flexDirection:'row',
+  formColumn: {
+    flexDirection: 'column',
   },
 
-  inputPadding:{
-      paddingBottom:30
+  footerContainer: {
+    padding: 40,
   },
 
-  textStyling:{
-      paddingBottom:20,
-      fontFamily: 'CircularStd-Book',
-      fontSize:15
-  }
+  switchContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flex: 1,
+    alignItems: 'center',
+    paddingBottom: 60,
+  },
+
+  inputPadding: {
+    paddingBottom: 30,
+  },
+
+  textStyling: {
+    paddingBottom: 20,
+    fontFamily: 'CircularStd-Book',
+    fontSize: 15,
+  },
+
+  switch: {
+    transform: [{scaleX: 0.6}, {scaleY: 0.6}],
+  },
 });
 
 export default styles;

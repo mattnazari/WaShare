@@ -54,10 +54,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     margin: 10,
     padding: 10,
-    paddingRight:30,
+    paddingRight:50,
     paddingLeft:30,
     justifyContent:"space-between"
   },
+
+
 })
 
 export default styles;

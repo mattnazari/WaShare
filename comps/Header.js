@@ -82,6 +82,7 @@ const Header = props => {
     case 'Payment':
       title = 'Payment Information'
       tabBar = paymentTabBar
+      themeName = book
   }
 
   //default state for the left icon is hamburger icon
