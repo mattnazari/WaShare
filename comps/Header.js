@@ -3,11 +3,12 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/HeaderStyles';
 import { book, status, notify } from '../styles/ThemeStyles';
 import * as icon from './SVGComps';
+import { withNavigation } from 'react-navigation';
 
 //dimension for icons in header (ham menu, notifications, help)
 const iconDim = 20
 
-const Header = props => {
+const Header = (props) => {
   //should actually rewrite this to use useState hooks
   let title = '';
   let description = '';
@@ -83,7 +84,7 @@ const Header = props => {
     leftIcon = (
       <TouchableOpacity
         onPress={() => {
-          alert('Go back')
+          props.navigation.goBack()
         }}>
         <icon.Back fill={'white'} height={iconDim} width={iconDim} />
       </TouchableOpacity>
@@ -107,7 +108,7 @@ const Header = props => {
             <TouchableOpacity
               style={{ paddingLeft: 10 }}
               onPress={() => {
-                alert('Navigate to notification page')
+                props.navigation.navigate('Onboarding')
               }}>
               <icon.Notifications fill={'white'} height={iconDim} width={iconDim} />
             </TouchableOpacity>
@@ -121,4 +122,4 @@ const Header = props => {
   )
 }
 
-export default Header;
+export default withNavigation(Header);

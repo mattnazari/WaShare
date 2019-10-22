@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from '../styles/OnboardingStyles';
 
-const Onboarding = props => {
+const Onboarding = (props) => {
   const [y, setY] = useState(0) //setting the initial state to the first object of the array, y = 0
   const onboardingArray = [
     {
@@ -34,7 +34,12 @@ const Onboarding = props => {
   return (
     <View style={styles.background}>
       <View style={styles.skip}>
-        <TouchableOpacity style={styles.buttons}>
+        <TouchableOpacity
+          style={styles.buttons}
+          onPress={() => {
+            props.navigation.navigate('Main')
+          }}
+        >
           <Text style={styles.optionsText}>SKIP</Text>
         </TouchableOpacity>
       </View>
@@ -90,6 +95,7 @@ const Onboarding = props => {
               setY(y + 1)
             } else {
               setY(3)
+              props.navigation.navigate('Main')
             }
           }}>
           <Text style={styles.optionsText}>NEXT</Text>
