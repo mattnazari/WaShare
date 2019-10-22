@@ -47,8 +47,8 @@ var styles = StyleSheet.create({
     descTxt: {
         width: 260,
         fontSize: 16,
-        letterSpacing: -0.4,
-        color: '#353535',
+        letterSpacing: -0.2,
+        color: '#5A5A5A',
         textAlign: 'center',
         fontFamily: 'CircularStd-Book'
     },
