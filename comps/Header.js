@@ -74,6 +74,12 @@ const Header = (props) => {
       description = 'You can extend the length you booked your machine for. Maximum extention time is 2 hours.'
       themeName = status
       tabBar = null;
+      break;
+    case 'Report':
+      title = 'Report machines'
+      description = 'You can report machines that are broken or are out of service. Machine companies will be contacted directly.'
+      themeName = book
+      tabBar = null;
   }
 
   //default state for the left icon is hamburger icon

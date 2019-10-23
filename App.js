@@ -10,6 +10,7 @@ import Onboarding from './comps/Onboarding';
 import ExtendMachine from './comps/ExtendMachine';
 import Notification from './comps/Notification';
 import Login from './comps/Login';
+import Report from './comps/Report';
 
 const AppStackNavigator = createStackNavigator(
   { 
@@ -31,7 +32,7 @@ const AppDrawerNavigator = createDrawerNavigator(
     //TO-DO
     //replace these next placeholder screens
     //TO-DO
-    'Report Machines': { screen: Onboarding },
+    'Report Machines': { screen: Report },
     'Payment Info': { screen: Onboarding },
     Help: { screen: Onboarding },
     //add screens here that go into the hamburger menu
