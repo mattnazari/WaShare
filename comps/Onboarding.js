@@ -3,6 +3,9 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from '../styles/OnboardingStyles';
 
 const Onboarding = (props) => {
+  let back = 'BACK'
+  let next = 'NEXT'
+
   const [y, setY] = useState(0) //setting the initial state to the first object of the array, y = 0
   const onboardingArray = [
     {
@@ -30,6 +33,13 @@ const Onboarding = (props) => {
       buttonStyle: styles.checkedButtons
     },
   ]
+
+  if(y === 0){
+    back = null
+  }
+  if(y === 3){
+    next = 'START'
+  }
 
   return (
     <View style={styles.background}>
@@ -87,7 +97,7 @@ const Onboarding = (props) => {
               setY(0)
             }
           }}>
-          <Text style={styles.backText}>BACK</Text>
+          <Text style={styles.backText}>{back}</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}
           onPress={() => {
@@ -98,7 +108,7 @@ const Onboarding = (props) => {
               props.navigation.navigate('Login')
             }
           }}>
-          <Text style={[styles.nextText]}>NEXT</Text>
+          <Text style={[styles.nextText]}>{next}</Text>
         </TouchableOpacity>
       </View>
     </View>

@@ -134,7 +134,7 @@ const ExtendMachine = props => {
               props.navigation.goBack()
               alert('Cancelled the extend interaction, replace this with nicer modal')
             }}>
-            <Text style={[styles.extendText, { color: '#6E41DA' }]}>CANCEL</Text>
+            <Text style={[styles.extendText, { color: '#6E41DA', fontFamily: 'CircularStd-Book' }]}>CANCEL</Text>
           </TouchableOpacity>
         </View>
       </View>

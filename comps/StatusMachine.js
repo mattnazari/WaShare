@@ -37,7 +37,7 @@ const StatusMachine = props => {
             console.log(props.booked)
             alert('Need to re-render page to remove Machine that was removed from booked array')
           }}>
-          <Text style={[styles.extendText, { color: '#6E41DA' }]}>CANCEL</Text>
+          <Text style={[styles.extendText, { color: '#6E41DA', fontFamily: 'CircularStd-Book' }]}>CANCEL</Text>
         </TouchableOpacity>
       </View>
     )
