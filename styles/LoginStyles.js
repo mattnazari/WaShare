@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 var styles = StyleSheet.create({
   background: {
@@ -10,13 +10,17 @@ var styles = StyleSheet.create({
     alignSelf: 'stretch',
     fontFamily: 'CircularStd-Book',
   },
-
-  header: {
-    fontSize: 30,
-    color: '#353535',
-    letterSpacing: -0.6,
-    paddingTop: 50,
+  welcomeText: {
+    fontSize: 52,
+    color: '#191919',
+    letterSpacing: -1.85,
     fontFamily: 'CircularStd-Black',
+  },
+  header: {
+    fontSize: 24,
+    color: '#A8A8A8',
+    letterSpacing: -0.6,
+    fontFamily: 'CircularStd-Book',
   },
 
   inputTitle: {
@@ -28,6 +32,7 @@ var styles = StyleSheet.create({
   txtInput: {
     alignSelf: 'stretch',
     height: 40,
+    padding: 10,
     borderBottomWidth: 1,
     borderBottomColor: 'black',
     marginBottom: 40,

@@ -16,7 +16,10 @@ const Login = props => {
           }}>
           <Back fill={'black'} height={25} width={25} />
         </TouchableOpacity>
-        <Text style={styles.header}>Where do you live?</Text>
+        <View style={{ marginTop: 50 }}>
+          <Text style={styles.welcomeText}>Welcome,</Text>
+          <Text style={styles.header}>Where do you live?</Text>
+        </View>
       </View>
 
       <View>
