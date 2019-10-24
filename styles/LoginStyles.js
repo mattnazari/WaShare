@@ -13,7 +13,7 @@ var styles = StyleSheet.create({
   welcomeText: {
     fontSize: 52,
     color: '#191919',
-    letterSpacing: -0.6,
+    letterSpacing: -1.85,
     fontFamily: 'CircularStd-Black',
   },
   header: {
