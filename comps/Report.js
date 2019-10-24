@@ -16,7 +16,7 @@ const Report = () => {
     setSelected(arr);
     console.log(selected)
   }
-  
+
   function spliceSelect(id) {
     console.log('INDIVIDUAL machine ' + id)
     var arr = selected;
@@ -28,24 +28,26 @@ const Report = () => {
   return (
     <View>
       <Header currentTab={currentTab} />
-      <MachineContainer
-        selected={selected}
-        setSelected={setSelected}
-        currentTab={currentTab}
-        machines={washers}
-        type={'Washer'}
-        pushSelect={pushSelect}
-        spliceSelect={spliceSelect}
-      />
-      <MachineContainer
-        selected={selected}
-        setSelected={setSelected}
-        currentTab={currentTab}
-        machines={dryers}
-        type={'Dryer'}
-        pushSelect={pushSelect}
-        spliceSelect={spliceSelect}
-      />
+      <View style={{ marginTop: 20 }}>
+        <MachineContainer
+          selected={selected}
+          setSelected={setSelected}
+          currentTab={currentTab}
+          machines={washers}
+          type={'Washer'}
+          pushSelect={pushSelect}
+          spliceSelect={spliceSelect}
+        />
+        <MachineContainer
+          selected={selected}
+          setSelected={setSelected}
+          currentTab={currentTab}
+          machines={dryers}
+          type={'Dryer'}
+          pushSelect={pushSelect}
+          spliceSelect={spliceSelect}
+        />
+      </View>
       <Footer currentTab={currentTab} />
     </View>
   );
