@@ -15,6 +15,10 @@ const Machine = props => {
       break;
     case 'Notify':
       themeName = notify
+      break;
+    case 'Report':
+      themeName = book
+      break;
   }
 
   //default style for unselected machines
