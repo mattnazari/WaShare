@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     padding: 24,
-    marginTop: -20
   },
   container: {
     alignItems: 'center',
