@@ -11,6 +11,7 @@ import ExtendMachine from './comps/ExtendMachine';
 import Notification from './comps/Notification';
 import Login from './comps/Login';
 import Report from './comps/Report';
+import ModalScreen from './comps/ModalScreen';
 
 const AppStackNavigator = createStackNavigator(
   { 
@@ -19,6 +20,7 @@ const AppStackNavigator = createStackNavigator(
     ExtendMachine: { screen: ExtendMachine },
     Notification: { screen: Notification },
     Login: { screen: Login },
+    ModalScreen: { screen: ModalScreen },
     //add screens here that go into normal stack navigation
   },
   {

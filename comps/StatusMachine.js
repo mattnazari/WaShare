@@ -4,7 +4,7 @@ import styles from '../styles/StatusMachineStyles';
 import { withNavigation } from 'react-navigation';
 
 const StatusMachine = props => {
-  const timer = 10*60
+  const timer = 10 * 60
   let machine;
 
   if (props.lockState === true) {
@@ -15,12 +15,16 @@ const StatusMachine = props => {
           <Text style={styles.subText}>LOCKED</Text>
         </View>
         <View>
-          <Text style={styles.subText}>Time left to unlock: {timer/60} minutes</Text>
+          <Text style={styles.subText}>Time left to unlock: {timer / 60} minutes</Text>
         </View>
         <TouchableOpacity
           style={styles.extendContainer}
           onPress={() => {
-            alert('Confirm unlock popup modal')
+            props.navigation.navigate('ModalScreen', {
+              title: 'Machine unlocked',
+              desc: 'You have unlocked this machine.',
+              image: require('../assets/Images/modalUnlock.png')
+            })
             props.setLockState(false)
           }}>
           <Text style={styles.extendText}>UNLOCK</Text>
@@ -57,7 +61,7 @@ const StatusMachine = props => {
         </View>
         <TouchableOpacity
           style={styles.extendContainer}
-          onPress={() =>{
+          onPress={() => {
             props.navigation.navigate('ExtendMachine')
           }}>
           <Text style={styles.extendText}>EXTEND</Text>

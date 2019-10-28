@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Header from './Header';
 import styles, { colors } from '../styles/StatusMachineStyles';
+import ModalScreen from './ModalScreen';
 
 const extendstyles = StyleSheet.create({
   container: {
@@ -119,12 +120,13 @@ const ExtendMachine = props => {
           <TouchableOpacity
             style={[styles.extendContainer, { width: null, marginTop: 20 }]}
             onPress={() => {
-              props.navigation.goBack()
+              props.navigation.navigate('ModalScreen', {
+                title: 'Machine extended',
+                desc: 'You have added ' + extendCount + ' minutes to this machine.',
+                image: require('../assets/Images/modalExtend.png')
+              })
 
-              {//need rest of interaction here to update machine booked time
-              }
-
-              alert('Extend interaction, needs rest of functionality built')
+              {/*need rest of interaction here to update machine booked time*/ }
             }}>
             <Text style={styles.extendText}>EXTEND</Text>
           </TouchableOpacity>
@@ -132,13 +134,13 @@ const ExtendMachine = props => {
             style={[styles.cancelContainer, { width: null, marginVertical: 24 }]}
             onPress={() => {
               props.navigation.goBack()
-              alert('Cancelled the extend interaction, replace this with nicer modal')
+              alert('Cancelled the extend interaction, REPLACE THIS ALERT')
             }}>
             <Text style={[styles.extendText, { color: '#6E41DA', fontFamily: 'CircularStd-Book' }]}>CANCEL</Text>
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </View >
   )
 }
 
