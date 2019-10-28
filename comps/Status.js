@@ -12,7 +12,6 @@ const main = StyleSheet.create({
   },
   scrollContainer: {
     padding: 24,
-    marginTop: -20
   },
 })
 
@@ -58,7 +57,7 @@ const Status = props => {
   }
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, marginTop: -20 }}>
       {initialStatus}
     </View>
   )
