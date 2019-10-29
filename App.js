@@ -12,6 +12,10 @@ import Notification from './comps/Notification';
 import Login from './comps/Login';
 import Report from './comps/Report';
 import PaymentHistory from './comps/PaymentHistory';
+import Forgot from './comps/Forgot';
+import Contact from './comps/Contact';
+import Verification from './comps/Verification';
+import Reset from './comps/Reset'
 
 const AppStackNavigator = createStackNavigator(
   { 
@@ -20,7 +24,11 @@ const AppStackNavigator = createStackNavigator(
     ExtendMachine: { screen: ExtendMachine },
     Notification: { screen: Notification },
     Login: { screen: Login },
-    Payment: { screen: PaymentHistory}
+    Payment: { screen: PaymentHistory},
+    Forgot: {screen: Forgot},
+    Contact: {screen: Contact},
+    Verification: {screen: Verification},
+    Reset: {screen: Reset},
     //add screens here that go into normal stack navigation
   },
   {
