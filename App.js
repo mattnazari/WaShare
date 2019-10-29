@@ -43,7 +43,10 @@ const AppDrawerNavigator = createDrawerNavigator(
     hideStatusBar: true,
     statusBarAnimation: 'slide',
     drawerBackgroundColor: 'rgba(255, 255, 255, 0)',
-    contentComponent: DrawerComponent
+    contentComponent: DrawerComponent,
+    contentOptions: {
+      activeBackgroundColor: null
+    }
   })
 
 const AppContainer = createAppContainer(AppDrawerNavigator);
