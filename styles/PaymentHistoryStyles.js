@@ -6,16 +6,27 @@ var styles = StyleSheet.create({
   },
 
   mainContainer: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
     margin: 24,
   },
 
-  textRow: {
+  scrollViewHeight:{
+    flex:1,
+  },
+
+  titleTextRow:{
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignSelf: 'stretch',
+    marginBottom:20
+  },
+
+  textRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignSelf: 'stretch'
   },
 
   titleText: {
@@ -31,7 +42,7 @@ var styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: '#FFFFFF',
     padding: 15,
-    marginTop: 30,
+    marginTop: 10,
     elevation: 16,
     marginVertical: 8,
     shadowColor: '#506BFB',
@@ -57,7 +68,7 @@ var styles = StyleSheet.create({
     letterSpacing: -0.4,
     color: '#8D97CC',
     marginTop: 10,
-  },
+  }
 });
 
 export default styles;
