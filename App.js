@@ -45,7 +45,10 @@ const AppDrawerNavigator = createDrawerNavigator(
     drawerBackgroundColor: 'rgba(255, 255, 255, 0)',
     contentComponent: DrawerComponent,
     contentOptions: {
-      activeBackgroundColor: null
+      activeBackgroundColor: null,
+      labelStyle: {
+        fontFamily: 'CircularStd-Bold'
+      }
     }
   })
 
