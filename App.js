@@ -11,6 +11,7 @@ import ExtendMachine from './comps/ExtendMachine';
 import Notification from './comps/Notification';
 import Login from './comps/Login';
 import Report from './comps/Report';
+import PaymentHistory from './comps/PaymentHistory';
 
 const AppStackNavigator = createStackNavigator(
   { 
@@ -19,6 +20,7 @@ const AppStackNavigator = createStackNavigator(
     ExtendMachine: { screen: ExtendMachine },
     Notification: { screen: Notification },
     Login: { screen: Login },
+    Payment: { screen: PaymentHistory}
     //add screens here that go into normal stack navigation
   },
   {
@@ -33,7 +35,7 @@ const AppDrawerNavigator = createDrawerNavigator(
     //replace these next placeholder screens
     //TO-DO
     'Report Machines': { screen: Report },
-    'Payment Info': { screen: Onboarding },
+    'Payment Info': { screen: PaymentHistory },
     Help: { screen: Onboarding },
     //add screens here that go into the hamburger menu
   },
