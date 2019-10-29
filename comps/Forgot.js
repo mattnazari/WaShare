@@ -20,6 +20,8 @@ const Forgot = props => {
             {'Enter your account information \nto get the contact details'}
           </Text>
         </View>
+
+        {/* Main Body */}
         <View style={{marginTop: 50}}>
           <Text style={styles.inputTitles}>Unit Number</Text>
           <TextInput style={styles.input} />
