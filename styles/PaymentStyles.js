@@ -29,6 +29,7 @@ var styles = StyleSheet.create({
     color: 'white',
     fontSize: 17,
     fontFamily: 'CircularStd-Book',
+    letterSpacing: -0.4,
   },
 
   formContainer: {
@@ -97,6 +98,7 @@ var styles = StyleSheet.create({
     paddingBottom: 20,
     fontFamily: 'CircularStd-Book',
     fontSize: 15,
+    letterSpacing: -0.4,
   },
 
   switch: {
