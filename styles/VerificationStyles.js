@@ -66,6 +66,39 @@ var styles = StyleSheet.create({
     fontSize: 17,
     fontFamily: 'CircularStd-Bold'
   },
+
+  verifyText:{
+    fontFamily: 'CircularStd-Medium',
+    color:'#777777',
+    fontSize:20,
+    paddingBottom:10
+  },
+
+  greyText:{
+    fontFamily: 'CircularStd-Book',
+    color:'#9F9F9F',
+    fontSize:14,
+    paddingRight:15
+  },
+
+  resend:{
+    fontFamily: 'CircularStd-Black',
+    color:'#506BFB',
+    fontSize:14,
+  },
+
+  rowContainer:{
+      flexDirection:'row',
+      justifyContent:'flex-end',
+      paddingTop:15
+  },
+
+  input:{
+      borderBottomWidth:1,
+      borderBottomColor:'#787878',
+      height:50,
+      paddingTop:10
+  }
 });
 
 export default styles;

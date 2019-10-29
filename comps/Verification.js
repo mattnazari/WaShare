@@ -21,28 +21,31 @@ const Verification = props => {
             {"A code has been sent to your phone.\nEnter that code here."}
           </Text>
         </View>
+        </View>
 
-        <View>
-            <Text>Enter verification number</Text>
+        {/* Verification Input */}
+        <View style={styles.container}>
+            <Text style={styles.verifyText}>Enter verification number</Text>
             <TextInput
+            style={styles.input}
+            maxLength={4}
             />
-            <View>
-            <Text>Didn't get a code?</Text>
+            <View style={styles.rowContainer}>
+            <Text style={styles.greyText}>Didn't get a code?</Text>
             <TouchableOpacity>
-                <Text>Resend</Text>
+                <Text style={styles.resend}>Resend</Text>
             </TouchableOpacity>
             </View>
         </View>
 
         {/* Bottom Buttons */}
-      <View style={styles.send}>
+      <View>
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Verify</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.cancelButton}>
           <Text style={styles.cancelText}>Cancel</Text>
         </TouchableOpacity>
-      </View>
       </View>
 
       </View>
