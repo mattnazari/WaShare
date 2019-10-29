@@ -40,10 +40,20 @@ const Verification = props => {
 
         {/* Bottom Buttons */}
       <View>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity 
+        style={styles.button}
+        onPress={() => {
+          props.navigation.navigate('Reset')
+        }}
+        >
           <Text style={styles.buttonText}>VERIFY</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.cancelButton}>
+        <TouchableOpacity 
+        style={styles.cancelButton}
+        onPress={() => {
+          props.navigation.navigate('Login')
+        }}
+        >
           <Text style={styles.cancelText}>CANCEL</Text>
         </TouchableOpacity>
       </View>

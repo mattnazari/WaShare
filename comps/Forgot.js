@@ -32,7 +32,12 @@ const Forgot = props => {
         </View>
       </View>
       <View style={styles.send}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity 
+        style={styles.button}
+        onPress={() => {
+          props.navigation.navigate('Contact')
+        }}
+        >
           <Text style={styles.buttonText}>SEND</Text>
         </TouchableOpacity>
       </View>

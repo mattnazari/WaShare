@@ -58,10 +58,20 @@ const Contact = props => {
 
       {/* Bottom Buttons */}
       <View style={styles.send}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity 
+        style={styles.button}
+        onPress={() => {
+            props.navigation.navigate('Verification')
+          }}
+        >
           <Text style={styles.buttonText}>SEND</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.cancelButton}>
+        <TouchableOpacity 
+        style={styles.cancelButton}
+        onPress={() => {
+            props.navigation.navigate('Login')
+          }}
+        >
           <Text style={styles.cancelText}>CANCEL</Text>
         </TouchableOpacity>
       </View>
