@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, View, Image, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Dimensions, ScrollView, View, Image, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import styles from '../styles/FooterStyles';
 import { status } from '../styles/ThemeStyles';
 import StatusMachine from './StatusMachine';
@@ -14,6 +14,8 @@ const main = StyleSheet.create({
     padding: 24,
   },
 })
+
+const { width } = Dimensions.get('window');
 
 const Status = props => {
   //default page when no machines are in use
@@ -42,7 +44,7 @@ const Status = props => {
         scrollEnabled
         decelerationRate={0}
         snapToAlignment={"start"}
-        snapToInterval={280}
+        snapToInterval={width - 40 * 2}
         scrollEventThrottle={16}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}

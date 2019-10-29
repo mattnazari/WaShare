@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 
 export const colors = {
   main: '#6E41DA',
@@ -6,12 +6,14 @@ export const colors = {
   light: '#A49FCD'
 }
 
+const { width } = Dimensions.get('window');
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-between',
-    width: 280,
+    width: width - (50 * 2),
     height: 450,
     backgroundColor: "#FFF",
     padding: 24,

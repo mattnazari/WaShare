@@ -13,7 +13,7 @@ const MachineContainer = props => {
           directionalLockEnabled
           decelerationRate={0}
           snapToAlignment={"start"}
-          snapToInterval={130}
+          snapToInterval={150}
           scrollEventThrottle={16}
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
