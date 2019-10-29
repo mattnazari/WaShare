@@ -1,10 +1,10 @@
 import React from 'react';
+import { SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 
-//import screens that need to be added to the navigator stack or drawer
-//first import comps that need to be added to the navigator stack as a screen
+//first import comps that need to be added to the navigator or drawer
 import Main from './comps/Main';
 import Onboarding from './comps/Onboarding';
 import ExtendMachine from './comps/ExtendMachine';
@@ -12,6 +12,25 @@ import Notification from './comps/Notification';
 import Login from './comps/Login';
 import Report from './comps/Report';
 import PaymentHistory from './comps/PaymentHistory';
+
+const CustomDrawerContentComponent = props => (
+  <ScrollView style={styles.container}>
+    <SafeAreaView
+      forceInset={{ top: 'always', horizontal: 'never' }}
+    >
+      <DrawerItems {...props} />
+    </SafeAreaView>
+  </ScrollView>
+);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    borderBottomRightRadius: 50,
+    borderTopRightRadius: 50,
+    backgroundColor:'white',
+  },
+});
 
 const AppStackNavigator = createStackNavigator(
   { 
@@ -41,7 +60,9 @@ const AppDrawerNavigator = createDrawerNavigator(
   },
   {
     hideStatusBar: true,
-    statusBarAnimation: 'slide'
+    statusBarAnimation: 'slide',
+    drawerBackgroundColor: 'rgba(255, 255, 255, 0)',
+    contentComponent: CustomDrawerContentComponent
   })
 
 const AppContainer = createAppContainer(AppDrawerNavigator);
