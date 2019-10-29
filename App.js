@@ -1,8 +1,8 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import { DrawerComponent } from './comps/DrawerComponent'
 
 //first import comps that need to be added to the navigator or drawer
 import Main from './comps/Main';
@@ -13,33 +13,14 @@ import Login from './comps/Login';
 import Report from './comps/Report';
 import PaymentHistory from './comps/PaymentHistory';
 
-const CustomDrawerContentComponent = props => (
-  <ScrollView style={styles.container}>
-    <SafeAreaView
-      forceInset={{ top: 'always', horizontal: 'never' }}
-    >
-      <DrawerItems {...props} />
-    </SafeAreaView>
-  </ScrollView>
-);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    borderBottomRightRadius: 50,
-    borderTopRightRadius: 50,
-    backgroundColor:'white',
-  },
-});
-
 const AppStackNavigator = createStackNavigator(
-  { 
+  {
     Main: { screen: Main },
     Onboarding: { screen: Onboarding },
     ExtendMachine: { screen: ExtendMachine },
     Notification: { screen: Notification },
     Login: { screen: Login },
-    Payment: { screen: PaymentHistory}
+    Payment: { screen: PaymentHistory }
     //add screens here that go into normal stack navigation
   },
   {
@@ -48,7 +29,7 @@ const AppStackNavigator = createStackNavigator(
   });
 
 const AppDrawerNavigator = createDrawerNavigator(
-  { 
+  {
     Home: { screen: AppStackNavigator },
     //TO-DO
     //replace these next placeholder screens
@@ -62,7 +43,7 @@ const AppDrawerNavigator = createDrawerNavigator(
     hideStatusBar: true,
     statusBarAnimation: 'slide',
     drawerBackgroundColor: 'rgba(255, 255, 255, 0)',
-    contentComponent: CustomDrawerContentComponent
+    contentComponent: DrawerComponent
   })
 
 const AppContainer = createAppContainer(AppDrawerNavigator);
