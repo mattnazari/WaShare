@@ -38,7 +38,14 @@ const Status = props => {
       <ScrollView
         horizontal
         directionalLockEnabled
+        pagingEnabled
+        scrollEnabled
+        decelerationRate={0}
+        snapToAlignment={"start"}
+        snapToInterval={280}
+        scrollEventThrottle={16}
         showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
         contentContainerStyle={main.scrollContainer}>
         {props.booked.map((machine) =>
           <StatusMachine
