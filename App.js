@@ -3,8 +3,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 
-//import screens that need to be added to the navigator stack or drawer
-//first import comps that need to be added to the navigator stack as a screen
+//first import comps that need to be added to the navigator stack
 import Main from './comps/Main';
 import Onboarding from './comps/Onboarding';
 import ExtendMachine from './comps/ExtendMachine';
