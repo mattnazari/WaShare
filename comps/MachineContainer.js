@@ -11,7 +11,12 @@ const MachineContainer = props => {
         <ScrollView
           horizontal
           directionalLockEnabled
+          decelerationRate={0}
+          snapToAlignment={"start"}
+          snapToInterval={150}
+          scrollEventThrottle={16}
           showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.scrollContainer}>
           {props.machines.map((machine) =>
             <Machine key={machine.id}
