@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 var styles = StyleSheet.create({
   background: {
@@ -10,12 +10,17 @@ var styles = StyleSheet.create({
     alignSelf: 'stretch',
     fontFamily: 'CircularStd-Book',
   },
-
-  header: {
-    fontSize: 34,
-    color: '#353535',
-    paddingTop: 50,
+  welcomeText: {
+    fontSize: 52,
+    color: '#191919',
+    letterSpacing: -1.85,
     fontFamily: 'CircularStd-Black',
+  },
+  header: {
+    fontSize: 24,
+    color: '#A8A8A8',
+    letterSpacing: -0.6,
+    fontFamily: 'CircularStd-Book',
   },
 
   inputTitle: {
@@ -27,6 +32,7 @@ var styles = StyleSheet.create({
   txtInput: {
     alignSelf: 'stretch',
     height: 40,
+    padding: 10,
     borderBottomWidth: 1,
     borderBottomColor: 'black',
     marginBottom: 40,
@@ -66,7 +72,7 @@ var styles = StyleSheet.create({
     alignSelf: 'stretch',
     alignItems: 'center',
     backgroundColor: '#506BFB',
-    padding: 20,
+    padding: 12,
     borderRadius: 10,
     elevation: 16,
     shadowColor: '#9EC8FF',
@@ -81,7 +87,7 @@ var styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontSize: 17,
-    fontFamily: 'CircularStd-Book'
+    fontFamily: 'CircularStd-Bold'
   },
 
   login: {},

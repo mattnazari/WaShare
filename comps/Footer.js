@@ -37,8 +37,11 @@ const Footer = (props) => {
           if (props.currentTab == 'Notify') {
             alert(JSON.stringify(props.selected))
           }
+          if (props.currentTab == 'Report') {
+            alert('REPORT INTERACTION')
+          }
         }}>
-        <Text style={styles.text}>{props.currentTab} selected machines</Text>
+        <Text style={styles.text}>{props.currentTab.toUpperCase()}</Text>
       </TouchableOpacity>
     </View>
   )

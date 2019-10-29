@@ -3,11 +3,12 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/HeaderStyles';
 import { book, status, notify } from '../styles/ThemeStyles';
 import * as icon from './SVGComps';
+import { withNavigation } from 'react-navigation';
 
 //dimension for icons in header (ham menu, notifications, help)
 const iconDim = 20
 
-const Header = props => {
+const Header = (props) => {
   //should actually rewrite this to use useState hooks
   let title = '';
   let description = '';
@@ -73,6 +74,12 @@ const Header = props => {
       description = 'Notify users by tapping on a machine. This gives them a notification that their laundry is finished.'
       themeName = notify
       break;
+    case 'Notifications':
+      title = 'Notifications'
+      description = 'View all your recent notifications here. You can also send other users notifications in the notify tab.'
+      themeName = book
+      tabBar = null;
+      break;
     case 'Extend':
       title = 'Extend your machines'
       description = 'You can extend the length you booked your machine for. Maximum extention time is 2 hours.'
@@ -83,23 +90,29 @@ const Header = props => {
       title = 'Payment Information'
       tabBar = paymentTabBar
       themeName = book
+      break;
+    case 'Report':
+      title = 'Report machines'
+      description = 'You can report machines that are broken or are out of service. Machine companies will be contacted directly.'
+      themeName = book
+      tabBar = null;
   }
 
   //default state for the left icon is hamburger icon
   let leftIcon = (
     <TouchableOpacity
       onPress={() => {
-        alert('Open ham menu')
+        props.navigation.toggleDrawer()
       }}>
       <icon.HamMenu fill={'white'} height={iconDim} width={iconDim} />
     </TouchableOpacity>
   );
 
-  if (props.currentTab == 'Extend') {
+  if (props.currentTab == 'Extend' || props.currentTab == 'Notifications') {
     leftIcon = (
       <TouchableOpacity
         onPress={() => {
-          alert('Go back')
+          props.navigation.goBack()
         }}>
         <icon.Back fill={'white'} height={iconDim} width={iconDim} />
       </TouchableOpacity>
@@ -123,7 +136,7 @@ const Header = props => {
             <TouchableOpacity
               style={{ paddingLeft: 10 }}
               onPress={() => {
-                alert('Navigate to notification page')
+                props.navigation.navigate('Notification')
               }}>
               <icon.Notifications fill={'white'} height={iconDim} width={iconDim} />
             </TouchableOpacity>
@@ -137,4 +150,4 @@ const Header = props => {
   )
 }
 
-export default Header;
+export default withNavigation(Header);

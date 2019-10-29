@@ -1,40 +1,57 @@
-import React, {useState} from 'react';
-import { View, Text, TextInput, TouchableOpacity, CheckBox, Image } from 'react-native';
+import React from 'react';
+import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import styles from '../styles/LoginStyles';
+import { Back } from './SVGComps';
 
 
 
-const Login = () => {
+const Login = props => {
   return (
     <View style={styles.background}>
 
       <View>
-      <Image 
-      source={require('../assets/Images/BackArrow.png')}
-      />
-      <Text style={styles.header}>Where do you live?</Text>
+        <TouchableOpacity
+          onPress={() => {
+            props.navigation.goBack()
+          }}>
+          <Back fill={'black'} height={25} width={25} />
+        </TouchableOpacity>
+        <View style={{ marginTop: 50 }}>
+          <Text style={styles.welcomeText}>Welcome,</Text>
+          <Text style={styles.header}>Where do you live?</Text>
+        </View>
       </View>
-      
+
       <View>
-      <Text style={styles.inputTitle}>Address</Text>
-      <TextInput
-      style={styles.txtInput}
-      placeholder='1234 Happy street'
-      />
-      <Text style={styles.inputTitle}>6 Digit Code</Text>
-      <TextInput
-      style={styles.txtInput}
-      placeholder='123456'
-      />
-      <TouchableOpacity style={styles.forget}>
+        <Text style={styles.inputTitle}>Address</Text>
+        <TextInput
+          style={styles.txtInput}
+          placeholder='420 LeBron Street'
+        />
+        <Text style={styles.inputTitle}>6 Digit Code</Text>
+        <TextInput
+          style={styles.txtInput}
+          placeholder='42069X'
+        />
+        <TouchableOpacity
+          style={styles.forget}
+          onPress={() => {
+            alert('NAVIGATE TO FORGOT DIGITCODE SCREEN')
+          }}
+        >
           <Text style={styles.forgetText}>Forgot Digitcode</Text>
-      </TouchableOpacity>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.login}>
-      <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>LOGIN</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            props.navigation.navigate('Main')
+          }}
+        >
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
       </View>
 
     </View>
