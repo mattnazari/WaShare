@@ -33,7 +33,7 @@ const Forgot = props => {
       </View>
       <View style={styles.send}>
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Send</Text>
+          <Text style={styles.buttonText}>SEND</Text>
         </TouchableOpacity>
       </View>
     </View>

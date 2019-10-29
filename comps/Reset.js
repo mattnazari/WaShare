@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, Text, TextInput, TouchableOpacity, Image} from 'react-native';
-import styles from '../styles/VerificationStyles';
+import styles from '../styles/ResetStyles';
 import {Back} from './SVGComps';
 
-const Verification = props => {
+const Reset = props => {
   return (
     <View style={styles.background}>
 
@@ -15,33 +15,24 @@ const Verification = props => {
           }}>
           <Back fill={'black'} height={25} width={25} />
         </TouchableOpacity>
-        <Text style={styles.header}>Verification</Text>
+        <Text style={styles.header}>Reset your digitcode</Text>
         <View style={styles.headerTextContainer}>
-          <Text styles={styles.headerText}>
-            {"A code has been sent to your phone.\nEnter that code here."}
-          </Text>
         </View>
         </View>
 
-        {/* Verification Input */}
-        <View style={styles.container}>
-            <Text style={styles.verifyText}>Enter verification number</Text>
+        {/* Reset Input Box */}
+        <View>
+            <Text style={styles.resetText}>Reset digitcode</Text>
             <TextInput
             style={styles.input}
             maxLength={4}
             />
-            <View style={styles.rowContainer}>
-            <Text style={styles.greyText}>Didn't get a code?</Text>
-            <TouchableOpacity>
-                <Text style={styles.resend}>Resend</Text>
-            </TouchableOpacity>
-            </View>
         </View>
 
         {/* Bottom Buttons */}
       <View>
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>VERIFY</Text>
+          <Text style={styles.buttonText}>RESET</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.cancelButton}>
           <Text style={styles.cancelText}>CANCEL</Text>
@@ -52,4 +43,4 @@ const Verification = props => {
   );
 };
 
-export default Verification;
+export default Reset;

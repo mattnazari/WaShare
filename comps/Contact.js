@@ -59,10 +59,10 @@ const Contact = props => {
       {/* Bottom Buttons */}
       <View style={styles.send}>
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Send</Text>
+          <Text style={styles.buttonText}>SEND</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.cancelButton}>
-          <Text style={styles.cancelText}>Cancel</Text>
+          <Text style={styles.cancelText}>CANCEL</Text>
         </TouchableOpacity>
       </View>
     </View>
