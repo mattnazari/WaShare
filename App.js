@@ -15,20 +15,21 @@ import PaymentHistory from './comps/PaymentHistory';
 import Forgot from './comps/Forgot';
 import Contact from './comps/Contact';
 import Verification from './comps/Verification';
-import Reset from './comps/Reset'
+import Reset from './comps/Reset';
+import Lab from './comps/Lab';
 
 const AppStackNavigator = createStackNavigator(
-  { 
+  {
     Main: { screen: Main },
     Onboarding: { screen: Onboarding },
     ExtendMachine: { screen: ExtendMachine },
     Notification: { screen: Notification },
     Login: { screen: Login },
-    Payment: { screen: PaymentHistory},
-    Forgot: {screen: Forgot},
-    Contact: {screen: Contact},
-    Verification: {screen: Verification},
-    Reset: {screen: Reset},
+    Payment: { screen: PaymentHistory },
+    Forgot: { screen: Forgot },
+    Contact: { screen: Contact },
+    Verification: { screen: Verification },
+    Reset: { screen: Reset },
     //add screens here that go into normal stack navigation
   },
   {
@@ -37,7 +38,7 @@ const AppStackNavigator = createStackNavigator(
   });
 
 const AppDrawerNavigator = createDrawerNavigator(
-  { 
+  {
     Home: { screen: AppStackNavigator },
     //TO-DO
     //replace these next placeholder screens
@@ -45,6 +46,7 @@ const AppDrawerNavigator = createDrawerNavigator(
     'Report Machines': { screen: Report },
     'Payment Info': { screen: PaymentHistory },
     Help: { screen: Onboarding },
+    Lab: { screen: Lab },
     //add screens here that go into the hamburger menu
   },
   {
