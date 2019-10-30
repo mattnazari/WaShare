@@ -1,5 +1,46 @@
 import React, { useState, useEffect } from 'react'
-import { ScrollView, View, Text, Button, TextInput, AsyncStorage, Image } from 'react-native';
+import { Animated, ScrollView, View, Text, Button, TextInput, AsyncStorage, Image, InteractionManager } from 'react-native';
+
+const ImageCard = props => {
+  const [dim] = useState(new Animated.Value(100))
+
+  let newDim = dim.interpolate({
+    inputRange: [100, 125, 150, 180, 300],
+    outputRange: [100, 300, 50, 5000, 300]
+  })
+
+  return (
+    <View>
+      <Text>{props.title}</Text>
+      <Animated.View style={{ width: newDim, height: newDim }} >
+        <Image source={{ uri: props.item.url }} style={{ width: '100%', height: '100%' }} />
+      </Animated.View>
+      <Button
+        title='Expand'
+        onPress={() => {
+          Animated.timing(
+            dim,
+            {
+              toValue: 300,
+              duration: 1000
+            }
+          ).start()
+
+          InteractionManager.runAfterInteractions(() => {
+            Animated.timing(
+              dim,
+              {
+                toValue: 100,
+                duration: 1000,
+                delay: 1000
+              }
+            ).start()
+          })
+        }}
+      />
+    </View>
+  )
+}
 
 const Lab = () => {
   const [name, setName] = useState('')
@@ -20,7 +61,7 @@ const Lab = () => {
   }
 
   const getCats = async () => {
-    const resp = await fetch('https://api.thecatapi.com/v1/images/search?limit=100')
+    const resp = await fetch('https://api.thecatapi.com/v1/images/search?limit=10')
     const json = await resp.json()
     console.log(json)
     setImg(json)
@@ -49,7 +90,7 @@ const Lab = () => {
       />
       <Text>Hello, {name}</Text>
       <ScrollView>
-        {img.map((item) => <Image source={{ uri: item.url }} style={{ width: 100, height: 100 }} />)}
+        {img.map((item, index) => <ImageCard item={item} title={'Cat ' + (index + 1)} />)}
       </ScrollView>
     </View>
   );
