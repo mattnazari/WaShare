@@ -23,9 +23,17 @@
 - TabBar 
 - Washer and Dryer styles
 
-## Week 2 Tasks (Oct 19-26)
+## Week 2 Tasks (Oct 19 - 26)
 
 **Matthew** & **Micah**
 
 - Code out the structure of each page
-- research and attempt to code out navigations
+- Research and attempt to code out navigations
+
+## Week 3 Tasks (Oct 26 - Nov 7)
+
+**Matthew** & **Micah**
+
+- Fix Issues/Bugs
+- Start developing main functions of the app
+- Research and attempt to code out the database

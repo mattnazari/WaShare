@@ -36,7 +36,7 @@ const Login = props => {
         <TouchableOpacity
           style={styles.forget}
           onPress={() => {
-            alert('NAVIGATE TO FORGOT DIGITCODE SCREEN')
+            props.navigation.navigate('Forgot')
           }}
         >
           <Text style={styles.forgetText}>Forgot Digitcode</Text>
