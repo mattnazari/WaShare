@@ -79,7 +79,7 @@ const AppDrawerNavigator = createDrawerNavigator(
       },
       labelStyle: {
         fontSize: 16,
-        fontFamily: 'CircularStd-Black',
+        fontFamily: 'CircularStd-Medium',
       },
     }
   })
