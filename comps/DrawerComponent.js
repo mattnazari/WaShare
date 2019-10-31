@@ -38,8 +38,9 @@ const styles = StyleSheet.create({
   unitText: {
     fontFamily: 'CircularStd-Medium',
     fontSize: 24,
+    color: '#848484',
     letterSpacing: -0.6,
-    paddingVertical: 12
+    paddingVertical: 6
   },
   nameText: {
     fontFamily: 'CircularStd-Black',

@@ -46,9 +46,11 @@ const AppDrawerNavigator = createDrawerNavigator(
     contentComponent: DrawerComponent,
     contentOptions: {
       activeBackgroundColor: null,
+      activeTintColor: '#506BFB',
       labelStyle: {
-        fontFamily: 'CircularStd-Bold'
-      }
+        fontSize: 16,
+        fontFamily: 'CircularStd-Black',
+      },
     }
   })
 

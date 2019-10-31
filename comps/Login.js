@@ -50,7 +50,7 @@ const Login = props => {
             props.navigation.navigate('Main')
           }}
         >
-          <Text style={styles.buttonText}>Login</Text>
+          <Text style={styles.buttonText}>LOGIN</Text>
         </TouchableOpacity>
       </View>
 
