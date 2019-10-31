@@ -1,7 +1,9 @@
 import React from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { DrawerItems } from 'react-navigation-drawer';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
+const iconDim = 24
 
 export const DrawerComponent = props => (
   <View style={styles.container}>
@@ -19,8 +21,13 @@ export const DrawerComponent = props => (
       <DrawerItems {...props} />
     </SafeAreaView>
     <SafeAreaView>
-      <TouchableOpacity>
-        <Text>Log Out</Text>
+      <TouchableOpacity 
+      style={{ flexDirection: 'row', alignItems: 'center' }}
+      onPress={() => {
+        alert('LOGOUT FUNCTION')
+      }}>
+        <Icon name='logout' size={iconDim} />
+        <Text style={styles.logoutText}>Log Out</Text>
       </TouchableOpacity>
     </SafeAreaView>
   </View>
@@ -46,5 +53,10 @@ const styles = StyleSheet.create({
     fontFamily: 'CircularStd-Black',
     fontSize: 36,
     letterSpacing: -0.6,
+  },
+  logoutText: {
+    fontFamily: 'CircularStd-Bold',
+    fontSize: 16,
+    paddingLeft: 10
   }
 });
