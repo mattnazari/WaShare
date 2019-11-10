@@ -15,7 +15,12 @@ const MachineContainer = props => {
     let r = await axios.post('http://localhost:3001/post', obj)
     let dbmachines = JSON.parse(r.data.body)
     console.log('read', dbmachines)
-    setMachines(dbmachines.data)
+
+    const filterArr = dbmachines.data.filter(item => {
+      return item.machine_type == props.type
+    })
+
+    setMachines(filterArr)
     console.log('reading machines array state', machines)
   }
 
@@ -37,16 +42,18 @@ const MachineContainer = props => {
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.scrollContainer}>
-          {machines.map((machine, index) =>
-            <Machine key={index}
-              id={machine.machine_id}
-              type={machine.type}
-              lock={machine.lock}
+          {machines.map((machine, index) => {
+            return <Machine key={index}
+              id={machine.id}
+              type={machine.machine_type}
+              status={machine.status}
               currentTab={props.currentTab}
               selected={props.selected}
               pushSelect={props.pushSelect}
               spliceSelect={props.spliceSelect}
-              machineAvailability={props.machineAvailability} />)}
+              machineAvailability={props.machineAvailability} />
+          }
+          )}
         </ScrollView>
       </View>
     </View>
