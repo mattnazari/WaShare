@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/StatusMachineStyles';
 import { withNavigation } from 'react-navigation';
+import axios from 'axios';
 
 const StatusMachine = props => {
   const timer = 10*60
@@ -10,6 +11,16 @@ const StatusMachine = props => {
   let num = props.id;
   if(props.type == 'Dryer'){
     num = num - 4
+  }
+
+  const DeleteMachinesBooked = async () => {
+    var obj = {
+      key: 'machinesbooked_delete',
+      data: {
+        machine_id: props.id
+      }
+    }
+    var r = await axios.post('http://localhost:3001/post', obj)
   }
 
   if (props.lockState === true) {
@@ -34,13 +45,7 @@ const StatusMachine = props => {
           style={styles.cancelContainer}
           onPress={() => {
             props.setCurrentTab('Status')
-
-            const find = props.booked.find(x => x.id === props.id)
-            const index = props.booked.indexOf(find)
-
-            props.spliceBooked(index)
-            console.log(props.booked)
-            alert('Need to re-render page to remove Machine that was removed from booked array')
+            DeleteMachinesBooked()
           }}>
           <Text style={[styles.extendText, { color: '#6E41DA', fontFamily: 'CircularStd-Book' }]}>CANCEL</Text>
         </TouchableOpacity>
