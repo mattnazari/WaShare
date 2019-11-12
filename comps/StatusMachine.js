@@ -6,11 +6,16 @@ import { withNavigation } from 'react-navigation';
 const StatusMachine = props => {
   const timer = 10*60
   let machine;
+  
+  let num = props.id;
+  if(props.type == 'Dryer'){
+    num = num - 4
+  }
 
   if (props.lockState === true) {
     machine = (
       <View style={styles.container}>
-        <Text style={styles.title}>{props.type} {props.id}</Text>
+        <Text style={styles.title}>{props.type} {num}</Text>
         <View style={styles.circle}>
           <Text style={styles.subText}>LOCKED</Text>
         </View>
@@ -45,7 +50,7 @@ const StatusMachine = props => {
   else {
     machine = (
       <View style={styles.container}>
-        <Text style={styles.title}>{props.type} {props.id}</Text>
+        <Text style={styles.title}>{props.type} {num}</Text>
         <View style={styles.circle}>
           <Text style={styles.largeText}>30</Text>
           <Text style={styles.subText}>minutes</Text>

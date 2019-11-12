@@ -15,42 +15,6 @@ const Main = ({ navigation }) => {
   const [machineAvailability, setMachineAvailability] = useState('Available');
   const [lockState, setLockState] = useState(true);
 
-  //add all data for machines here
-  const washers = [
-    {
-      id: 1,
-      type: 'Washer',
-      lock: lockState
-    },
-    {
-      id: 2,
-      type: 'Washer',
-      lock: lockState
-    },
-    {
-      id: 3,
-      type: 'Washer',
-      lock: lockState
-    },
-    {
-      id: 4,
-      type: 'Washer',
-      lock: lockState
-    }
-  ]
-  const dryers = [
-    {
-      id: 1,
-      type: 'Dryer',
-      lock: lockState
-    },
-    {
-      id: 2,
-      type: 'Dryer',
-      lock: lockState
-    }
-  ]
-
   function pushSelect(id) {
     console.log('INDIVIDUAL machine ' + JSON.stringify(id));
     var arr = selected;
@@ -83,7 +47,6 @@ const Main = ({ navigation }) => {
     <View style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
         <MachineContainer
-          machines={washers}
           currentTab={currentTab}
           selected={selected}
           type={'Washer'}
@@ -92,8 +55,7 @@ const Main = ({ navigation }) => {
           machineAvailability={machineAvailability} />
       </View>
       <View style={{ flex: 1 }}>
-        <MachineContainer
-          machines={dryers}
+        <MachineContainer    
           currentTab={currentTab}
           selected={selected}
           type={'Dryer'}
@@ -117,6 +79,7 @@ const Main = ({ navigation }) => {
   if (currentTab == 'Status') {
     home = (
       <Status
+        currentTab={currentTab}
         setCurrentTab={setCurrentTab}
         booked={booked}
         spliceBooked={spliceBooked}
