@@ -45,6 +45,7 @@ const MachineContainer = props => {
           {machines.map((machine, index) => {
             return <Machine key={index}
               id={machine.id}
+              num={index}
               type={machine.machine_type}
               status={machine.status}
               currentTab={props.currentTab}

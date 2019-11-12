@@ -6,9 +6,9 @@ import { book, status, notify } from '../styles/ThemeStyles';
 const Machine = props => {
   let themeName;
   let status;
-  let machineNum = props.id;
 
-  if(props.type == 'Dryer'){
+  let machineNum = props.id;
+  if (props.type == 'Dryer') {
     machineNum = machineNum - 4
   }
 
@@ -75,7 +75,7 @@ const Machine = props => {
         setSelected(!selected)
       }}>
       {selectedBox}
-      <Text style={styles.machine}>{props.type} {machineNum}</Text>
+      <Text style={styles.machine}>{props.type} {props.num + 1}</Text>
       <View style={[styles.circle, themeName.borderColor]}></View>
       <Text style={styles.timeRemaining}>{status}</Text>
     </TouchableOpacity>

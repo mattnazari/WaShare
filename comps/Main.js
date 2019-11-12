@@ -79,6 +79,7 @@ const Main = ({ navigation }) => {
   if (currentTab == 'Status') {
     home = (
       <Status
+        currentTab={currentTab}
         setCurrentTab={setCurrentTab}
         booked={booked}
         spliceBooked={spliceBooked}

@@ -22,6 +22,21 @@ const Login = props => {
     console.log(r.data)
   }
 
+  const ReadUser = async () => {
+    var obj = {
+      key: 'users_read',
+      data: {}
+    }
+
+    let r = await axios.post('http://localhost:3001/post', obj)
+    let dbusers = JSON.parse(r.data.body)
+    console.log('read', dbusers)
+  }
+
+  React.useEffect(() => {
+    ReadUser()
+  }, [])
+
   return (
     <View style={styles.background}>
 

@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   titleDesc: {
     color: '#FFF',
     fontFamily: 'CircularStd-Medium',
-    fontSize: 12
+    fontSize: 14
   },
   iconBar: {
     paddingBottom: 10,
