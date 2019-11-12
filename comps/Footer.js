@@ -36,7 +36,6 @@ const Footer = (props) => {
         style={[styles.container, themeName.color, themeName.shadowColor]}
         onPress={() => {
           if (props.currentTab == 'Book') {
-            props.bookMachines(props.selected)
             if (props.selected.length == 0) {
               alert('You have no machines selected!')
             } else {

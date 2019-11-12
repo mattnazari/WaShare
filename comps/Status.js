@@ -75,8 +75,6 @@ const Status = props => {
             type={machine.type}
             id={machine.machine_id}
             lock={machine.lock}
-            booked={props.booked}
-            spliceBooked={props.spliceBooked}
             setCurrentTab={props.setCurrentTab}
             lockState={props.lockState}
             setLockState={props.setLockState} />
@@ -84,37 +82,6 @@ const Status = props => {
       </ScrollView>
     )
   }
-
-  useEffect(() => {
-    initialStatus = (
-      <ScrollView
-        horizontal
-        directionalLockEnabled
-        pagingEnabled
-        scrollEnabled
-        decelerationRate={0}
-        snapToAlignment={"start"}
-        snapToInterval={width - 40 * 2}
-        scrollEventThrottle={16}
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={main.scrollContainer}>
-        {props.booked.map((machine, index) =>
-          <StatusMachine
-            key={index}
-            num={index}
-            type={machine.type}
-            id={machine.id}
-            lock={machine.lock}
-            booked={props.booked}
-            spliceBooked={props.spliceBooked}
-            setCurrentTab={props.setCurrentTab}
-            lockState={props.lockState}
-            setLockState={props.setLockState} />
-        )}
-      </ScrollView>
-    )
-  }, [props.booked]);
 
   return (
     <View style={{ flex: 1, marginTop: -20 }}>
