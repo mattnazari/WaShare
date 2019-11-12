@@ -51,8 +51,7 @@ const MachineContainer = props => {
               currentTab={props.currentTab}
               selected={props.selected}
               pushSelect={props.pushSelect}
-              spliceSelect={props.spliceSelect}
-              machineAvailability={props.machineAvailability} />
+              spliceSelect={props.spliceSelect} />
           }
           )}
         </ScrollView>
