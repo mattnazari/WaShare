@@ -36,7 +36,7 @@ const Footer = (props) => {
         style={[styles.container, themeName.color, themeName.shadowColor]}
         onPress={() => {
           if (props.currentTab == 'Book') {
-            if (props.selected.length == 0) {
+            if (props.selected.length === 0) {
               alert('You have no machines selected!')
             } else {
               props.setCurrentTab('Status')
@@ -44,6 +44,7 @@ const Footer = (props) => {
               props.selected.forEach(e => {
                 CreateMachineBooked(e)
               });
+              props.setSelected([])
             }
           }
           if (props.currentTab == 'Status') {
