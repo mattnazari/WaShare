@@ -35,7 +35,7 @@ const Status = props => {
 
   useEffect(() => {
     ReadMachinesBooked()
-  }, [machinesBooked])
+  }, [])
 
   //default page when no machines are in use
   let initialStatus = (
@@ -72,12 +72,13 @@ const Status = props => {
           <StatusMachine
             key={index}
             num={index}
-            type={machine.type}
+            type={machine.machine_type}
             id={machine.machine_id}
             lock={machine.lock}
             setCurrentTab={props.setCurrentTab}
             lockState={props.lockState}
-            setLockState={props.setLockState} />
+            setLockState={props.setLockState}
+            ReadMachinesBooked={ReadMachinesBooked} />
         )}
       </ScrollView>
     )

@@ -21,6 +21,19 @@ const StatusMachine = props => {
       }
     }
     var r = await axios.post('http://localhost:3001/post', obj)
+    props.ReadMachinesBooked()
+  }
+
+  const UpdateMachinesBooked = async () => {
+    var obj = {
+      key: 'machinesbooked_update',
+      data: {
+        machine_id: props.id,
+        lockstate: 1
+      }
+    }
+    var r = await axios.post('http://localhost:3001/post', obj)
+    props.ReadMachinesBooked()
   }
 
   if (props.lockState === true) {
@@ -38,6 +51,7 @@ const StatusMachine = props => {
           onPress={() => {
             alert('Confirm unlock popup modal')
             props.setLockState(false)
+            UpdateMachinesBooked()
           }}>
           <Text style={styles.extendText}>UNLOCK</Text>
         </TouchableOpacity>
