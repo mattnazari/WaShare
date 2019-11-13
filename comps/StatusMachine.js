@@ -28,7 +28,7 @@ const StatusMachine = props => {
     var obj = {
       key: 'machinesbooked_update',
       data: {
-        machine_id: props.id,
+        id: props.i,
         lockstate: 1
       }
     }

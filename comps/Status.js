@@ -35,6 +35,9 @@ const Status = props => {
 
   useEffect(() => {
     ReadMachinesBooked()
+    var timenow = new Date();
+    var timebefore = new Date('2019-11-11 00:00:00');
+    console.log(timenow, timebefore, (Date.parse(timenow) - Date.parse(timebefore))/1000/60);
   }, [])
 
   //default page when no machines are in use
@@ -74,7 +77,7 @@ const Status = props => {
             num={index}
             type={machine.machine_type}
             id={machine.machine_id}
-            lock={machine.lock}
+            i={machine.id}
             setCurrentTab={props.setCurrentTab}
             lockState={props.lockState}
             setLockState={props.setLockState}
