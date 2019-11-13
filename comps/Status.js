@@ -79,8 +79,7 @@ const Status = props => {
             id={machine.machine_id}
             i={machine.id}
             setCurrentTab={props.setCurrentTab}
-            lockState={props.lockState}
-            setLockState={props.setLockState}
+            lockstate={machine.lockstate}
             ReadMachinesBooked={ReadMachinesBooked} />
         )}
       </ScrollView>

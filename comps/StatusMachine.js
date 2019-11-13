@@ -36,7 +36,7 @@ const StatusMachine = props => {
     props.ReadMachinesBooked()
   }
 
-  if (props.lockState === true) {
+  if (props.lockstate === 0) {
     machine = (
       <View style={styles.container}>
         <Text style={styles.title}>{props.type} {num}</Text>
@@ -50,7 +50,6 @@ const StatusMachine = props => {
           style={styles.extendContainer}
           onPress={() => {
             alert('Confirm unlock popup modal')
-            props.setLockState(false)
             UpdateMachinesBooked()
           }}>
           <Text style={styles.extendText}>UNLOCK</Text>
@@ -66,7 +65,7 @@ const StatusMachine = props => {
       </View>
     )
   }
-  else {
+  else if (props.lockstate === 1){
     machine = (
       <View style={styles.container}>
         <Text style={styles.title}>{props.type} {num}</Text>
