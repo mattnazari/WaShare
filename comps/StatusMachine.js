@@ -7,9 +7,9 @@ import axios from 'axios';
 const StatusMachine = props => {
   const timer = 10 * 60
   let machine;
-  
+
   let num = props.id;
-  if(props.type == 'Dryer'){
+  if (props.type == 'Dryer') {
     num = num - 4
   }
 
@@ -37,8 +37,8 @@ const StatusMachine = props => {
           style={styles.extendContainer}
           onPress={() => {
             props.navigation.navigate('ModalScreen', {
-              title: 'Machine unlocked',
-              desc: 'You have unlocked this machine.',
+              title: `Machine ${props.id} unlocked`,
+              desc: 'Load your laundry and come back once your laundry is done!',
               image: require('../assets/Images/modalUnlock.png')
             })
             props.setLockState(false)
