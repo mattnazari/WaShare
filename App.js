@@ -21,9 +21,10 @@ import Reset from './comps/Reset'
 
 const AppStackNavigator = createStackNavigator(
   {
-    Main: { screen: Onboarding },
-    MainScreen: { screen: Main },
+    Main: { screen: Main },
+    Onboarding: { screen: Onboarding },
     ExtendMachine: { screen: ExtendMachine },
+    ModalScreen: { screen: ModalScreen },
     Notification: { screen: Notification },
     Login: { screen: Login },
     Payment: { screen: PaymentHistory },
@@ -38,22 +39,22 @@ const AppStackNavigator = createStackNavigator(
     headerMode: 'none',
   });
 
-const RootStack = createStackNavigator(
-  {
-    Main: { screen: AppStackNavigator },
-    ModalScreen: { screen: ModalScreen },
-  },
-  {
-    mode: 'modal',
-    headerMode: 'none',
-  }
-)
+// const RootStack = createStackNavigator(
+//   {
+//     Main: { screen: AppStackNavigator },
+//     ModalScreen: { screen: ModalScreen },
+//   },
+//   {
+//     mode: 'modal',
+//     headerMode: 'none',
+//   }
+// )
 
 const iconDim = 24
 const AppDrawerNavigator = createDrawerNavigator(
   {
     Home: {
-      screen: RootStack,
+      screen: AppStackNavigator,
       navigationOptions: {
         drawerIcon: ({ tintColor }) => <Icon name='home' size={iconDim} color={tintColor} />,
       }

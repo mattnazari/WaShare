@@ -85,7 +85,7 @@ const Login = props => {
           style={styles.button}
           onPress={() => {
             CreateUser()
-            props.navigation.navigate('MainScreen')
+            props.navigation.navigate('Main')
           }}
         >
           <Text style={styles.buttonText}>LOGIN</Text>
