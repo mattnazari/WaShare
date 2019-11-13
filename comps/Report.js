@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View } from 'react-native';
 import Header from './Header';
 import Footer from './Footer';
@@ -26,9 +26,9 @@ const Report = () => {
   }
 
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <Header currentTab={currentTab} />
-      <View style={{ marginTop: 20 }}>
+      <View style={{ flex: 1, marginTop: 20 }}>
         <MachineContainer
           selected={selected}
           setSelected={setSelected}
@@ -38,6 +38,8 @@ const Report = () => {
           pushSelect={pushSelect}
           spliceSelect={spliceSelect}
         />
+        </View>
+        <View style={{ flex: 1 }}>
         <MachineContainer
           selected={selected}
           setSelected={setSelected}

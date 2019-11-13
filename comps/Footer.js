@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/FooterStyles';
 import { book, status, notify } from '../styles/ThemeStyles';
+import axios from 'axios';
 
 const Footer = (props) => {
   let themeName = '';
@@ -17,18 +18,33 @@ const Footer = (props) => {
       themeName = notify
   }
 
+  const CreateMachineBooked = async (e) => {
+    let obj = {
+      key: 'machinesbooked_create',
+      data: {
+        machine_id: e.id,
+        lockstate: 0
+      }
+    }
+    let r = await axios.post('http://localhost:3001/post', obj)
+    console.log(r.data)
+  }
+
   return (
     <View>
       <TouchableOpacity
         style={[styles.container, themeName.color, themeName.shadowColor]}
         onPress={() => {
           if (props.currentTab == 'Book') {
-            props.bookMachines(props.selected)
-            if (props.selected.length == 0) {
+            if (props.selected.length === 0) {
               alert('You have no machines selected!')
             } else {
               props.setCurrentTab('Status')
               props.setLockState(true)
+              props.selected.forEach(e => {
+                CreateMachineBooked(e)
+              });
+              props.setSelected([])
             }
           }
           if (props.currentTab == 'Status') {

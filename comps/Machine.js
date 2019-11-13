@@ -1,10 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/MachineStyles';
 import { book, status, notify } from '../styles/ThemeStyles';
 
 const Machine = props => {
-  let themeName = '';
+  let themeName;
+  let status;
+
+  let machineNum = props.id;
+  if (props.type == 'Dryer') {
+    machineNum = machineNum - 4
+  }
+
+  switch (props.status) {
+    case 0:
+      status = 'Ready'
+      break;
+    case 1:
+      status = 'In-Use'
+      break;
+    case 2:
+      status = 'Unavailable'
+      break;
+  }
 
   switch (props.currentTab) {
     case 'Book':
@@ -35,6 +53,10 @@ const Machine = props => {
     )
   }
 
+  useEffect(() => {
+    setSelected(false)
+  }, [props.currentTab])
+
   return (
     <TouchableOpacity
       style={machineStyle}
@@ -53,9 +75,9 @@ const Machine = props => {
         setSelected(!selected)
       }}>
       {selectedBox}
-      <Text style={styles.machine}>{props.type} {props.id}</Text>
+      <Text style={styles.machine}>{props.type} {props.num + 1}</Text>
       <View style={[styles.circle, themeName.borderColor]}></View>
-      <Text style={styles.timeRemaining}>{props.machineAvailability}</Text>
+      <Text style={styles.timeRemaining}>{status}</Text>
     </TouchableOpacity>
   )
 }
