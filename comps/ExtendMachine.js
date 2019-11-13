@@ -120,12 +120,12 @@ const ExtendMachine = props => {
           <TouchableOpacity
             style={[styles.extendContainer, { width: null, marginTop: 20 }]}
             onPress={() => {
+              props.navigation.goBack()
               props.navigation.navigate('ModalScreen', {
                 title: 'Machine extended',
                 desc: 'You have added ' + extendCount + ' minutes to this machine.',
-                image: require('../assets/Images/modalExtend.png')
+                image: require('../assets/Images/modalExtend.png'),
               })
-
               {/*need rest of interaction here to update machine booked time*/ }
             }}>
             <Text style={styles.extendText}>EXTEND</Text>

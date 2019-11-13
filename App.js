@@ -21,12 +21,11 @@ import Reset from './comps/Reset'
 
 const AppStackNavigator = createStackNavigator(
   {
-    Main: { screen: Main },
-    Onboarding: { screen: Onboarding },
+    Main: { screen: Onboarding },
+    MainScreen: { screen: Main },
     ExtendMachine: { screen: ExtendMachine },
     Notification: { screen: Notification },
     Login: { screen: Login },
-    ModalScreen: { screen: ModalScreen },
     Payment: { screen: PaymentHistory },
     Forgot: { screen: Forgot },
     Contact: { screen: Contact },
@@ -35,15 +34,26 @@ const AppStackNavigator = createStackNavigator(
     //add screens here that go into normal stack navigation
   },
   {
-    headerMode: 'none',
     initialRouteName: 'Onboarding',
+    headerMode: 'none',
   });
+
+const RootStack = createStackNavigator(
+  {
+    Main: { screen: AppStackNavigator },
+    ModalScreen: { screen: ModalScreen },
+  },
+  {
+    mode: 'modal',
+    headerMode: 'none',
+  }
+)
 
 const iconDim = 24
 const AppDrawerNavigator = createDrawerNavigator(
   {
     Home: {
-      screen: AppStackNavigator,
+      screen: RootStack,
       navigationOptions: {
         drawerIcon: ({ tintColor }) => <Icon name='home' size={iconDim} color={tintColor} />,
       }
@@ -57,13 +67,13 @@ const AppDrawerNavigator = createDrawerNavigator(
     'Payment Info': {
       screen: PaymentHistory,
       navigationOptions: {
-        drawerIcon: ({tintColor}) => <Icon name='credit-card' size={iconDim} color={tintColor} />,
+        drawerIcon: ({ tintColor }) => <Icon name='credit-card' size={iconDim} color={tintColor} />,
       }
     },
     Help: {
       screen: Onboarding,
       navigationOptions: {
-        drawerIcon: ({tintColor}) => <Icon name='help-outline' size={iconDim} color={tintColor} />,
+        drawerIcon: ({ tintColor }) => <Icon name='help-outline' size={iconDim} color={tintColor} />,
       }
     },
     //add screens here that go into the hamburger menu
