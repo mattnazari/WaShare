@@ -6,8 +6,9 @@ import { getStorybookUI, configure } from '@storybook/react-native';
 // import stories
 configure(() => {
 //  require('./stories');
-require('../stories/introductionScreens');
-require('../stories/headerMenuScreens');
+require('../stories/IntroductionScreens');
+require('../stories/HeaderMenuScreens');
+require('../stories/MainScreens');
 }, module);
 
 // Refer to https://github.com/storybookjs/storybook/tree/master/app/react-native#start-command-parameters
