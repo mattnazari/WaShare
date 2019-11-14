@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { SafeAreaView, View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/StatusMachineStyles';
 import { withNavigation } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Fontisto';
-import Modal from 'react-native-modal';
 import axios from 'axios';
-import ModalRed from './ModalRed';
+import ModalComp from './ModalComp';
 
 const StatusMachine = props => {
   const timer = 10 * 60
@@ -17,7 +16,7 @@ const StatusMachine = props => {
   }
 
   const [cancelModalVisible, setCancelModalVisible] = useState(false)
-  const [modalVisible, setModalVisible] = useState(false)
+  const [unlockModalVisible, setUnlockModalVisible] = useState(false)
 
   const DeleteMachinesBooked = async () => {
     var obj = {
@@ -43,12 +42,7 @@ const StatusMachine = props => {
         <TouchableOpacity
           style={styles.extendContainer}
           onPress={() => {
-            props.navigation.navigate('ModalScreen', {
-              title: `Machine ${props.id} unlocked`,
-              desc: 'Load your laundry and come back once your laundry is done!',
-              image: require('../assets/Images/modalUnlock.png')
-            })
-            props.setLockState(false)
+            setUnlockModalVisible(!unlockModalVisible)
           }}>
           <Text style={styles.extendText}>UNLOCK</Text>
         </TouchableOpacity>
@@ -56,7 +50,6 @@ const StatusMachine = props => {
           style={styles.cancelContainer}
           onPress={() => {
             setCancelModalVisible(!cancelModalVisible)
-
           }}>
           <Text style={[styles.extendText, { color: '#6E41DA', fontFamily: 'CircularStd-Book' }]}>CANCEL</Text>
         </TouchableOpacity>
@@ -89,8 +82,9 @@ const StatusMachine = props => {
 
   return (
     <View style={{ height: 450 }}>
-      <ModalRed
+      <ModalComp
         isVisible={cancelModalVisible}
+        color={'red'}
         onBackdropPress={() => {
           setCancelModalVisible(!cancelModalVisible)
         }}
@@ -108,6 +102,32 @@ const StatusMachine = props => {
           setCancelModalVisible(!cancelModalVisible)
         }}
         secButton={'No, take me back'} />
+      <ModalComp
+        isVisible={unlockModalVisible}
+        color={'purple'}
+        onBackdropPress={() => {
+          setUnlockModalVisible(!unlockModalVisible)
+        }}
+        onSwipeComplete={() => {
+          setUnlockModalVisible(!unlockModalVisible)
+        }}
+        title={'Unlock this machine?'}
+        desc={`Your card VISA 1 will be charged $5.00 immediately. Are you sure you want to unlock this machine?`}
+        primaryonPress={() => {
+          props.navigation.navigate('ModalScreen', {
+            title: `Machine ${props.id} unlocked`,
+            desc: 'Load your laundry and come back once your laundry is done!',
+            image: require('../assets/Images/modalUnlock.png')
+          })
+
+          props.setLockState(false)
+          setUnlockModalVisible(!unlockModalVisible)
+        }}
+        primaryButton={'Yes, unlock it'}
+        seconPress={() => {
+          setUnlockModalVisible(!unlockModalVisible)
+        }}
+        secButton={'No'} />
       {machine}
     </View>
   )
