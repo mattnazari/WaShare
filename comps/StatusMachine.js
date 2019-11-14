@@ -8,7 +8,7 @@ const StatusMachine = props => {
   const timer = 10*60
   let machine;
   
-  let num = props.id;
+  let num = props.machine_id;
   if(props.type == 'Dryer'){
     num = num - 4
   }
@@ -17,7 +17,7 @@ const StatusMachine = props => {
     var obj = {
       key: 'machinesbooked_delete',
       data: {
-        machine_id: props.id
+        machine_id: props.machine_id
       }
     }
     var r = await axios.post('http://localhost:3001/post', obj)
@@ -28,7 +28,7 @@ const StatusMachine = props => {
     var obj = {
       key: 'machinesbooked_update',
       data: {
-        id: props.i,
+        id: props.id,
         lockstate: 1
       }
     }

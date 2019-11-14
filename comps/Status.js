@@ -36,7 +36,7 @@ const Status = props => {
   useEffect(() => {
     ReadMachinesBooked()
     var timenow = new Date();
-    var timebefore = new Date('2019-11-11 00:00:00');
+    var timebefore = new Date('2019-11-13 12:00:00');
     console.log(timenow, timebefore, (Date.parse(timenow) - Date.parse(timebefore))/1000/60);
   }, [])
 
@@ -75,9 +75,9 @@ const Status = props => {
           <StatusMachine
             key={index}
             num={index}
+            id={machine.id}
+            machine_id={machine.machine_id}
             type={machine.machine_type}
-            id={machine.machine_id}
-            i={machine.id}
             setCurrentTab={props.setCurrentTab}
             lockstate={machine.lockstate}
             ReadMachinesBooked={ReadMachinesBooked} />
