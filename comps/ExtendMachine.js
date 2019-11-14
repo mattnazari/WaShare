@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Header from './Header';
 import styles, { colors } from '../styles/StatusMachineStyles';
-import ModalScreen from './ModalScreen';
+import ModalComp from './ModalComp';
 
 const extendstyles = StyleSheet.create({
   container: {
@@ -68,12 +68,45 @@ const ExtendMachine = props => {
     base = 30
   }
 
+  const [addModalVisible, setAddModalVisible] = useState(false)
+
   const [extendCount, setExtendCount] = useState(base);
   const [finishTime, setFinishTime] = useState(base);
   const [addCost, setAddCost] = useState(cost);
 
+  const UpdateMachinesBooked = async () => {
+    //... finish this function
+    // UPDATE add_time column based on machine_id
+  }
+
   return (
     <View style={{ flex: 1 }}>
+      <ModalComp
+        isVisible={addModalVisible}
+        color={'purple'}
+        onBackdropPress={() => {
+          setAddModalVisible(!addModalVisible)
+        }}
+        onSwipeComplete={() => {
+          setAddModalVisible(!addModalVisible)
+        }}
+        title={'Add extra time?'}
+        desc={`Your card VISA 1 will be charged an extra $${addCost} immediately. Are you sure want to add an extra ${extendCount} minutes?`}
+        primaryonPress={() => {
+          UpdateMachinesBooked()
+          props.navigation.goBack()
+          props.navigation.navigate('ModalScreen', {
+            title: 'Machine extended',
+            desc: 'You have added ' + extendCount + ' minutes to this machine.',
+            image: require('../assets/Images/modalExtend.png'),
+          })
+          setAddModalVisible(!addModalVisible)
+        }}
+        primaryButton={'Yes, add time.'}
+        seconPress={() => {
+          setAddModalVisible(!addModalVisible)
+        }}
+        secButton={'No, take me back'} />
       <Header currentTab={'Extend'} />
       <View style={{ padding: 24 }}>
         <Text style={extendstyles.subTitle}>How much time to add?</Text>
@@ -120,21 +153,14 @@ const ExtendMachine = props => {
           <TouchableOpacity
             style={[styles.extendContainer, { width: null, marginTop: 20 }]}
             onPress={() => {
-              props.navigation.goBack()
-              props.navigation.navigate('ModalScreen', {
-                title: 'Machine extended',
-                desc: 'You have added ' + extendCount + ' minutes to this machine.',
-                image: require('../assets/Images/modalExtend.png'),
-              })
-              {/*need rest of interaction here to update machine booked time*/ }
+              setAddModalVisible(!addModalVisible)
             }}>
-            <Text style={styles.extendText}>EXTEND</Text>
+            <Text style={styles.extendText}>ADD TIME</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.cancelContainer, { width: null, marginVertical: 24 }]}
             onPress={() => {
               props.navigation.goBack()
-              alert('Cancelled the extend interaction, REPLACE THIS ALERT')
             }}>
             <Text style={[styles.extendText, { color: '#6E41DA', fontFamily: 'CircularStd-Book' }]}>CANCEL</Text>
           </TouchableOpacity>
