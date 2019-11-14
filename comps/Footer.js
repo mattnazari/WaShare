@@ -43,6 +43,7 @@ const Footer = (props) => {
   }
 
   const [bookModalVisible, setBookModalVisible] = useState(false)
+  const [notifyModalVisible, setNotifyModalVisible] = useState(false)
 
   return (
     <View>
@@ -71,6 +72,30 @@ const Footer = (props) => {
         }}
         secButton={'No, take me back'} />
 
+      <ModalComp
+        isVisible={notifyModalVisible}
+        color={'lightpurple'}
+        onBackdropPress={() => {
+          setNotifyModalVisible(!notifyModalVisible)
+        }}
+        onSwipeComplete={() => {
+          setNotifyModalVisible(!notifyModalVisible)
+        }}
+        title={'Notify the user of this machine?'}
+        desc={`This will send a notification to the phone of the previous user of the selected machine. Do you want to proceed?`}
+        primaryonPress={() => {
+          // TODO
+          // .. CREATE entry in notify table of database
+          setNotifyModalVisible(!notifyModalVisible)
+          props.setSelected([])
+        }}
+        primaryButton={'Yes, notify this user'}
+        seconPress={() => {
+          setNotifyModalVisible(!notifyModalVisible)
+          props.setSelected([])
+        }}
+        secButton={'No'} />
+
       <TouchableOpacity
         style={[styles.container, themeName.color, themeName.shadowColor]}
         onPress={() => {
@@ -85,7 +110,11 @@ const Footer = (props) => {
             alert('Open status page')
           }
           if (props.currentTab == 'Notify') {
-            alert(JSON.stringify(props.selected))
+            if (props.selected.length === 0) {
+              alert('You have no machines selected!')
+            } else {
+              setNotifyModalVisible(!notifyModalVisible)
+            }
           }
           if (props.currentTab == 'Report') {
             alert('REPORT INTERACTION')
