@@ -17,6 +17,9 @@ const ModalRed = props => {
     case 'purple':
       primaryButtonColor = styles.primaryButtonPurple
       break;
+    case 'lightpurple':
+      primaryButtonColor = styles.primaryButtonLightPurple
+      break;
     case 'blue':
       primaryButtonColor = styles.primaryButtonBlue
       break;
@@ -67,10 +70,11 @@ const styles = StyleSheet.create({
   },
   primaryTitle: {
     color: '#181721',
-    fontFamily: 'CircularStd-Book',
+    fontFamily: 'CircularStd-Medium',
     fontSize: 24,
-    letterSpacing: -0.4,
+    letterSpacing: -0.6,
     paddingTop: 12,
+    paddingHorizontal: 12,
     marginTop: 24,
     textAlign: 'center'
   },
@@ -99,6 +103,10 @@ const styles = StyleSheet.create({
   primaryButtonPurple: {
     backgroundColor: '#6E41DA',
     shadowColor: "#506AFB",
+  },
+  primaryButtonLightPurple: {
+    backgroundColor: '#7E33B8',
+    shadowColor: "#7E33B8",
   },
   primaryButtonBlue: {
     backgroundColor: '#506BFB',

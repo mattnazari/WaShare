@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/HeaderStyles';
 import { book, status, notify } from '../styles/ThemeStyles';
@@ -9,10 +9,13 @@ import { withNavigation } from 'react-navigation';
 const iconDim = 20
 
 const Header = (props) => {
-  //should actually rewrite this to use useState hooks
   let title = '';
   let description = '';
   let themeName = '';
+
+  const [bookTextStyle, setBookTextStyle] = useState(styles.text)
+  const [statusTextStyle, setStatusTextStyle] = useState(styles.text)
+  const [notifyTextStyle, setNotifyTextStyle] = useState(styles.text)
 
   //DEFAULT tab bar with book, status, notify
   let tabBar = (
@@ -23,8 +26,12 @@ const Header = (props) => {
           props.setCurrentTab('Book')
           props.setSelected([])
           console.log(props.selected)
+
+          setBookTextStyle(styles.activeText)
+          setStatusTextStyle(styles.text)
+          setNotifyTextStyle(styles.text)
         }}>
-        <Text style={styles.text}>BOOK</Text>
+        <Text style={bookTextStyle}>BOOK</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.spacing}
@@ -32,8 +39,12 @@ const Header = (props) => {
           props.setCurrentTab('Status')
           props.setSelected([])
           console.log(props.selected)
+
+          setBookTextStyle(styles.text)
+          setStatusTextStyle(styles.activeText)
+          setNotifyTextStyle(styles.text)
         }}>
-        <Text style={styles.text}>STATUS</Text>
+        <Text style={statusTextStyle}>STATUS</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.spacing}
@@ -41,8 +52,12 @@ const Header = (props) => {
           props.setCurrentTab('Notify')
           props.setSelected([])
           console.log(props.selected)
+
+          setBookTextStyle(styles.text)
+          setStatusTextStyle(styles.text)
+          setNotifyTextStyle(styles.activeText)
         }}>
-        <Text style={styles.text}>NOTIFY</Text>
+        <Text style={notifyTextStyle}>NOTIFY</Text>
       </TouchableOpacity>
     </View>
   );
@@ -81,7 +96,7 @@ const Header = (props) => {
       tabBar = null;
       break;
     case 'Extend':
-      title = 'Add time to your machines'
+      title = 'Add time to your machine'
       description = 'You can add time to the length you booked your machine for. Maximum extra time is 2 hours.'
       themeName = status
       tabBar = null;

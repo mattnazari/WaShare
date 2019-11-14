@@ -5,7 +5,7 @@ import Footer from './Footer';
 import MachineContainer from './MachineContainer';
 import { washers, dryers } from './Data';
 
-const Report = () => {
+const Report = props => {
   const currentTab = 'Report';
   const [selected, setSelected] = useState([]);
 
@@ -50,7 +50,9 @@ const Report = () => {
           spliceSelect={spliceSelect}
         />
       </View>
-      <Footer currentTab={currentTab} />
+      <Footer 
+      currentTab={currentTab}
+      selected={selected} />
     </View>
   );
 }

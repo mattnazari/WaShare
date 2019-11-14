@@ -55,7 +55,7 @@ const Machine = props => {
 
   useEffect(() => {
     setSelected(false)
-  }, [props.currentTab])
+  }, [props.currentTab, props.selected])
 
   return (
     <TouchableOpacity
