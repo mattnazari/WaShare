@@ -5,6 +5,7 @@ import { withNavigation } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Fontisto';
 import Modal from 'react-native-modal';
 import axios from 'axios';
+import ModalRed from './ModalRed';
 
 const StatusMachine = props => {
   const timer = 10 * 60
@@ -15,6 +16,7 @@ const StatusMachine = props => {
     num = num - 4
   }
 
+  const [cancelModalVisible, setCancelModalVisible] = useState(false)
   const [modalVisible, setModalVisible] = useState(false)
 
   const DeleteMachinesBooked = async () => {
@@ -25,6 +27,7 @@ const StatusMachine = props => {
       }
     }
     var r = await axios.post('http://localhost:3001/post', obj)
+    props.ReadMachinesBooked()
   }
 
   if (props.lockState === true) {
@@ -52,7 +55,7 @@ const StatusMachine = props => {
         <TouchableOpacity
           style={styles.cancelContainer}
           onPress={() => {
-            setModalVisible(!modalVisible)
+            setCancelModalVisible(!cancelModalVisible)
 
           }}>
           <Text style={[styles.extendText, { color: '#6E41DA', fontFamily: 'CircularStd-Book' }]}>CANCEL</Text>
@@ -86,32 +89,25 @@ const StatusMachine = props => {
 
   return (
     <View style={{ height: 450 }}>
-      <Modal
-        isVisible={modalVisible}
+      <ModalRed
+        isVisible={cancelModalVisible}
         onBackdropPress={() => {
-          setModalVisible(!modalVisible)
+          setCancelModalVisible(!cancelModalVisible)
         }}
         onSwipeComplete={() => {
-          setModalVisible(!modalVisible)
+          setCancelModalVisible(!cancelModalVisible)
         }}
-        swipeDirection={['up', 'down', 'left', 'right']}>
-        <SafeAreaView style={{ padding: 20, backgroundColor: '#FFF', justifyContent: 'center', alignItems: 'center', borderRadius: 20 }}>
-          <Text style={{ padding: 20, textAlign: 'center' }}>Are you sure you want to cancel this machine?</Text>
-          <TouchableOpacity
-            onPress={() => {
-              DeleteMachinesBooked()
-              setModalVisible(!modalVisible)
-            }}>
-            <Text style={{ padding: 20 }}>YES</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => {
-              setModalVisible(!modalVisible)
-            }}>
-            <Text style={{ padding: 20 }}>NO</Text>
-          </TouchableOpacity>
-        </SafeAreaView>
-      </Modal>
+        title={'Cancel this machine?'}
+        desc={`If you cancel this machine you'll have to book it again from the home screen. Are you sure you want to proceed?`}
+        primaryonPress={() => {
+          DeleteMachinesBooked()
+          setCancelModalVisible(!cancelModalVisible)
+        }}
+        primaryButton={'Yes, cancel it'}
+        seconPress={() => {
+          setCancelModalVisible(!cancelModalVisible)
+        }}
+        secButton={'No, take me back'} />
       {machine}
     </View>
   )
