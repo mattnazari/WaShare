@@ -17,10 +17,6 @@ const Header = (props) => {
   const [statusTextStyle, setStatusTextStyle] = useState(styles.text)
   const [notifyTextStyle, setNotifyTextStyle] = useState(styles.text)
 
-  useEffect(() => {
-    setBookTextStyle(styles.activeText)
-  }, [])
-
   //DEFAULT tab bar with book, status, notify
   let tabBar = (
     <View style={styles.barContainer}>
@@ -100,7 +96,7 @@ const Header = (props) => {
       tabBar = null;
       break;
     case 'Extend':
-      title = 'Add time to your machines'
+      title = 'Add time to your machine'
       description = 'You can add time to the length you booked your machine for. Maximum extra time is 2 hours.'
       themeName = status
       tabBar = null;

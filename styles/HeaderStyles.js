@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'CircularStd-Bold',
     letterSpacing: -0.2,
-    color: '#4C4A56',
+    color: '#6A6195',
   },
   text: {
     fontSize: 14,

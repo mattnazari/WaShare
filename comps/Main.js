@@ -10,7 +10,6 @@ const Main = ({ navigation }) => {
   const [selected, setSelected] = useState([]);
   //handle styling of current page (home screen)
   const [currentTab, setCurrentTab] = useState('Book');
-  const [lockState, setLockState] = useState(true);
 
   function pushSelect(id) {
     console.log('INDIVIDUAL machine ' + JSON.stringify(id));
@@ -51,8 +50,7 @@ const Main = ({ navigation }) => {
         currentTab={currentTab}
         setCurrentTab={setCurrentTab}
         selected={selected}
-        setSelected={setSelected}
-        setLockState={setLockState} />
+        setSelected={setSelected} />
     </View>
   )
 
@@ -61,9 +59,7 @@ const Main = ({ navigation }) => {
     home = (
       <Status
         currentTab={currentTab}
-        setCurrentTab={setCurrentTab}
-        lockState={lockState}
-        setLockState={setLockState} />
+        setCurrentTab={setCurrentTab} />
     )
   }
 

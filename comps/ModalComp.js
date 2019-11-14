@@ -67,9 +67,9 @@ const styles = StyleSheet.create({
   },
   primaryTitle: {
     color: '#181721',
-    fontFamily: 'CircularStd-Book',
+    fontFamily: 'CircularStd-Medium',
     fontSize: 24,
-    letterSpacing: -0.4,
+    letterSpacing: -0.6,
     paddingTop: 12,
     marginTop: 24,
     textAlign: 'center'

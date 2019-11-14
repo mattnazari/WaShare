@@ -85,7 +85,7 @@ const StatusMachine = props => {
           onPress={() => {
             props.navigation.navigate('ExtendMachine')
           }}>
-          <Text style={styles.extendText}>EXTEND</Text>
+          <Text style={styles.extendText}>ADD TIME</Text>
         </TouchableOpacity>
       </View>
     )

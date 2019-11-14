@@ -59,7 +59,6 @@ const Footer = (props) => {
         desc={`You currently have ${props.selected.length} machines selected. You won't be charged until you unlock them. Do you want to proceed?`}
         primaryonPress={() => {
           props.setCurrentTab('Status')
-          props.setLockState(true)
           props.selected.forEach(e => {
             CreateMachineBooked(e)
           });
