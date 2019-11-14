@@ -9,17 +9,17 @@ const styles = StyleSheet.create({
   activeText: {
     fontSize: 14,
     fontFamily: 'CircularStd-Bold',
-    letterSpacing: -0.4,
-    color: '#506BFB'
+    letterSpacing: -0.2,
+    color: '#4C4A56',
   },
   text: {
     fontSize: 14,
     fontFamily: 'CircularStd-Book',
-    letterSpacing: -0.4,
-    color: '#C2C9D7'
+    letterSpacing: -0.2,
+    color: '#C2C9D7',
   },
   spacing: {
-    paddingHorizontal: 6
+    paddingHorizontal: 6,
   },
   titleText: {
     fontSize: 32,
