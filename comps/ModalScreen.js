@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
   },
   desc: {
     fontFamily: 'CircularStd-Book',
+    marginVertical: 12,
     fontSize: 16,
     letterSpacing: -0.2,
     color: '#595959',

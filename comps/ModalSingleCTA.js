@@ -8,7 +8,7 @@ import Modal from 'react-native-modal';
 // primaryonPress prop will typically be the main action taking place for the modal
 // color prop determines the color of the primary call to action button, create more as necessary
 
-const ModalComp = props => {
+const ModalSingleCTA = props => {
   let primaryButtonColor
   switch (props.color) {
     case 'red':
@@ -39,17 +39,12 @@ const ModalComp = props => {
           onPress={props.primaryonPress}>
           <Text style={styles.primaryButtonText}>{props.primaryButton}</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.secButton}
-          onPress={props.seconPress}>
-          <Text style={styles.secButtonText}>{props.secButton}</Text>
-        </TouchableOpacity>
       </SafeAreaView>
     </Modal>
   );
 }
 
-export default ModalComp;
+export default ModalSingleCTA;
 
 const styles = StyleSheet.create({
   container: {
@@ -80,8 +75,9 @@ const styles = StyleSheet.create({
   },
   primaryButton: {
     padding: 16,
-    margin: 12,
-    marginHorizontal: 60,
+    marginHorizontal: 100,
+    marginTop: 12,
+    marginBottom: 32,
     alignSelf: 'stretch',
     justifyContent: 'center',
     alignItems: 'center',
@@ -116,20 +112,4 @@ const styles = StyleSheet.create({
     fontFamily: 'CircularStd-Book',
     color: 'white'
   },
-  secButton: {
-    padding: 16,
-    marginHorizontal: 60,
-    marginBottom: 32,
-    alignSelf: 'stretch',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 4,
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: '#D0D4D6'
-  },
-  secButtonText: {
-    fontFamily: 'CircularStd-Book',
-    color: '#181721'
-  }
 })
