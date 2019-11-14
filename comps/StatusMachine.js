@@ -126,12 +126,12 @@ const StatusMachine = props => {
         desc={`Your card VISA 1 will be charged $5.00 immediately. Are you sure you want to unlock this machine?`}
         primaryonPress={() => {
           props.navigation.navigate('ModalScreen', {
-            title: `Machine ${props.id} unlocked`,
+            title: `Machine ${props.machine_id} unlocked`,
             desc: 'Load your laundry and come back once your laundry is done!',
             image: require('../assets/Images/modalUnlock.png')
           })
 
-          props.setLockState(false)
+          UpdateMachinesBooked()
           setUnlockModalVisible(!unlockModalVisible)
         }}
         primaryButton={'Yes, unlock it'}
