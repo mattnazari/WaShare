@@ -52,7 +52,8 @@ const Report = props => {
       </View>
       <Footer 
       currentTab={currentTab}
-      selected={selected} />
+      selected={selected}
+      setSelected={setSelected} />
     </View>
   );
 }

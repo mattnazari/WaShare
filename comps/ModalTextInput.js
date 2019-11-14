@@ -1,5 +1,5 @@
-import React from 'react';
-import { SafeAreaView, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { SafeAreaView, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import Modal from 'react-native-modal';
 
 // this modal component accepts a few properties
@@ -8,7 +8,7 @@ import Modal from 'react-native-modal';
 // primaryonPress prop will typically be the main action taking place for the modal
 // color prop determines the color of the primary call to action button, create more as necessary
 
-const ModalComp = props => {
+const ModalTextInput = props => {
   let primaryButtonColor
   switch (props.color) {
     case 'red':
@@ -30,10 +30,18 @@ const ModalComp = props => {
       isVisible={props.isVisible}
       onBackdropPress={props.onBackdropPress}
       onSwipeComplete={props.onSwipeComplete}
+      onModalHide={props.onModalHide}
       swipeDirection={['up', 'down', 'left', 'right']}>
       <SafeAreaView style={styles.container}>
         <Text style={styles.primaryTitle}>{props.title}</Text>
         <Text style={styles.primaryText}>{props.desc}</Text>
+        <TextInput
+          multiline={true}
+          numberOfLines={4}
+          placeholder={props.placeholder}
+          style={styles.input}
+          value={props.reportInputValue}
+          onChangeText={props.onChangeText} />
         <TouchableOpacity
           style={[styles.primaryButton, primaryButtonColor]}
           onPress={props.primaryonPress}>
@@ -49,7 +57,7 @@ const ModalComp = props => {
   );
 }
 
-export default ModalComp;
+export default ModalTextInput;
 
 const styles = StyleSheet.create({
   container: {
@@ -58,6 +66,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10
+  },
+  input: {
+    alignSelf: 'stretch',
+    fontFamily: 'CircularStd-Book',
+    padding: 12,
+    marginHorizontal: 32,
+    borderWidth: 1,
+    borderColor: '#D0D4D6',
+    borderRadius: 4
   },
   primaryText: {
     color: '#636266',
