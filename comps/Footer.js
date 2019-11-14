@@ -19,6 +19,16 @@ const Footer = (props) => {
       themeName = notify
   }
 
+  const ReadMachinesBooked = async () => {
+    var obj = {
+      key: 'machinesbooked_read',
+      data: {}
+    }
+    let r = await axios.post('http://localhost:3001/post', obj)
+    let dbmachinesbooked = JSON.parse(r.data.body)
+    console.log('READING MACHINES BOOKED', dbmachinesbooked)
+  }
+
   const CreateMachineBooked = async (e) => {
     let obj = {
       key: 'machinesbooked_create',
@@ -29,6 +39,7 @@ const Footer = (props) => {
     }
     let r = await axios.post('http://localhost:3001/post', obj)
     console.log(r.data)
+    ReadMachinesBooked()
   }
 
   const [bookModalVisible, setBookModalVisible] = useState(false)
