@@ -12,6 +12,7 @@ import ExtendMachine from './comps/ExtendMachine';
 import Notification from './comps/Notification';
 import Login from './comps/Login';
 import Report from './comps/Report';
+import ModalScreen from './comps/ModalScreen';
 import PaymentHistory from './comps/PaymentHistory';
 import Forgot from './comps/Forgot';
 import Contact from './comps/Contact';
@@ -23,6 +24,7 @@ const AppStackNavigator = createStackNavigator(
     Main: { screen: Main },
     Onboarding: { screen: Onboarding },
     ExtendMachine: { screen: ExtendMachine },
+    ModalScreen: { screen: ModalScreen },
     Notification: { screen: Notification },
     Login: { screen: Login },
     Payment: { screen: PaymentHistory },
@@ -33,9 +35,20 @@ const AppStackNavigator = createStackNavigator(
     //add screens here that go into normal stack navigation
   },
   {
-    headerMode: 'none',
     initialRouteName: 'Onboarding',
+    headerMode: 'none',
   });
+
+// const RootStack = createStackNavigator(
+//   {
+//     Main: { screen: AppStackNavigator },
+//     ModalScreen: { screen: ModalScreen },
+//   },
+//   {
+//     mode: 'modal',
+//     headerMode: 'none',
+//   }
+// )
 
 const iconDim = 24
 const AppDrawerNavigator = createDrawerNavigator(
@@ -55,13 +68,13 @@ const AppDrawerNavigator = createDrawerNavigator(
     'Payment Info': {
       screen: PaymentHistory,
       navigationOptions: {
-        drawerIcon: ({tintColor}) => <Icon name='credit-card' size={iconDim} color={tintColor} />,
+        drawerIcon: ({ tintColor }) => <Icon name='credit-card' size={iconDim} color={tintColor} />,
       }
     },
     Help: {
       screen: Onboarding,
       navigationOptions: {
-        drawerIcon: ({tintColor}) => <Icon name='help-outline' size={iconDim} color={tintColor} />,
+        drawerIcon: ({ tintColor }) => <Icon name='help-outline' size={iconDim} color={tintColor} />,
       }
     },
     //add screens here that go into the hamburger menu

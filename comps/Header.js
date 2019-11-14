@@ -81,8 +81,8 @@ const Header = (props) => {
       tabBar = null;
       break;
     case 'Extend':
-      title = 'Extend your machines'
-      description = 'You can extend the length you booked your machine for. Maximum extention time is 2 hours.'
+      title = 'Add time to your machines'
+      description = 'You can add time to the length you booked your machine for. Maximum extra time is 2 hours.'
       themeName = status
       tabBar = null;
       break;
