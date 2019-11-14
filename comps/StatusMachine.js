@@ -9,9 +9,8 @@ import ModalComp from './ModalComp';
 const StatusMachine = props => {
   const timer = 10 * 60
   let machine;
-
-  let num = props.id;
-  if (props.type == 'Dryer') {
+  let num = props.machine_id;
+  if(props.type == 'Dryer'){
     num = num - 4
   }
 
@@ -22,14 +21,26 @@ const StatusMachine = props => {
     var obj = {
       key: 'machinesbooked_delete',
       data: {
-        machine_id: props.id
+        machine_id: props.machine_id
       }
     }
     var r = await axios.post('http://localhost:3001/post', obj)
     props.ReadMachinesBooked()
   }
 
-  if (props.lockState === true) {
+  const UpdateMachinesBooked = async () => {
+    var obj = {
+      key: 'machinesbooked_update',
+      data: {
+        id: props.id,
+        lockstate: 1
+      }
+    }
+    var r = await axios.post('http://localhost:3001/post', obj)
+    props.ReadMachinesBooked()
+  }
+
+  if (props.lockstate === 0) {
     machine = (
       <View style={styles.container}>
         <Text style={styles.title}>{props.type} {num}</Text>
@@ -56,7 +67,7 @@ const StatusMachine = props => {
       </View>
     )
   }
-  else {
+  else if (props.lockstate === 1){
     machine = (
       <View style={styles.container}>
         <Text style={styles.title}>{props.type} {num}</Text>
