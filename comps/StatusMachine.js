@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/StatusMachineStyles';
 import { withNavigation } from 'react-navigation';
@@ -9,15 +9,22 @@ import ModalComp from './ModalComp';
 const StatusMachine = props => {
   const timer = 10 * 60
   let machine;
+  let default_time;
   let num = props.machine_id;
   if (props.type == 'Dryer') {
+    default_time = 60
     num = num - 4
+  } else if (props.type == 'Washer') {
+    default_time = 30
   }
+
+  const [runTime, setRunTime] = useState(props.run_time)
+  const [startCountdown, setStartCountdown] = useState(false)
 
   const time_now = new Date()
   const time_db = new Date(props.start_time.replace(' ', 'T'))
-  const parsed = (Date.parse(time_now) - Date.parse(time_db))/1000/60
-  const time_finish = new Date(time_db.getTime() + 30*60000);
+  const parsed = (Date.parse(time_now) - Date.parse(time_db)) / 1000 / 60
+  const time_finish = new Date(time_db.getTime() + default_time * 60000);
 
   const [cancelModalVisible, setCancelModalVisible] = useState(false)
   const [unlockModalVisible, setUnlockModalVisible] = useState(false)
@@ -57,6 +64,28 @@ const StatusMachine = props => {
     props.ReadMachinesBooked()
   }
 
+  const UpdateRunTime = async () => {
+    var obj = {
+      key: 'machinesbooked_update',
+      data: {
+        id: props.id,
+        run_time: runTime
+      }
+    }
+    var r = await axios.post('http://localhost:3001/post', obj)
+  }
+
+  useEffect(() => {
+    if (startCountdown) {
+      const interval = setTimeout(() => {
+        setRunTime(runTime - 1);
+        console.log(runTime)
+        UpdateRunTime()
+      }, 1000);
+      return () => clearTimeout(interval);
+    }
+  }), [runTime];
+
   if (props.lockstate === 0) {
     machine = (
       <View style={styles.container}>
@@ -89,7 +118,7 @@ const StatusMachine = props => {
       <View style={styles.container}>
         <Text style={styles.title}>{props.type} {num}</Text>
         <View style={styles.circle}>
-          <Text style={styles.largeText}>{parsed}</Text>
+          <Text style={styles.largeText}>{Math.round(runTime / 60)}</Text>
           <Text style={styles.subText}>minutes</Text>
           <Text style={styles.subText}>remaining</Text>
         </View>
@@ -148,6 +177,7 @@ const StatusMachine = props => {
             image: require('../assets/Images/modalUnlock.png')
           })
           UpdateMachinesBooked()
+          setStartCountdown(!startCountdown)
           setUnlockModalVisible(!unlockModalVisible)
         }}
         primaryButton={'Yes, unlock it'}
