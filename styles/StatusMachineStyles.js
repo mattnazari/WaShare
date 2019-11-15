@@ -108,6 +108,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   finishContainer: {
+    alignSelf: 'stretch',
+    justifyContent: 'space-between',
     flexDirection: 'row',
     alignItems: 'baseline',
   }

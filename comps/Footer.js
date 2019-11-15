@@ -50,11 +50,19 @@ const Footer = (props) => {
   }
 
   const CreateMachineBooked = async (e) => {
+    // RUN_TIME IN SECONDS
+    let run_time;
+    if(e.type == 'Washer'){
+      run_time = 30*60
+    } else {
+      run_time = 60*60
+    }
     let obj = {
       key: 'machinesbooked_create',
       data: {
         machine_id: e.id,
-        lockstate: 0
+        lockstate: 0,
+        run_time: run_time
       }
     }
     let r = await axios.post('http://localhost:3001/post', obj)

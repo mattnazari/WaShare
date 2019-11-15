@@ -10,9 +10,14 @@ const StatusMachine = props => {
   const timer = 10 * 60
   let machine;
   let num = props.machine_id;
-  if(props.type == 'Dryer'){
+  if (props.type == 'Dryer') {
     num = num - 4
   }
+
+  const time_now = new Date()
+  const time_db = new Date(props.start_time.replace(' ', 'T'))
+  const parsed = (Date.parse(time_now) - Date.parse(time_db))/1000/60
+  const time_finish = new Date(time_db.getTime() + 30*60000);
 
   const [cancelModalVisible, setCancelModalVisible] = useState(false)
   const [unlockModalVisible, setUnlockModalVisible] = useState(false)
@@ -79,18 +84,18 @@ const StatusMachine = props => {
       </View>
     )
   }
-  else if (props.lockstate === 1){
+  else if (props.lockstate === 1) {
     machine = (
       <View style={styles.container}>
         <Text style={styles.title}>{props.type} {num}</Text>
         <View style={styles.circle}>
-          <Text style={styles.largeText}>30</Text>
+          <Text style={styles.largeText}>{parsed}</Text>
           <Text style={styles.subText}>minutes</Text>
           <Text style={styles.subText}>remaining</Text>
         </View>
         <View style={styles.finishContainer}>
           <Text style={styles.subText}>Finish time</Text>
-          <Text style={styles.mediumText}>9:56am</Text>
+          <Text style={styles.mediumText}>{time_finish.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}</Text>
         </View>
         <TouchableOpacity
           style={styles.extendContainer}
