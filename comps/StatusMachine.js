@@ -79,7 +79,7 @@ const StatusMachine = props => {
     if (startCountdown) {
       const interval = setTimeout(() => {
         setRunTime(runTime - 1);
-        console.log(runTime)
+        console.log(props.type, num, 'run_time remaining in seconds:', runTime)
         UpdateRunTime()
       }, 1000);
       return () => clearTimeout(interval);
