@@ -45,7 +45,7 @@ const StatusMachine = props => {
       key: 'machinesbooked_update',
       data: {
         id: props.id,
-        lockstate: 1
+        lockstate: 1,
       }
     }
     var r = await axios.post('http://localhost:3001/post', obj)
