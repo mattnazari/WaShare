@@ -17,6 +17,17 @@ const StatusMachine = props => {
   const [cancelModalVisible, setCancelModalVisible] = useState(false)
   const [unlockModalVisible, setUnlockModalVisible] = useState(false)
 
+  const UpdateMachinesStatus = async () => {
+    var obj = {
+      key: 'machines_update',
+      data: {
+        id: props.machine_id,
+        status: 0
+      }
+    }
+    var r = await axios.post('http://localhost:3001/post', obj)
+  }
+
   const DeleteMachinesBooked = async () => {
     var obj = {
       key: 'machinesbooked_delete',
@@ -26,6 +37,7 @@ const StatusMachine = props => {
     }
     var r = await axios.post('http://localhost:3001/post', obj)
     props.ReadMachinesBooked()
+    UpdateMachinesStatus()
   }
 
   const UpdateMachinesBooked = async () => {
@@ -33,7 +45,7 @@ const StatusMachine = props => {
       key: 'machinesbooked_update',
       data: {
         id: props.id,
-        lockstate: 1
+        lockstate: 1,
       }
     }
     var r = await axios.post('http://localhost:3001/post', obj)

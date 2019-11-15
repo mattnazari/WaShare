@@ -6,22 +6,11 @@ import { book, status, notify } from '../styles/ThemeStyles';
 const Machine = props => {
   let themeName;
   let status;
+  let machine;
 
   let machineNum = props.id;
   if (props.type == 'Dryer') {
     machineNum = machineNum - 4
-  }
-
-  switch (props.status) {
-    case 0:
-      status = 'Ready'
-      break;
-    case 1:
-      status = 'In-Use'
-      break;
-    case 2:
-      status = 'Unavailable'
-      break;
   }
 
   switch (props.currentTab) {
@@ -53,32 +42,58 @@ const Machine = props => {
     )
   }
 
+  switch (props.status) {
+    case 0:
+      status = 'Ready'
+      machine = (<TouchableOpacity
+        style={machineStyle}
+        onPress={() => {
+          const idIndex = props.selected.map(machine => { return machine.id; }).indexOf(props.id);
+          const data = { id: props.id, type: props.type };
+
+          if (idIndex === -1) {
+            console.log('pushing')
+            props.pushSelect(data)
+          } else {
+            console.log('splicing')
+            props.spliceSelect(idIndex)
+          }
+          setSelected(!selected)
+        }}>
+        {selectedBox}
+        <Text style={styles.machine}>{props.type} {props.num + 1}</Text>
+        <View style={[styles.circle, themeName.borderColor]}></View>
+        <Text style={styles.timeRemaining}>{status}</Text>
+      </TouchableOpacity>)
+      break;
+    case 1:
+      status = 'In-Use'
+      machine = machine = (
+        <View style={[machineStyle, { opacity: 0.5 }]}>
+          <Text style={[styles.machine, { color: 'grey' }]}>{props.type} {props.num + 1}</Text>
+          <View style={[styles.circle, { borderColor: 'grey' }]}></View>
+          <Text style={styles.timeRemaining}>{status}</Text>
+        </View>)
+      break;
+    case 2:
+      status = 'Unavailable'
+      machine = machine = (
+        <View style={[machineStyle, { opacity: 0.5 }]}>
+          <Text style={[styles.machine, { color: 'grey' }]}>{props.type} {props.num + 1}</Text>
+          <View style={[styles.circle, { borderColor: 'grey' }]}></View>
+          <Text style={styles.timeRemaining}>{status}</Text>
+        </View>)
+      break;
+  }
+
   useEffect(() => {
     setSelected(false)
   }, [props.currentTab, props.selected])
 
   return (
-    <TouchableOpacity
-      style={machineStyle}
-      onPress={() => {
-        const idIndex = props.selected.map(machine => { return machine.id; }).indexOf(props.id);
-        const typeIndex = props.selected.map(machine => { return machine.type; }).indexOf(props.type);
-        const data = { id: props.id, lock: props.lock, type: props.type };
-
-        if (idIndex === -1) {
-          console.log('pushing')
-          props.pushSelect(data)
-        } else {
-          console.log('splicing')
-          props.spliceSelect(idIndex)
-        }
-        setSelected(!selected)
-      }}>
-      {selectedBox}
-      <Text style={styles.machine}>{props.type} {props.num + 1}</Text>
-      <View style={[styles.circle, themeName.borderColor]}></View>
-      <Text style={styles.timeRemaining}>{status}</Text>
-    </TouchableOpacity>
+    <View>
+      {machine}
+    </View>
   )
 }
 
