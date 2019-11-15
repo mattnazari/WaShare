@@ -62,8 +62,7 @@ const Machine = props => {
       style={machineStyle}
       onPress={() => {
         const idIndex = props.selected.map(machine => { return machine.id; }).indexOf(props.id);
-        const typeIndex = props.selected.map(machine => { return machine.type; }).indexOf(props.type);
-        const data = { id: props.id, lock: props.lock, type: props.type };
+        const data = { id: props.id, type: props.type };
 
         if (idIndex === -1) {
           console.log('pushing')

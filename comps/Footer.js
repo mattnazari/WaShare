@@ -38,6 +38,17 @@ const Footer = (props) => {
     console.log('READING MACHINES BOOKED', dbmachinesbooked)
   }
 
+  const UpdateMachinesStatus = async (e) => {
+    var obj = {
+      key: 'machines_update',
+      data: {
+        id: e.id,
+        status: 1
+      }
+    }
+    var r = await axios.post('http://localhost:3001/post', obj)
+  }
+
   const CreateMachineBooked = async (e) => {
     let obj = {
       key: 'machinesbooked_create',
@@ -49,6 +60,7 @@ const Footer = (props) => {
     let r = await axios.post('http://localhost:3001/post', obj)
     console.log(r.data)
     ReadMachinesBooked()
+    UpdateMachinesStatus(e)
   }
 
   const [noneSelectedModalVisible, setNoneSelectedModalVisible] = useState(false)
