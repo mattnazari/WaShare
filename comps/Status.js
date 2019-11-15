@@ -77,8 +77,11 @@ const Status = props => {
             num={index}
             id={machine.id}
             machine_id={machine.machine_id}
+            start_time={machine.start_time}
+            run_time={machine.run_time}
             type={machine.machine_type}
             setCurrentTab={props.setCurrentTab}
+            currentTab={props.currentTab}
             lockstate={machine.lockstate}
             ReadMachinesBooked={ReadMachinesBooked} />
         )}
