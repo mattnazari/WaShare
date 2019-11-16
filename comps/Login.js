@@ -38,6 +38,7 @@ const Login = props => {
       ReadAuthUser(result.id)
     }
     else {
+      alert('auth failed, REPLACE THIS')
       //auth failed
       //backend currently throws errors so this isn't possible to do in the front-end
     }
@@ -66,7 +67,6 @@ const Login = props => {
           placeholder='420 LeBron Street'
           onChangeText={(text) => {
             address = text
-            email = text
           }}
         />
         <Text style={styles.inputTitle}>6 Digit Code</Text>
@@ -75,7 +75,6 @@ const Login = props => {
           placeholder='42069X'
           onChangeText={(text) => {
             usercode = text
-            password = text
           }}
         />
         <TouchableOpacity
@@ -92,10 +91,10 @@ const Login = props => {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
+            // TODO
+            // needs if statement to check if address and digitcode are filled in
             Auth()
-            // props.navigation.navigate('Main')
-          }}
-        >
+          }}>
           <Text style={styles.buttonText}>LOGIN</Text>
         </TouchableOpacity>
       </View>
