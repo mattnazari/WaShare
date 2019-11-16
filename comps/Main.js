@@ -4,6 +4,7 @@ import MachineContainer from './MachineContainer';
 import Footer from './Footer';
 import Header from './Header';
 import Status from './Status';
+import * as Animatable from 'react-native-animatable';
 
 const Main = props => {
   const userdata = props.navigation.getParam('data', 'ERROR')
@@ -59,12 +60,14 @@ const Main = props => {
           spliceSelect={spliceSelect}
           userdata={userdata} />
       </View>
-      <Footer
-        currentTab={currentTab}
-        setCurrentTab={setCurrentTab}
-        selected={selected}
-        setSelected={setSelected}
-        userdata={userdata} />
+      <Animatable.View animation='fadeInUp' delay={750} easing='ease-in'>
+        <Footer
+          currentTab={currentTab}
+          setCurrentTab={setCurrentTab}
+          selected={selected}
+          setSelected={setSelected}
+          userdata={userdata} />
+      </Animatable.View>
     </View>
   )
 
@@ -81,12 +84,14 @@ const Main = props => {
 
   return (
     <View style={{ flex: 1 }}>
-      <Header
-        setCurrentTab={setCurrentTab}
-        currentTab={currentTab}
-        setSelected={setSelected}
-        selected={selected}
-        userdata={userdata} />
+      <Animatable.View animation='fadeInDown' delay={125} easing='ease-in'>
+        <Header
+          setCurrentTab={setCurrentTab}
+          currentTab={currentTab}
+          setSelected={setSelected}
+          selected={selected}
+          userdata={userdata} />
+      </Animatable.View>
       {home}
     </View>
   )

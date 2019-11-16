@@ -4,6 +4,7 @@ import styles from '../styles/FooterStyles';
 import { status } from '../styles/ThemeStyles';
 import StatusMachine from './StatusMachine';
 import axios from 'axios';
+import * as Animatable from 'react-native-animatable';
 
 const main = StyleSheet.create({
   container: {
@@ -39,7 +40,7 @@ const Status = props => {
     ReadMachinesBooked()
     var timenow = new Date();
     var timebefore = new Date('2019-11-13 12:00:00');
-    console.log(timenow, timebefore, (Date.parse(timenow) - Date.parse(timebefore))/1000/60);
+    console.log(timenow, timebefore, (Date.parse(timenow) - Date.parse(timebefore)) / 1000 / 60);
   }, [])
 
   //default page when no machines are in use
@@ -49,13 +50,15 @@ const Status = props => {
         resizeMode='contain'
         style={{ width: 300, height: 300 }}
         source={require('../assets/Images/nostatus.png')} />
-      <TouchableOpacity
-        style={[styles.container, status.color, status.shadowColor]}
-        onPress={() => {
-          props.setCurrentTab('Book')
-        }}>
-        <Text style={styles.text}>Browse available machines</Text>
-      </TouchableOpacity>
+      <Animatable.View animation='fadeIn' delay={1000} easing='ease-in'>
+        <TouchableOpacity
+          style={[styles.container, status.color, status.shadowColor]}
+          onPress={() => {
+            props.setCurrentTab('Book')
+          }}>
+          <Text style={styles.text}>Browse available machines</Text>
+        </TouchableOpacity>
+      </Animatable.View>
     </View>
   )
 
@@ -74,18 +77,24 @@ const Status = props => {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={main.scrollContainer}>
         {machinesBooked.map((machine, index) =>
-          <StatusMachine
-            key={index}
-            num={index}
-            id={machine.id}
-            machine_id={machine.machine_id}
-            start_time={machine.start_time}
-            run_time={machine.run_time}
-            type={machine.machine_type}
-            setCurrentTab={props.setCurrentTab}
-            currentTab={props.currentTab}
-            lockstate={machine.lockstate}
-            ReadMachinesBooked={ReadMachinesBooked} />
+          <Animatable.View key={index}
+            animation='fadeInRight'
+            easing='ease-in'
+            duration={500}
+            delay={index * 250}>
+            <StatusMachine
+              key={index}
+              num={index}
+              id={machine.id}
+              machine_id={machine.machine_id}
+              start_time={machine.start_time}
+              run_time={machine.run_time}
+              type={machine.machine_type}
+              setCurrentTab={props.setCurrentTab}
+              currentTab={props.currentTab}
+              lockstate={machine.lockstate}
+              ReadMachinesBooked={ReadMachinesBooked} />
+          </Animatable.View>
         )}
       </ScrollView>
     )
