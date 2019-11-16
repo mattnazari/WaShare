@@ -38,9 +38,9 @@ const Status = props => {
     console.log('read userdata:', props.userdata)
     console.log('READ APP DATA', props.screenProps.data)
     ReadMachinesBooked()
-    var timenow = new Date();
-    var timebefore = new Date('2019-11-13 12:00:00');
-    console.log(timenow, timebefore, (Date.parse(timenow) - Date.parse(timebefore)) / 1000 / 60);
+    // var timenow = new Date();
+    // var timebefore = new Date('2019-11-13 12:00:00');
+    // console.log(timenow, timebefore, (Date.parse(timenow) - Date.parse(timebefore)) / 1000 / 60);
   }, [])
 
   //default page when no machines are in use
@@ -50,7 +50,7 @@ const Status = props => {
         resizeMode='contain'
         style={{ width: 300, height: 300 }}
         source={require('../assets/Images/nostatus.png')} />
-      <Animatable.View animation='fadeIn' delay={1000} easing='ease-in'>
+      <Animatable.View animation='fadeInUp' delay={1000} easing='ease-in'>
         <TouchableOpacity
           style={[styles.container, status.color, status.shadowColor]}
           onPress={() => {
@@ -86,9 +86,11 @@ const Status = props => {
               key={index}
               num={index}
               id={machine.id}
+              add_time={machine.add_time}
               machine_id={machine.machine_id}
               start_time={machine.start_time}
               run_time={machine.run_time}
+              is_added={machine.is_added}
               type={machine.machine_type}
               setCurrentTab={props.setCurrentTab}
               currentTab={props.currentTab}

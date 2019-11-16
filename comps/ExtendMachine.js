@@ -3,53 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Header from './Header';
 import styles, { colors } from '../styles/StatusMachineStyles';
 import ModalComp from './ModalComp';
-
-const extendstyles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: "#FFF",
-    padding: 24,
-    marginVertical: 16,
-    elevation: 16,
-    shadowColor: "#506AFB",
-    shadowOffset: {
-      width: 0,
-      height: 12,
-    },
-    shadowOpacity: 0.35,
-    shadowRadius: 14,
-    borderRadius: 20,
-  },
-  subTitle: {
-    fontFamily: 'CircularStd-Black',
-    fontSize: 24,
-    letterSpacing: -1.2,
-    color: colors.dark
-  },
-  countContainer: {
-    height: 50,
-    width: 50,
-    backgroundColor: colors.main,
-    borderRadius: 10,
-    elevation: 16,
-    shadowColor: "#506AFB",
-    shadowOffset: {
-      width: 0,
-      height: 12,
-    },
-    shadowOpacity: 0.45,
-    shadowRadius: 12
-  },
-  countText: {
-    fontFamily: 'CircularStd-Black',
-    fontSize: 48,
-    color: '#FFF',
-    textAlign: 'center',
-    marginTop: -9
-  },
-})
+import axios from 'axios';
 
 const ExtendMachine = props => {
   let cost = 0.5;
@@ -77,6 +31,15 @@ const ExtendMachine = props => {
   const UpdateMachinesBooked = async () => {
     //... finish this function
     // UPDATE add_time column based on machine_id
+    var obj = {
+      key: 'machinesbooked_update',
+      data: {
+        id: props.navigation.getParam('id', null),
+        add_time: extendCount * 60,
+        is_added: 1
+      }
+    }
+    var r = await axios.post('http://localhost:3001/post', obj)
   }
 
   return (
@@ -101,6 +64,7 @@ const ExtendMachine = props => {
             image: require('../assets/Images/modalExtend.png'),
           })
           setAddModalVisible(!addModalVisible)
+
         }}
         primaryButton={'Yes, add time.'}
         seconPress={() => {
@@ -171,3 +135,50 @@ const ExtendMachine = props => {
 }
 
 export default ExtendMachine;
+
+const extendstyles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: "#FFF",
+    padding: 24,
+    marginVertical: 16,
+    elevation: 16,
+    shadowColor: "#506AFB",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.35,
+    shadowRadius: 14,
+    borderRadius: 20,
+  },
+  subTitle: {
+    fontFamily: 'CircularStd-Black',
+    fontSize: 24,
+    letterSpacing: -1.2,
+    color: colors.dark
+  },
+  countContainer: {
+    height: 50,
+    width: 50,
+    backgroundColor: colors.main,
+    borderRadius: 10,
+    elevation: 16,
+    shadowColor: "#506AFB",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.45,
+    shadowRadius: 12
+  },
+  countText: {
+    fontFamily: 'CircularStd-Black',
+    fontSize: 48,
+    color: '#FFF',
+    textAlign: 'center',
+    marginTop: -9
+  },
+})

@@ -84,13 +84,14 @@ const Main = props => {
 
   return (
     <View style={{ flex: 1 }}>
-      <Animatable.View animation='fadeInDown' delay={125} easing='ease-in'>
+      <Animatable.View animation='fadeInDown' duration={750} delay={125} easing='ease-in'>
         <Header
           setCurrentTab={setCurrentTab}
           currentTab={currentTab}
           setSelected={setSelected}
           selected={selected}
-          userdata={userdata} />
+          userdata={userdata}
+          screenProps={props.screenProps} />
       </Animatable.View>
       {home}
     </View>
