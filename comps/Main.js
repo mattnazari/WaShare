@@ -5,7 +5,13 @@ import Footer from './Footer';
 import Header from './Header';
 import Status from './Status';
 
-const Main = ({ navigation }) => {
+const Main = props => {
+  const userdata = props.navigation.getParam('data', 'ERROR')
+  useEffect(() => {
+    console.log('currently logged in as user_id:', props.navigation.getParam('id', 'COULD NOT RETRIEVE ID'))
+    console.log('reading userdata for user_id:', userdata.id, userdata)
+  }, [])
+
   //handles machine selection
   const [selected, setSelected] = useState([]);
   //handle styling of current page (home screen)
@@ -36,21 +42,24 @@ const Main = ({ navigation }) => {
           selected={selected}
           type={'Washer'}
           pushSelect={pushSelect}
-          spliceSelect={spliceSelect} />
+          spliceSelect={spliceSelect}
+          userdata={userdata} />
       </View>
       <View style={{ flex: 1 }}>
-        <MachineContainer    
+        <MachineContainer
           currentTab={currentTab}
           selected={selected}
           type={'Dryer'}
           pushSelect={pushSelect}
-          spliceSelect={spliceSelect} />
+          spliceSelect={spliceSelect}
+          userdata={userdata} />
       </View>
       <Footer
         currentTab={currentTab}
         setCurrentTab={setCurrentTab}
         selected={selected}
-        setSelected={setSelected} />
+        setSelected={setSelected}
+        userdata={userdata} />
     </View>
   )
 
@@ -59,7 +68,8 @@ const Main = ({ navigation }) => {
     home = (
       <Status
         currentTab={currentTab}
-        setCurrentTab={setCurrentTab} />
+        setCurrentTab={setCurrentTab}
+        userdata={userdata} />
     )
   }
 
@@ -70,7 +80,7 @@ const Main = ({ navigation }) => {
         currentTab={currentTab}
         setSelected={setSelected}
         selected={selected}
-        navigation={navigation} />
+        userdata={userdata} />
       {home}
     </View>
   )

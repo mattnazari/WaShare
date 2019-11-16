@@ -25,7 +25,6 @@ const Header = (props) => {
         onPress={() => {
           props.setCurrentTab('Book')
           props.setSelected([])
-          console.log(props.selected)
 
           setBookTextStyle(styles.activeText)
           setStatusTextStyle(styles.text)
@@ -38,7 +37,6 @@ const Header = (props) => {
         onPress={() => {
           props.setCurrentTab('Status')
           props.setSelected([])
-          console.log(props.selected)
 
           setBookTextStyle(styles.text)
           setStatusTextStyle(styles.activeText)
@@ -51,7 +49,6 @@ const Header = (props) => {
         onPress={() => {
           props.setCurrentTab('Notify')
           props.setSelected([])
-          console.log(props.selected)
 
           setBookTextStyle(styles.text)
           setStatusTextStyle(styles.text)

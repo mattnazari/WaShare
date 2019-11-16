@@ -34,6 +34,7 @@ const Status = props => {
   }
 
   useEffect(() => {
+    console.log('read userdata:', props.userdata)
     ReadMachinesBooked()
     var timenow = new Date();
     var timebefore = new Date('2019-11-13 12:00:00');

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import styles from '../styles/LoginStyles';
 import { Back } from './SVGComps';
@@ -20,6 +20,7 @@ const Login = props => {
     let user = JSON.parse(r.data.body)
     let data = user.data[0]
     console.log('reading the authorized user', data)
+    props.navigation.navigate('Main', { id: data.id, data: data })
   }
 
   const Auth = async () => {
@@ -35,7 +36,6 @@ const Login = props => {
     if (result.status) {
       console.log(result.msg, 'the user_id is:', result.id)
       ReadAuthUser(result.id)
-      props.navigation.navigate('Main')
     }
     else {
       //auth failed
