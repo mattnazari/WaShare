@@ -42,7 +42,8 @@ const styles = StyleSheet.create({
     fontFamily: 'CircularStd-Black',
     fontSize: 32,
     letterSpacing: -0.8,
-    color: '#0D0035'
+    color: '#0D0035',
+    textAlign: 'center'
   },
   desc: {
     fontFamily: 'CircularStd-Book',

@@ -3,10 +3,11 @@ import { View, Text, ScrollView } from 'react-native';
 import Machine from './Machine';
 import styles from '../styles/MachineStyles';
 import axios from 'axios';
+import * as Animatable from 'react-native-animatable';
 
 const MachineContainer = props => {
   const [machines, setMachines] = useState([])
-  
+
   const ReadMachines = async () => {
     var obj = {
       key: 'machines_read',
@@ -31,7 +32,7 @@ const MachineContainer = props => {
 
   return (
     <View>
-      <Text style={styles.title}>{props.type} machines</Text>
+      <Animatable.Text style={styles.title} animation='fadeIn' delay={250}>{props.type} machines</Animatable.Text>
       <View style={{ marginTop: -20 }}>
         <ScrollView
           horizontal
@@ -44,15 +45,21 @@ const MachineContainer = props => {
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.scrollContainer}>
           {machines.map((machine, index) => {
-            return <Machine key={index}
-              id={machine.id}
-              num={index}
-              type={machine.machine_type}
-              status={machine.status}
-              currentTab={props.currentTab}
-              selected={props.selected}
-              pushSelect={props.pushSelect}
-              spliceSelect={props.spliceSelect} />
+            return <Animatable.View key={index}
+              animation='fadeInRight'
+              easing='ease-in'
+              duration={750}
+              delay={index * 300}>
+              <Machine key={index}
+                id={machine.id}
+                num={index}
+                type={machine.machine_type}
+                status={machine.status}
+                currentTab={props.currentTab}
+                selected={props.selected}
+                pushSelect={props.pushSelect}
+                spliceSelect={props.spliceSelect} />
+            </Animatable.View>
           }
           )}
         </ScrollView>

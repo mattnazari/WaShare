@@ -19,12 +19,14 @@ const StatusMachine = props => {
   }
 
   const [runTime, setRunTime] = useState(props.run_time)
+  const addTime = props.add_time
+  const count = runTime + addTime
   const [startCountdown, setStartCountdown] = useState(false)
 
   const time_now = new Date()
   const time_db = new Date(props.start_time.replace(' ', 'T'))
-  const parsed = (Date.parse(time_now) - Date.parse(time_db)) / 1000 / 60
   const time_finish = new Date(time_db.getTime() + default_time * 60000);
+  const parsed = (Date.parse(time_now) - Date.parse(time_db)) / 1000 / 60
 
   const [cancelModalVisible, setCancelModalVisible] = useState(false)
   const [unlockModalVisible, setUnlockModalVisible] = useState(false)
@@ -73,13 +75,26 @@ const StatusMachine = props => {
       }
     }
     var r = await axios.post('http://localhost:3001/post', obj)
+    props.ReadMachinesBooked()
   }
 
   useEffect(() => {
     if (startCountdown) {
+      if (count === 0) {
+        console.log(props.type, num, 'has finished running!')
+
+        props.navigation.navigate('ModalScreen', {
+          title: `Your ${props.type} has finished it's cycle`,
+          desc: 'Please collect your laundry so that the next person can use the machine!',
+          image: require('../assets/Images/modalDone.png'),
+        })
+        DeleteMachinesBooked()
+
+        return;
+      }
       const interval = setTimeout(() => {
-        setRunTime(runTime - 1);
-        console.log(props.type, num, 'run_time remaining in seconds:', runTime)
+        setRunTime((runTime) - 1);
+        console.log(props.type, num, 'time remaining in seconds:', count)
         UpdateRunTime()
       }, 1000);
       return () => clearTimeout(interval);
@@ -114,25 +129,46 @@ const StatusMachine = props => {
     )
   }
   else if (props.lockstate === 1) {
+
+    let button;
+    if (props.is_added !== 1) {
+      button = <TouchableOpacity
+        style={styles.extendContainer}
+        onPress={() => {
+          props.navigation.navigate('ExtendMachine', { id: props.id })
+        }}>
+        <Text style={styles.extendText}>ADD TIME</Text>
+      </TouchableOpacity>
+    } else {
+      //write here to display button if a machine has already added time to it
+      button = null
+    }
+
+    let time;
+    if (count >= 60) {
+      time = <View style={{justifyContent:'center', alignItems:'center'}}>
+        <Text style={styles.largeText}>{Math.round(count / 60)}</Text>
+        <Text style={styles.subText}>minutes</Text>
+        <Text style={styles.subText}>remaining</Text>
+      </View>
+    } else {
+      time = <View style={{justifyContent:'center', alignItems:'center'}}>
+        <Text style={styles.largeText}>{count}</Text>
+        <Text style={styles.subText}>seconds</Text>
+        <Text style={styles.subText}>remaining</Text>
+      </View>
+    }
     machine = (
       <View style={styles.container}>
         <Text style={styles.title}>{props.type} {num}</Text>
         <View style={styles.circle}>
-          <Text style={styles.largeText}>{Math.round(runTime / 60)}</Text>
-          <Text style={styles.subText}>minutes</Text>
-          <Text style={styles.subText}>remaining</Text>
+          {time}
         </View>
         <View style={styles.finishContainer}>
           <Text style={styles.subText}>Finish time</Text>
           <Text style={styles.mediumText}>{time_finish.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}</Text>
         </View>
-        <TouchableOpacity
-          style={styles.extendContainer}
-          onPress={() => {
-            props.navigation.navigate('ExtendMachine')
-          }}>
-          <Text style={styles.extendText}>ADD TIME</Text>
-        </TouchableOpacity>
+        {button}
       </View>
     )
   }
