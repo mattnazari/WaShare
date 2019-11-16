@@ -18,7 +18,7 @@ const StatusMachine = props => {
     default_time = 30
   }
 
-  const [runTime, setRunTime] = useState(props.run_time)
+  const [runTime, setRunTime] = useState(70)
   const addTime = props.add_time
   const count = runTime + addTime
   const [startCountdown, setStartCountdown] = useState(false)
@@ -80,7 +80,7 @@ const StatusMachine = props => {
 
   useEffect(() => {
     if (startCountdown) {
-      if(count === 0){
+      if (count === 0) {
         console.log(props.type, num, 'has finished running!')
 
         props.navigation.navigate('ModalScreen', {
@@ -131,26 +131,38 @@ const StatusMachine = props => {
   else if (props.lockstate === 1) {
 
     let button;
-    if(props.is_added !== 1){
+    if (props.is_added !== 1) {
       button = <TouchableOpacity
-          style={styles.extendContainer}
-          onPress={() => {
-            props.navigation.navigate('ExtendMachine', { id: props.id })
-          }}>
-          <Text style={styles.extendText}>ADD TIME</Text>
-        </TouchableOpacity>
+        style={styles.extendContainer}
+        onPress={() => {
+          props.navigation.navigate('ExtendMachine', { id: props.id })
+        }}>
+        <Text style={styles.extendText}>ADD TIME</Text>
+      </TouchableOpacity>
     } else {
       //write here to display button if a machine has already added time to it
       button = null
     }
 
+    let time;
+    if (count >= 60) {
+      time = <View style={{justifyContent:'center', alignItems:'center'}}>
+        <Text style={styles.largeText}>{Math.round(count / 60)}</Text>
+        <Text style={styles.subText}>minutes</Text>
+        <Text style={styles.subText}>remaining</Text>
+      </View>
+    } else {
+      time = <View style={{justifyContent:'center', alignItems:'center'}}>
+        <Text style={styles.largeText}>{count}</Text>
+        <Text style={styles.subText}>seconds</Text>
+        <Text style={styles.subText}>remaining</Text>
+      </View>
+    }
     machine = (
       <View style={styles.container}>
         <Text style={styles.title}>{props.type} {num}</Text>
         <View style={styles.circle}>
-          <Text style={styles.largeText}>{Math.round(count / 60)}</Text>
-          <Text style={styles.subText}>minutes</Text>
-          <Text style={styles.subText}>remaining</Text>
+          {time}
         </View>
         <View style={styles.finishContainer}>
           <Text style={styles.subText}>Finish time</Text>
