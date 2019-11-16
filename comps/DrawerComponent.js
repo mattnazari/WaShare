@@ -9,10 +9,10 @@ export const DrawerComponent = props => (
   <View style={styles.container}>
     <View>
       <SafeAreaView>
-        <Text style={styles.nameText}>Hello, {props.screenProps.first_name}</Text>
+        <Text style={styles.nameText}>Hello, {props.screenProps.data.first_name} {props.screenProps.data.last_name}</Text>
       </SafeAreaView>
       <SafeAreaView>
-        <Text style={styles.unitText}>Unit {props.screenProps.unit}</Text>
+        <Text style={styles.unitText}>Unit {props.screenProps.data.unit}</Text>
       </SafeAreaView>
     </View>
     <SafeAreaView

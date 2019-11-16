@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
@@ -38,17 +38,6 @@ const AppStackNavigator = createStackNavigator(
     initialRouteName: 'Onboarding',
     headerMode: 'none',
   });
-
-// const RootStack = createStackNavigator(
-//   {
-//     Main: { screen: AppStackNavigator },
-//     ModalScreen: { screen: ModalScreen },
-//   },
-//   {
-//     mode: 'modal',
-//     headerMode: 'none',
-//   }
-// )
 
 const iconDim = 24
 const AppDrawerNavigator = createDrawerNavigator(
@@ -100,9 +89,17 @@ const AppDrawerNavigator = createDrawerNavigator(
 const AppContainer = createAppContainer(AppDrawerNavigator);
 
 const App = () => {
+  const [data, setData] = useState({})
+
+  function SetData(obj){
+    var d = obj
+    setData(d)
+    console.log('APP DATA top level:', data)
+  }
+
   return (
     <AppContainer
-      screenProps={{ first_name: 'John', unit: '305' }} />
+      screenProps={{ data: data, SetData: SetData }} />
   )
 };
 

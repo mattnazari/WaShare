@@ -10,6 +10,11 @@ const Main = props => {
   useEffect(() => {
     console.log('currently logged in as user_id:', props.navigation.getParam('id', 'COULD NOT RETRIEVE ID'))
     console.log('reading userdata for user_id:', userdata.id, userdata)
+
+    //have to run this function twice in order to set the data at the top level
+    //might be a bug ??
+    props.screenProps.SetData(userdata)
+    props.screenProps.SetData(userdata)
   }, [])
 
   //handles machine selection
@@ -69,7 +74,8 @@ const Main = props => {
       <Status
         currentTab={currentTab}
         setCurrentTab={setCurrentTab}
-        userdata={userdata} />
+        userdata={userdata}
+        screenProps={props.screenProps} />
     )
   }
 
