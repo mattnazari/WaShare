@@ -101,7 +101,7 @@ const AppContainer = createAppContainer(AppDrawerNavigator);
 
 const App = () => {
   return (
-    <AppContainer />
+    <AppContainer screenProps={{first_name: 'John', unit: '305'}}/>
   )
 };
 
