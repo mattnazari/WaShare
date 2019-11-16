@@ -9,10 +9,10 @@ export const DrawerComponent = props => (
   <View style={styles.container}>
     <View>
       <SafeAreaView>
-        <Text style={styles.nameText}>Hello, {props.name}</Text>
+        <Text style={styles.nameText}>Hello, {props.screenProps.data.first_name} {props.screenProps.data.last_name}</Text>
       </SafeAreaView>
       <SafeAreaView>
-        <Text style={styles.unitText}>Unit 420</Text>
+        <Text style={styles.unitText}>Unit {props.screenProps.data.unit}</Text>
       </SafeAreaView>
     </View>
     <SafeAreaView
@@ -21,11 +21,11 @@ export const DrawerComponent = props => (
       <DrawerItems {...props} />
     </SafeAreaView>
     <SafeAreaView>
-      <TouchableOpacity 
-      style={{ flexDirection: 'row', alignItems: 'center' }}
-      onPress={() => {
-        alert('LOGOUT FUNCTION')
-      }}>
+      <TouchableOpacity
+        style={{ flexDirection: 'row', alignItems: 'center' }}
+        onPress={() => {
+          alert('LOGOUT FUNCTION')
+        }}>
         <Icon name='logout' size={iconDim} />
         <Text style={styles.logoutText}>Log Out</Text>
       </TouchableOpacity>

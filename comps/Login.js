@@ -1,41 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import styles from '../styles/LoginStyles';
 import { Back } from './SVGComps';
 import axios from 'axios';
 
-let address;
-let usercode;
-
+let address = '';
+let usercode = '';
 const Login = props => {
 
-  const CreateUser = async () => {
-    //fetch database to create users
-    let obj = {
-      key: 'users_create',
+  const ReadAuthUser = async (id) => {
+    var obj = {
+      key: 'users_read',
+      data: {
+        id: id
+      }
+    }
+
+    let r = await axios.post('http://localhost:3001/post', obj)
+    let user = JSON.parse(r.data.body)
+    let data = user.data[0]
+    console.log('reading the authorized user', data)
+    props.navigation.navigate('Main', { id: data.id, data: data })
+  }
+
+  const Auth = async () => {
+    var obj = {
+      key: "users_auth",
       data: {
         address: address,
         usercode: usercode
       }
     }
-    let r = await axios.post('http://localhost:3001/post', obj)
-    console.log(r.data)
-  }
-
-  const ReadUser = async () => {
-    var obj = {
-      key: 'users_read',
-      data: {}
+    var r = await axios.post("http://localhost:3001/post", obj);
+    var result = JSON.parse(r.data.body)
+    if (result.status) {
+      console.log(result.msg, 'the user_id is:', result.id)
+      ReadAuthUser(result.id)
     }
-
-    let r = await axios.post('http://localhost:3001/post', obj)
-    let dbusers = JSON.parse(r.data.body)
-    console.log('read', dbusers)
+    else {
+      alert('auth failed, REPLACE THIS')
+      //auth failed
+      //backend currently throws errors so this isn't possible to do in the front-end
+    }
   }
-
-  React.useEffect(() => {
-    ReadUser()
-  }, [])
 
   return (
     <View style={styles.background}>
@@ -84,10 +91,10 @@ const Login = props => {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            CreateUser()
-            props.navigation.navigate('Main')
-          }}
-        >
+            // TODO
+            // needs if statement to check if address and digitcode are filled in
+            Auth()
+          }}>
           <Text style={styles.buttonText}>LOGIN</Text>
         </TouchableOpacity>
       </View>
