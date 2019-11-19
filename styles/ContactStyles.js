@@ -86,7 +86,15 @@ var styles = StyleSheet.create({
     fontFamily: 'CircularStd-Medium',
     fontSize:17,
     color:'#506BFB',
-    padding:10
+    padding:5,
+    paddingLeft:5
+  },
+
+  boxGrayText:{
+    fontFamily: 'CircularStd-Book',
+    fontSize:15,
+    color:'#7C7C7E',
+    paddingLeft:10
   },
 
   textColumn:{
@@ -94,9 +102,16 @@ var styles = StyleSheet.create({
     justifyContent:'space-between'
   },
 
-  input:{
-      paddingLeft:10,
-  }
+  checkmark:{
+    padding:10,
+    marginTop:10,
+    display:'none'
+  },
+
+  checked:{
+    padding:10,
+    marginTop:10,
+  },
 });
 
 export default styles;

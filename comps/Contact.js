@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity, Image} from 'react-native';
 import styles from '../styles/ContactStyles';
-import {Back} from './SVGComps';
+import {Back, Check} from './SVGComps';
 
 const Contact = props => {
+
+  let [check, setCheck] = useState(styles.checked)
+  let [selected, setSelected] = useState(false)
+
   return (
     <View style={styles.background}>
 
@@ -23,36 +27,42 @@ const Contact = props => {
         </View>
       </View>
 
-      {/* Text input boxes */}
+      {/* Contact Buttons */}
       <View>
         <Text style={styles.unitText}>{'Unit 305 \nAngela Jang'}</Text>
+        <TouchableOpacity
+        onPress={() => {
+          
+        }}>
         <View style={styles.border}>
+          <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
           <View style={styles.textColumn}>
             <View>
               <Text style={styles.confirm}>Confirm via SMS</Text>
             </View>
             <View>
-              <TextInput 
-              style={styles.input} 
-              placeholder="+ 1 *** *** **14" 
-              />
+              <Text style={styles.boxGrayText}>+ 1 *** *** **14</Text>
             </View>
           </View>
+          <View style={styles.checked}>
+            <Check/>
+          </View>
+          </View>
         </View>
+        </TouchableOpacity>
 
+        <TouchableOpacity>
         <View style={styles.border}>
           <View style={styles.textColumn}>
             <View>
               <Text style={styles.confirm}>Confirm via Email</Text>
             </View>
             <View>
-              <TextInput 
-              style={styles.input} 
-              placeholder="*******58@gmail.com" 
-              />
+              <Text style={styles.boxGrayText}>*******58@gmail.com</Text>
             </View>
           </View>
         </View>
+        </TouchableOpacity>
       </View>
 
 

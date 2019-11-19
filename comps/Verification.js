@@ -1,9 +1,10 @@
 import React from 'react';
-import {View, Text, TextInput, TouchableOpacity, Image} from 'react-native';
+import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import styles from '../styles/VerificationStyles';
 import {Back} from './SVGComps';
 
 const Verification = props => {
+
   return (
     <View style={styles.background}>
 
@@ -32,7 +33,10 @@ const Verification = props => {
             />
             <View style={styles.rowContainer}>
             <Text style={styles.greyText}>Didn't get a code?</Text>
-            <TouchableOpacity>
+            <TouchableOpacity
+            onPress={() => {
+              alert("The number you entered doesn't match your code. Please try again.")
+            }}>
                 <Text style={styles.resend}>Resend</Text>
             </TouchableOpacity>
             </View>
