@@ -17,6 +17,28 @@ const Header = (props) => {
   const [statusTextStyle, setStatusTextStyle] = useState(styles.text)
   const [notifyTextStyle, setNotifyTextStyle] = useState(styles.text)
 
+  function DetermineTab(tab) {
+    if (tab == 'Book') {
+      setBookTextStyle(styles.activeText)
+      setStatusTextStyle(styles.text)
+      setNotifyTextStyle(styles.text)
+    }
+    if (tab == 'Status') {
+      setBookTextStyle(styles.text)
+      setStatusTextStyle(styles.activeText)
+      setNotifyTextStyle(styles.text)
+    }
+    if (tab == 'Notify') {
+      setBookTextStyle(styles.text)
+      setStatusTextStyle(styles.text)
+      setNotifyTextStyle(styles.activeText)
+    }
+  }
+
+  useEffect(() => {
+    DetermineTab(props.currentTab)
+  }, [props.currentTab])
+
   //DEFAULT tab bar with book, status, notify
   let tabBar = (
     <View style={styles.barContainer}>
@@ -25,10 +47,6 @@ const Header = (props) => {
         onPress={() => {
           props.setCurrentTab('Book')
           props.setSelected([])
-
-          setBookTextStyle(styles.activeText)
-          setStatusTextStyle(styles.text)
-          setNotifyTextStyle(styles.text)
         }}>
         <Text style={bookTextStyle}>BOOK</Text>
       </TouchableOpacity>
@@ -37,10 +55,6 @@ const Header = (props) => {
         onPress={() => {
           props.setCurrentTab('Status')
           props.setSelected([])
-
-          setBookTextStyle(styles.text)
-          setStatusTextStyle(styles.activeText)
-          setNotifyTextStyle(styles.text)
         }}>
         <Text style={statusTextStyle}>MY MACHINES</Text>
       </TouchableOpacity>
@@ -49,10 +63,6 @@ const Header = (props) => {
         onPress={() => {
           props.setCurrentTab('Notify')
           props.setSelected([])
-
-          setBookTextStyle(styles.text)
-          setStatusTextStyle(styles.text)
-          setNotifyTextStyle(styles.activeText)
         }}>
         <Text style={notifyTextStyle}>NOTIFY USERS</Text>
       </TouchableOpacity>

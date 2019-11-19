@@ -46,7 +46,9 @@ const styles = StyleSheet.create({
     fontFamily: 'CircularStd-Black',
     fontSize: 72,
     letterSpacing: -1.2,
-    color: colors.dark
+    color: colors.dark,
+    marginTop: 15,
+    marginBottom: -15
   },
   subText: {
     fontFamily: 'CircularStd-Medium',
@@ -112,6 +114,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     alignItems: 'baseline',
+    marginVertical: 24
   }
 })
 
