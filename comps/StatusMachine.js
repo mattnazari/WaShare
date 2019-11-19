@@ -14,7 +14,7 @@ const StatusMachine = props => {
   let num = props.machine_id;
   if (props.type == 'Dryer') {
     default_time = 60
-    num = num - 4
+    num = num - 3
   } else if (props.type == 'Washer') {
     default_time = 30
   }

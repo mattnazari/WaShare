@@ -12,7 +12,7 @@ const Machine = props => {
 
   let machineNum = props.id;
   if (props.type == 'Dryer') {
-    machineNum = machineNum - 4
+    machineNum = machineNum - 3
   }
 
   switch (props.currentTab) {
