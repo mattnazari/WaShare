@@ -5,6 +5,7 @@ import { withNavigation } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Fontisto';
 import axios from 'axios';
 import ModalComp from './ModalComp';
+import LottieView from 'lottie-react-native';
 
 const StatusMachine = props => {
   const timer = 10 * 60
@@ -23,10 +24,11 @@ const StatusMachine = props => {
   const count = runTime + addTime
   const [startCountdown, setStartCountdown] = useState(false)
 
-  const time_now = new Date()
   const time_db = new Date(props.start_time.replace(' ', 'T'))
-  const time_finish = new Date(time_db.getTime() + default_time * 60000);
-  const parsed = (Date.parse(time_now) - Date.parse(time_db)) / 1000 / 60
+  const time_finish = new Date(time_db.getTime() + (count/60) * 60000);
+  // pretty sure these are not needed
+  // const time_now = new Date()
+  // const parsed = (Date.parse(time_now) - Date.parse(time_db)) / 1000 / 60
 
   const [cancelModalVisible, setCancelModalVisible] = useState(false)
   const [unlockModalVisible, setUnlockModalVisible] = useState(false)
@@ -135,7 +137,7 @@ const StatusMachine = props => {
       button = <TouchableOpacity
         style={styles.extendContainer}
         onPress={() => {
-          props.navigation.navigate('ExtendMachine', { id: props.id })
+          props.navigation.navigate('ExtendMachine', { id: props.id, type: props.type, time_finish: time_finish })
         }}>
         <Text style={styles.extendText}>ADD TIME</Text>
       </TouchableOpacity>
@@ -146,13 +148,13 @@ const StatusMachine = props => {
 
     let time;
     if (count >= 60) {
-      time = <View style={{justifyContent:'center', alignItems:'center'}}>
+      time = <View style={{ justifyContent: 'center', alignItems: 'center' }}>
         <Text style={styles.largeText}>{Math.round(count / 60)}</Text>
         <Text style={styles.subText}>minutes</Text>
         <Text style={styles.subText}>remaining</Text>
       </View>
     } else {
-      time = <View style={{justifyContent:'center', alignItems:'center'}}>
+      time = <View style={{ justifyContent: 'center', alignItems: 'center' }}>
         <Text style={styles.largeText}>{count}</Text>
         <Text style={styles.subText}>seconds</Text>
         <Text style={styles.subText}>remaining</Text>
@@ -161,9 +163,8 @@ const StatusMachine = props => {
     machine = (
       <View style={styles.container}>
         <Text style={styles.title}>{props.type} {num}</Text>
-        <View style={styles.circle}>
-          {time}
-        </View>
+        <LottieView source={require('../assets/spinner.json')} autoPlay loop />
+        <View style={{ marginVertical: 58 }}>{time}</View>
         <View style={styles.finishContainer}>
           <Text style={styles.subText}>Finish time</Text>
           <Text style={styles.mediumText}>{time_finish.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}</Text>
