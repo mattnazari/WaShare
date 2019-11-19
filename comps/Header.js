@@ -47,10 +47,6 @@ const Header = (props) => {
         onPress={() => {
           props.setCurrentTab('Book')
           props.setSelected([])
-
-          setBookTextStyle(styles.activeText)
-          setStatusTextStyle(styles.text)
-          setNotifyTextStyle(styles.text)
         }}>
         <Text style={bookTextStyle}>BOOK</Text>
       </TouchableOpacity>
@@ -59,10 +55,6 @@ const Header = (props) => {
         onPress={() => {
           props.setCurrentTab('Status')
           props.setSelected([])
-
-          setBookTextStyle(styles.text)
-          setStatusTextStyle(styles.activeText)
-          setNotifyTextStyle(styles.text)
         }}>
         <Text style={statusTextStyle}>MY MACHINES</Text>
       </TouchableOpacity>
@@ -71,10 +63,6 @@ const Header = (props) => {
         onPress={() => {
           props.setCurrentTab('Notify')
           props.setSelected([])
-
-          setBookTextStyle(styles.text)
-          setStatusTextStyle(styles.text)
-          setNotifyTextStyle(styles.activeText)
         }}>
         <Text style={notifyTextStyle}>NOTIFY USERS</Text>
       </TouchableOpacity>
