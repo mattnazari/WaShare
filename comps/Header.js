@@ -65,7 +65,7 @@ const Header = (props) => {
         <Text style={styles.text}>Payment Date</Text>
       </TouchableOpacity>
       <TouchableOpacity>
-        <Text style={styles.text}>Payment History</Text>
+        <Text style={styles.paymentActiveText}>Payment History</Text>
       </TouchableOpacity>
     </View>
   );

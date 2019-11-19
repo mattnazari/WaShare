@@ -64,6 +64,7 @@ const Login = props => {
         <Text style={styles.inputTitle}>Address</Text>
         <TextInput
           style={styles.txtInput}
+          autoCapitalize='none'
           placeholder='420 LeBron Street'
           onChangeText={(text) => {
             address = text
@@ -72,6 +73,8 @@ const Login = props => {
         <Text style={styles.inputTitle}>6 Digit Code</Text>
         <TextInput
           style={styles.txtInput}
+          autoCapitalize='none'
+          maxLength={6}
           placeholder='42069X'
           onChangeText={(text) => {
             usercode = text

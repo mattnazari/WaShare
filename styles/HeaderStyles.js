@@ -60,6 +60,12 @@ const styles = StyleSheet.create({
     justifyContent:"space-between"
   },
 
+  paymentActiveText:{
+    fontSize: 14,
+    fontFamily: 'CircularStd-Book',
+    letterSpacing: -0.2,
+    color: '#506BFB',
+  }
 
 })
 
