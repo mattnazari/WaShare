@@ -27,7 +27,7 @@ const ExtendMachine = props => {
   const [addModalVisible, setAddModalVisible] = useState(false)
 
   const [extendCount, setExtendCount] = useState(base);
-  const [finishTime, setFinishTime] = useState(time_finish);
+  const [finishTime, setFinishTime] = useState(new Date(time_finish.getTime() + increment * 60000));
   const [addCost, setAddCost] = useState(cost);
 
   const UpdateMachinesBooked = async () => {
@@ -80,9 +80,11 @@ const ExtendMachine = props => {
           <TouchableOpacity
             style={extendstyles.countContainer}
             onPress={() => {
-              setExtendCount(extendCount - increment)
-              setFinishTime(finishTime - increment)
-              setAddCost(addCost - cost)
+              if (extendCount !== 0) {
+                setExtendCount(extendCount - increment)
+                setFinishTime(new Date(finishTime.getTime() - increment * 60000))
+                setAddCost(addCost - cost)
+              }
             }}>
             <Text style={extendstyles.countText}>-</Text>
           </TouchableOpacity>
@@ -93,9 +95,11 @@ const ExtendMachine = props => {
           <TouchableOpacity
             style={extendstyles.countContainer}
             onPress={() => {
-              setExtendCount(extendCount + increment)
-              setFinishTime(finishTime + increment)
-              setAddCost(addCost + cost)
+              if (extendCount < 120) {
+                setExtendCount(extendCount + increment)
+                setFinishTime(new Date(finishTime.getTime() + increment * 60000))
+                setAddCost(addCost + cost)
+              }
             }}>
             <Text style={extendstyles.countText}>+</Text>
           </TouchableOpacity>
@@ -105,7 +109,7 @@ const ExtendMachine = props => {
           <View style={extendstyles.container}>
             <View style={{ alignItems: 'center' }}>
               <Text style={styles.subText}>Finish time</Text>
-              <Text style={styles.mediumText}>{props.navigation.getParam('time_finish').toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}</Text>
+              <Text style={styles.mediumText}>{finishTime.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}</Text>
             </View>
           </View>
           <View style={extendstyles.container}>
