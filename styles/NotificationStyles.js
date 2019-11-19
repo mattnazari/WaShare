@@ -26,7 +26,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     margin: 24
   },
-  notificationContainer: {
+  notificationContainerOne: {
+    alignSelf: 'stretch',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    backgroundColor: "#FBF8F8",
+    padding: 24,
+    elevation: 16,
+    marginVertical: 8,
+    shadowColor: "#919191",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 14,
+    borderRadius: 20,
+    borderLeftWidth: 12,
+    borderLeftColor: '#7E33B8'
+  },
+
+  notificationContainerTwo: {
     alignSelf: 'stretch',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
@@ -44,6 +64,26 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderLeftWidth: 12,
     borderLeftColor: '#506BFB'
+  },
+
+  notificationContainerThree: {
+    alignSelf: 'stretch',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    backgroundColor: "#FBF8F8",
+    padding: 24,
+    elevation: 16,
+    marginVertical: 8,
+    shadowColor: "#919191",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 14,
+    borderRadius: 20,
+    borderLeftWidth: 12,
+    borderLeftColor: '#6E41DA'
   }
 })
 
