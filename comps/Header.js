@@ -42,7 +42,7 @@ const Header = (props) => {
           setStatusTextStyle(styles.activeText)
           setNotifyTextStyle(styles.text)
         }}>
-        <Text style={statusTextStyle}>STATUS</Text>
+        <Text style={statusTextStyle}>MY MACHINES</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.spacing}
@@ -54,7 +54,7 @@ const Header = (props) => {
           setStatusTextStyle(styles.text)
           setNotifyTextStyle(styles.activeText)
         }}>
-        <Text style={notifyTextStyle}>NOTIFY</Text>
+        <Text style={notifyTextStyle}>NOTIFY USERS</Text>
       </TouchableOpacity>
     </View>
   );
@@ -77,7 +77,7 @@ const Header = (props) => {
       themeName = book
       break;
     case 'Status':
-      title = 'Machine status'
+      title = 'My machines'
       description = 'View the status of all your booked machines. If you have no machines, check the book tab to get started.'
       themeName = status
       break;

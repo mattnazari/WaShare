@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     color: '#C2C9D7',
   },
   spacing: {
-    paddingHorizontal: 6,
+    paddingHorizontal: 12,
   },
   titleText: {
     fontSize: 32,
