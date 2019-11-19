@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/MachineStyles';
 import { book, status, notify } from '../styles/ThemeStyles';
 import * as Animatable from 'react-native-animatable';
+import LottieView from 'lottie-react-native';
 
 const Machine = props => {
   let themeName;
@@ -72,7 +73,7 @@ const Machine = props => {
       machine = machine = (
         <View style={[machineStyle, { opacity: 0.5 }]}>
           <Text style={[styles.machine, { color: 'grey' }]}>{props.type} {props.num + 1}</Text>
-          <View style={[styles.circle, { borderColor: 'grey' }]}></View>
+          <LottieView source={require('../assets/grey-spinner.json')} autoPlay loop style={{width: 100, height: 100}} />
           <Text style={styles.timeRemaining}>{status}</Text>
         </View>)
       break;
