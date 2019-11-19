@@ -43,24 +43,7 @@ const Status = props => {
     // console.log(timenow, timebefore, (Date.parse(timenow) - Date.parse(timebefore)) / 1000 / 60);
   }, [])
 
-  //default page when no machines are in use
-  let initialStatus = (
-    <View style={main.container}>
-      <Image
-        resizeMode='contain'
-        style={{ width: 300, height: 300 }}
-        source={require('../assets/Images/nostatus.png')} />
-      <Animatable.View animation='fadeInUp' delay={1000} easing='ease-in'>
-        <TouchableOpacity
-          style={[styles.container, status.color, status.shadowColor]}
-          onPress={() => {
-            props.setCurrentTab('Book')
-          }}>
-          <Text style={styles.text}>Browse available machines</Text>
-        </TouchableOpacity>
-      </Animatable.View>
-    </View>
-  )
+  let initialStatus;
 
   if (machinesBooked.length >= 1) {
     initialStatus = (
@@ -99,6 +82,27 @@ const Status = props => {
           </Animatable.View>
         )}
       </ScrollView>
+    )
+  }
+
+  //default page when no machines are in use
+  else {
+    initialStatus = (
+      <View style={main.container}>
+        <Image
+          resizeMode='contain'
+          style={{ width: 300, height: 300 }}
+          source={require('../assets/Images/nostatus.png')} />
+        <Animatable.View animation='fadeInUp' delay={1000} easing='ease-in'>
+          <TouchableOpacity
+            style={[styles.container, status.color, status.shadowColor]}
+            onPress={() => {
+              props.setCurrentTab('Book')
+            }}>
+            <Text style={styles.text}>Browse available machines</Text>
+          </TouchableOpacity>
+        </Animatable.View>
+      </View>
     )
   }
 
