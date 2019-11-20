@@ -47,6 +47,7 @@ const Footer = (props) => {
       }
     }
     var r = await axios.post('http://localhost:3001/post', obj)
+    console.log("UPDATE MACHINE")
   }
 
   const CreateMachineBooked = async (e) => {
@@ -66,9 +67,8 @@ const Footer = (props) => {
       }
     }
     let r = await axios.post('http://localhost:3001/post', obj)
-    console.log(r.data)
-    ReadMachinesBooked()
-    UpdateMachinesStatus(e)
+    console.log("INSERT MACHINE",r.data)
+    await UpdateMachinesStatus(e)
   }
 
   const [noneSelectedModalVisible, setNoneSelectedModalVisible] = useState(false)
@@ -106,11 +106,11 @@ const Footer = (props) => {
         }}
         title={'Book these machines?'}
         desc={`You currently have ${props.selected.length} machines selected. You won't be charged until you unlock them. Do you want to proceed?`}
-        primaryonPress={() => {
+        primaryonPress={async() => {
+          for(var e in props.selected){ 
+          await CreateMachineBooked(props.selected[e])
+          };
           props.setCurrentTab('Status')
-          props.selected.forEach(e => {
-            CreateMachineBooked(e)
-          });
           props.setSelected([])
           setBookModalVisible(!bookModalVisible)
         }}
