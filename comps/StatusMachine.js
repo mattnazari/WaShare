@@ -94,12 +94,13 @@ const StatusMachine = props => {
 
         return;
       }
-      const interval = setTimeout(() => {
-        setRunTime((runTime) - 1);
-        console.log(props.type, num, 'time remaining in seconds:', count)
-        UpdateRunTime()
+      const interval = setInterval(() => {
+        var timenow = new Date();
+        var timebooked = new Date(table.start_time);
+        var timeleft = Date.parse(timenow) - (Date.parse(timebooked)+runtime)
+        setRunTime(timeleft);
       }, 1000);
-      return () => clearTimeout(interval);
+      return () => clearInterval(interval);
     }
   }), [runTime];
 
