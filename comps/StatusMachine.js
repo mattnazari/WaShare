@@ -19,7 +19,7 @@ const StatusMachine = props => {
     default_time = 30
   }
 
-  const [runTime, setRunTime] = useState(props.run_time)
+  const [runTime, setRunTime] = useState(10)
   const addTime = props.add_time
   const count = runTime + addTime
   const [startCountdown, setStartCountdown] = useState(false)
@@ -48,7 +48,7 @@ const StatusMachine = props => {
     var obj = {
       key: 'machinesbooked_delete',
       data: {
-        machine_id: props.machine_id
+        id: props.id
       }
     }
     var r = await axios.post('http://localhost:3001/post', obj)

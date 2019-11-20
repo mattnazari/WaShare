@@ -20,24 +20,11 @@ const main = StyleSheet.create({
 const { width } = Dimensions.get('window');
 
 const Status = props => {
-  const [machinesBooked, setMachinesBooked] = useState([])
-
-  const ReadMachinesBooked = async () => {
-    var obj = {
-      key: 'machinesbooked_read',
-      data: {}
-    }
-
-    let r = await axios.post('http://localhost:3001/post', obj)
-    let dbmachinesbooked = JSON.parse(r.data.body)
-    console.log('READING MACHINES BOOKED', dbmachinesbooked)
-    setMachinesBooked(dbmachinesbooked.data)
-  }
 
   useEffect(() => {
     console.log('read userdata:', props.userdata)
     console.log('READ APP DATA', props.screenProps.data)
-    ReadMachinesBooked()
+    props.ReadMachinesBooked()
     // var timenow = new Date();
     // var timebefore = new Date('2019-11-13 12:00:00');
     // console.log(timenow, timebefore, (Date.parse(timenow) - Date.parse(timebefore)) / 1000 / 60);
@@ -45,7 +32,7 @@ const Status = props => {
 
   let initialStatus;
 
-  if (machinesBooked.length >= 1) {
+  if (props.machinesBooked.length >= 1) {
     initialStatus = (
       <ScrollView
         horizontal
@@ -59,7 +46,7 @@ const Status = props => {
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={main.scrollContainer}>
-        {machinesBooked.map((machine, index) =>
+        {props.machinesBooked.map((machine, index) =>
           <Animatable.View key={index}
             animation='fadeInRight'
             easing='ease-in'
@@ -78,7 +65,7 @@ const Status = props => {
               setCurrentTab={props.setCurrentTab}
               currentTab={props.currentTab}
               lockstate={machine.lockstate}
-              ReadMachinesBooked={ReadMachinesBooked} />
+              ReadMachinesBooked={props.ReadMachinesBooked} />
           </Animatable.View>
         )}
       </ScrollView>
