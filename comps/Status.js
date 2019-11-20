@@ -105,7 +105,6 @@ const Status = props => {
       </View>
     )
   }
-
   return (
     <View style={{ flex: 1, marginTop: -20 }}>
       {initialStatus}
