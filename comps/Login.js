@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import styles from '../styles/LoginStyles';
 import { Back } from './SVGComps';
 import axios from 'axios';
+import ModalSingleCTA from './ModalSingleCTA';
 
 let address = '';
 let usercode = '';
 const Login = props => {
+  const [failedModalVisible, setFailedModalVisible] = useState(false)
+  useEffect(() => {
+    address = '';
+    usercode = '';
+  }, [])
 
   const ReadAuthUser = async (id) => {
     var obj = {
@@ -38,7 +44,7 @@ const Login = props => {
       ReadAuthUser(result.id)
     }
     else {
-      alert('auth failed, REPLACE THIS')
+      setFailedModalVisible(!failedModalVisible)
       //auth failed
       //backend currently throws errors so this isn't possible to do in the front-end
     }
@@ -46,7 +52,21 @@ const Login = props => {
 
   return (
     <View style={styles.background}>
-
+      <ModalSingleCTA
+        isVisible={failedModalVisible}
+        color={'blue'}
+        onBackdropPress={() => {
+          setFailedModalVisible(!failedModalVisible)
+        }}
+        onSwipeComplete={() => {
+          setFailedModalVisible(!failedModalVisible)
+        }}
+        title={`Login failed.`}
+        desc={`Incorrect address and/or digit code. Please try again.`}
+        primaryonPress={() => {
+          setFailedModalVisible(!failedModalVisible)
+        }}
+        primaryButton={'Dismiss'} />
       <View>
         <TouchableOpacity
           onPress={() => {

@@ -78,6 +78,10 @@ const Onboarding = (props) => {
     SetButtonStyle(y)
   }, [y])
 
+  useEffect(() => {
+    setY(0)
+  }, [])
+
   return (
     <View style={styles.background}>
       <Animatable.View
@@ -88,7 +92,11 @@ const Onboarding = (props) => {
         <TouchableOpacity
           style={styles.buttons}
           onPress={() => {
-            props.navigation.navigate('Login')
+            if (props.screenProps.data.id) {
+              props.navigation.navigate('Main')
+            } else {
+              props.navigation.navigate('Login')
+            }
           }}>
           <Text style={styles.backText}>SKIP</Text>
         </TouchableOpacity>
@@ -158,7 +166,11 @@ const Onboarding = (props) => {
                 setY(y + 1)
               } else {
                 setY(3)
-                props.navigation.navigate('Login')
+                if (props.screenProps.data.id) {
+                  props.navigation.navigate('Main')
+                } else {
+                  props.navigation.navigate('Login')
+                }
               }
             }}>
             <Text style={[styles.nextText]}>{next}</Text>
