@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
-import { DrawerComponent } from './comps/DrawerComponent'
+import DrawerComponent from './comps/DrawerComponent'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
 //first import comps that need to be added to the navigator or drawer
