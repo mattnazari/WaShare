@@ -38,6 +38,7 @@ const Payment = () => {
           <Text style={styles.textStyling}>Card Number</Text>
           <TextInput
             style={styles.textInput}
+            keyboardType={"numeric"}
             placeholder="**** **** **** ****"
             maxLength={16}
           />
@@ -49,6 +50,7 @@ const Payment = () => {
               <TextInput 
               style={styles.monthAndYear}
               placeholder="Month / Year" 
+              keyboardType={"numeric"}
               maxLength={5}
               />
             </View>
@@ -58,6 +60,7 @@ const Payment = () => {
               <Text style={styles.textStyling}>CVV</Text>
               <TextInput 
               style={styles.cvv} 
+              keyboardType={"numeric"}
               placeholder="***"
               maxLength={3}
               />
