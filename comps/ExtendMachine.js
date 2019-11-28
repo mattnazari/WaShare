@@ -41,7 +41,7 @@ const ExtendMachine = props => {
         is_added: 1
       }
     }
-    var r = await axios.post('http://localhost:3001/post', obj)
+    var r = await axios.post('https://d3washare.herokuapp.com/post', obj)
   }
 
   return (

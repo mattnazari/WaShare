@@ -28,7 +28,7 @@ const Status = props => {
       data: {}
     }
 
-    let r = await axios.post('http://localhost:3001/post', obj)
+    let r = await axios.post('https://d3washare.herokuapp.com/post', obj)
     let dbmachinesbooked = JSON.parse(r.data.body)
     console.log('READING MACHINES BOOKED', dbmachinesbooked)
     setMachinesBooked(dbmachinesbooked.data)

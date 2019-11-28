@@ -22,7 +22,7 @@ const Login = props => {
       }
     }
 
-    let r = await axios.post('http://localhost:3001/post', obj)
+    let r = await axios.post('https://d3washare.herokuapp.com/post', obj)
     let user = JSON.parse(r.data.body)
     let data = user.data[0]
     console.log('reading the authorized user', data)
@@ -37,7 +37,7 @@ const Login = props => {
         usercode: usercode
       }
     }
-    var r = await axios.post("http://localhost:3001/post", obj);
+    var r = await axios.post("https://d3washare.herokuapp.com/post", obj);
     var result = JSON.parse(r.data.body)
     if (result.status) {
       console.log(result.msg, 'the user_id is:', result.id)

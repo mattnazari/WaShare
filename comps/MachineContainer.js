@@ -14,7 +14,7 @@ const MachineContainer = props => {
       data: {}
     }
 
-    let r = await axios.post('http://localhost:3001/post', obj)
+    let r = await axios.post('https://d3washare.herokuapp.com/post', obj)
     let dbmachines = JSON.parse(r.data.body)
     console.log('read', dbmachines)
 
