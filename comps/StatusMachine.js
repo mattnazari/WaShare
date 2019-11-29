@@ -19,7 +19,7 @@ const StatusMachine = props => {
     default_time = 30
   }
 
-  const [runTime, setRunTime] = useState(props.run_time)
+  const [runTime, setRunTime] = useState(10)
   const addTime = props.add_time
   const count = runTime + addTime
   const [startCountdown, setStartCountdown] = useState(false)

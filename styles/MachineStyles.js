@@ -2,8 +2,8 @@ import { StyleSheet } from 'react-native';
 import Header from '../comps/Header';
 
 //#506BFB color for BOOK
-//#6525FF color for STATUS
-//#6F1CE5 color for NOTIFY
+//#6E41DA color for STATUS
+//#7E33B8 color for NOTIFY
 
 const styles = StyleSheet.create({
   title: {
@@ -56,12 +56,12 @@ const styles = StyleSheet.create({
     borderWidth: 6
   },
   selectedBox: {
-    backgroundColor: '#506BFB',
-    padding: 6,
-    marginTop: -20,
-    marginLeft: -40,
+    // backgroundColor: '#506BFB',
+    // padding: 6,
+    marginTop: -30,
+    marginRight: -60,
     marginBottom: -10,
-    borderRadius: 6
+    // borderRadius: 6
   },
   selectedBoxText: {
     fontFamily: 'CircularStd-Bold',
