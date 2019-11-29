@@ -4,11 +4,13 @@ import styles from '../styles/MachineStyles';
 import { book, status, notify } from '../styles/ThemeStyles';
 import * as Animatable from 'react-native-animatable';
 import LottieView from 'lottie-react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Machine = props => {
   let themeName;
   let status;
   let machine;
+  let color;
 
   let machineNum = props.id;
   if (props.type == 'Dryer') {
@@ -18,15 +20,19 @@ const Machine = props => {
   switch (props.currentTab) {
     case 'Book':
       themeName = book
+      color = '#506BFB'
       break;
     case 'Status':
       themeName = status
+      color = '#6E41DA'
       break;
     case 'Notify':
       themeName = notify
+      color = '#7E33B8'
       break;
     case 'Report':
       themeName = book
+      color = '#506BFB'
       break;
   }
 
@@ -38,8 +44,9 @@ const Machine = props => {
   if (selected === true) {
     machineStyle = [styles.container, themeName.shadowColor, { height: 170, width: 155 }]
     selectedBox = (
-      <View style={[styles.selectedBox, themeName.color]}>
-        <Text style={styles.selectedBoxText}>Selected</Text>
+      <View style={styles.selectedBox}>
+        <Icon name='check-circle' size={40} color={color} />
+        {/* <Text style={styles.selectedBoxText}>Selected</Text> */}
       </View>
     )
   }
