@@ -41,7 +41,7 @@ const StatusMachine = props => {
         status: 0
       }
     }
-    var r = await axios.post('http://localhost:3001/post', obj)
+    var r = await axios.post('https://d3washare.herokuapp.com/post', obj)
   }
 
   const DeleteMachinesBooked = async () => {
@@ -51,7 +51,7 @@ const StatusMachine = props => {
         machine_id: props.machine_id
       }
     }
-    var r = await axios.post('http://localhost:3001/post', obj)
+    var r = await axios.post('https://d3washare.herokuapp.com/post', obj)
     props.ReadMachinesBooked()
     UpdateMachinesStatus()
   }
@@ -64,7 +64,7 @@ const StatusMachine = props => {
         lockstate: 1,
       }
     }
-    var r = await axios.post('http://localhost:3001/post', obj)
+    var r = await axios.post('https://d3washare.herokuapp.com/post', obj)
     props.ReadMachinesBooked()
   }
 
@@ -76,7 +76,7 @@ const StatusMachine = props => {
         run_time: runTime
       }
     }
-    var r = await axios.post('http://localhost:3001/post', obj)
+    var r = await axios.post('https://d3washare.herokuapp.com/post', obj)
     props.ReadMachinesBooked()
   }
 

@@ -33,7 +33,7 @@ const Footer = (props) => {
       key: 'machinesbooked_read',
       data: {}
     }
-    let r = await axios.post('http://localhost:3001/post', obj)
+    let r = await axios.post('https://d3washare.herokuapp.com/post', obj)
     let dbmachinesbooked = JSON.parse(r.data.body)
     console.log('READING MACHINES BOOKED', dbmachinesbooked)
   }
@@ -46,7 +46,7 @@ const Footer = (props) => {
         status: 1
       }
     }
-    var r = await axios.post('http://localhost:3001/post', obj)
+    var r = await axios.post('https://d3washare.herokuapp.com/post', obj)
     console.log("UPDATE MACHINE")
   }
 
@@ -66,7 +66,7 @@ const Footer = (props) => {
         run_time: run_time
       }
     }
-    let r = await axios.post('http://localhost:3001/post', obj)
+    let r = await axios.post('https://d3washare.herokuapp.com/post', obj)
     console.log("INSERT MACHINE",r.data)
     await UpdateMachinesStatus(e)
   }
@@ -86,7 +86,7 @@ const Footer = (props) => {
         report: reportInputValue,
       }
     }
-    var r = await axios.post('http://localhost:3001/post', obj)
+    var r = await axios.post('https://d3washare.herokuapp.com/post', obj)
     setReportInputValue('')
   }
 
