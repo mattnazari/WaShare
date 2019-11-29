@@ -2,22 +2,43 @@ import React, {useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity, Switch, Image} from 'react-native';
 import Header from './Header';
 import styles from '../styles/PaymentStyles';
+import ModalSingleCTA from './ModalSingleCTA';
 //import {Mastercard} from './SVGComps';
 
 const Payment = () => {
   const [currentTab, setCurrentTab] = useState('Payment');
   const [switchMode, setSwitchMode] = useState('false');
+  const [paymentModalVisible, setpaymentModalVisible] = useState(false)
 
 
 
   return (
     <View style={styles.background}>
+
+      <ModalSingleCTA
+        isVisible={paymentModalVisible}
+        color={'blue'}
+        onBackdropPress={() => {
+          setpaymentModalVisible(!paymentModalVisible)
+        }}
+        onSwipeComplete={() => {
+          setpaymentModalVisible(!paymentModalVisible)
+        }}
+        title={`Success!`}
+        desc={'You have successfully entered your card information.'}
+        primaryonPress={() => {
+          setpaymentModalVisible(!paymentModalVisible)
+        }}
+        primaryButton={'dismiss'}
+        />
+         
       <Header setCurrentTab={setCurrentTab} currentTab={currentTab} />
       <View style={styles.formContainer}>
         <View style={styles.inputPadding}>
           <Text style={styles.textStyling}>Card Number</Text>
           <TextInput
             style={styles.textInput}
+            keyboardType={"numeric"}
             placeholder="**** **** **** ****"
             maxLength={16}
           />
@@ -29,6 +50,7 @@ const Payment = () => {
               <TextInput 
               style={styles.monthAndYear}
               placeholder="Month / Year" 
+              keyboardType={"numeric"}
               maxLength={5}
               />
             </View>
@@ -38,6 +60,7 @@ const Payment = () => {
               <Text style={styles.textStyling}>CVV</Text>
               <TextInput 
               style={styles.cvv} 
+              keyboardType={"numeric"}
               placeholder="***"
               maxLength={3}
               />
@@ -48,7 +71,7 @@ const Payment = () => {
           <Text style={styles.textStyling}>Card holder</Text>
           <TextInput
             style={styles.textInput}
-            placeholder="Your first name and last name"
+            placeholder="Cardholder Name"
           />
         </View>
       </View>
@@ -65,9 +88,17 @@ const Payment = () => {
           }}
           />
         </View>
-        <TouchableOpacity style={styles.button}>
+
+      
+        <TouchableOpacity 
+        style={styles.button}
+        onPress={() =>{
+          setpaymentModalVisible(!paymentModalVisible)
+        }}
+        >
           <Text style={styles.buttonText}>SAVE</Text>
         </TouchableOpacity>
+      
       </View>
     </View>
   );

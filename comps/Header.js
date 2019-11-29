@@ -72,10 +72,10 @@ const Header = (props) => {
   let paymentTabBar = (
     <View style={styles.paymentBarContainer}>
       <TouchableOpacity>
-        <Text style={styles.text}>Payment Date</Text>
+        <Text style={styles.paymentActiveText}>Payment Information</Text>
       </TouchableOpacity>
       <TouchableOpacity>
-        <Text style={styles.paymentActiveText}>Payment History</Text>
+        <Text style={styles.text}>Payment History</Text>
       </TouchableOpacity>
     </View>
   );

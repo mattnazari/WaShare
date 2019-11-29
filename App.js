@@ -14,6 +14,7 @@ import Login from './comps/Login';
 import Report from './comps/Report';
 import ModalScreen from './comps/ModalScreen';
 import PaymentHistory from './comps/PaymentHistory';
+import Payment from './comps/Payment';
 import Forgot from './comps/Forgot';
 import Contact from './comps/Contact';
 import Verification from './comps/Verification';
@@ -27,7 +28,7 @@ const AppStackNavigator = createStackNavigator(
     ModalScreen: { screen: ModalScreen },
     Notification: { screen: Notification },
     Login: { screen: Login },
-    Payment: { screen: PaymentHistory },
+    Payment: { screen: Payment },
     Forgot: { screen: Forgot },
     Contact: { screen: Contact },
     Verification: { screen: Verification },
@@ -55,7 +56,7 @@ const AppDrawerNavigator = createDrawerNavigator(
       }
     },
     'Payment Info': {
-      screen: PaymentHistory,
+      screen: Payment,
       navigationOptions: {
         drawerIcon: ({ tintColor }) => <Icon name='credit-card' size={iconDim} color={tintColor} />,
       }
