@@ -1,39 +1,43 @@
 # WaShare
+> Your laundry, made simple.  
 
-## Using SVG's
-- Convert SVG to JSX at https://svg2jsx.com/
-  - Delete <style> tags and stuff inside it
-- Convert JSX to react-native-svg component https://www.smooth-code.com/open-source/svgr/playground/
-  - Check React Native box in options on left
-- Add to SVGComps.js
+WaShare is a washer and dryer booking system for people living in apartments and dormitories.
+WaShare helps people save time on finding available washers and dryers from the comfort of their homes.
 
-## Week 1 Tasks (Oct 9 - 16)
 
-**Matthew**
+![](https://i.imgur.com/GDD4dzB.png)
 
-- Onboarding 
-- Login 
-- ForgotDigitCode 
+---
 
-**Micah**
+## Installation
+- Clone repository
 
-- Header 
-- HamMenu 
-- Notifications 
-- TabBar 
-- Washer and Dryer styles
+```sh
+npm install
+```
 
-## Week 2 Tasks (Oct 19 - 26)
+```sh
+cd ios
+pod install
+```
 
-**Matthew** & **Micah**
+## Meta
 
-- Code out the structure of each page
-- Research and attempt to code out navigations
+Micah Mones – [@micah.mones](https://instagram.com/micah.mones) – micahmones@gmail.com  
+[https://github.com/micahmones](https://github.com/micahmones)  
 
-## Week 3 Tasks (Oct 26 - Nov 7)
+Matthew Nazari – mattnazari8@gmail.com  
+[https://github.com/mattnazari](https://github.com/mattnazari/)
 
-**Matthew** & **Micah**
+## Team
 
-- Fix Issues/Bugs
-- Start developing main functions of the app
-- Research and attempt to code out the database
+* Micah Mones - [https://github.com/micahmones](https://github.com/micahmones)  
+* Matthew Nazari - [https://github.com/mattnazari](https://github.com/mattnazari/)  
+* Monika Soegianto - [https://github.com/Monsoegianto](https://github.com/monsoegianto)  
+* Angela Jang - [https://github.com/AngelaYJ](https://github.com/angelayj)  
+
+---
+
+## Special Contributors
+
+* Henry Leung - for being there when we needed his God-given coding skills
